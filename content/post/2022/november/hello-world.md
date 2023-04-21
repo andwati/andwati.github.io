@@ -1,18 +1,15 @@
 ---
-title: "My 1st post"
-date: 2023-04-21
-# weight: 1
-# aliases: ["/first"]
-tags: ["first"]
-author: "Me"
-# author: ["Me", "You"] # multiple authors
+title: "Hello World"
+date:  2022-11-04
+tags: ["hugo, blog, Go"]
+author: "Ian Andwati"
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Desc Text."
-canonicalURL: "https://canonical.url/to/page"
+description: "Integrating netlify cms."
+canonicalURL: ""
 disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
@@ -24,16 +21,10 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
 editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/andwati/content"
     Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+appendFilePath: true # to append file path to Edit link
 ---
 
 How it begins
@@ -63,8 +54,3 @@ Hugo is one of the most popular open-source static site generators. With its ama
 
 The site is hosted on github pages as evident by the \*.github.io domain name.I prefer this mainly because it is free and I don't have
 to switch to a different hosting provider.
-
-```python
-def hello_world:
-    retun "Hello World"
-```
