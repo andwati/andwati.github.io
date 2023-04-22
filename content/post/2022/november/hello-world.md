@@ -8,7 +8,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Integrating netlify cms."
+description: "Hello world"
 canonicalURL: ""
 disableHLJS: true # to disable highlightjs
 disableShare: false

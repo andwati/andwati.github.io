@@ -114,7 +114,7 @@ menu:
       weight: 20
     - identifier: newsletter
       name: newsletter
-      url: https://example.org
+      url: https://buttondown.email/andwati
       weight: 30
     - identifier: about
       name: about

@@ -30,5 +30,3 @@ My ultimate goal is to work on challenging projects that push the boundaries of 
 - Twitter : https://twitter.com/andwati_
 
 - Email : andwatiian@gmail.com
-
-- [Get my resume](https://drive.google.com/file/d/1VxtowA5ZMNP52bMSwEtQLNidgDQvKY3Z/view?usp=sharing)
