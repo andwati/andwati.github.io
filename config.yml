@@ -108,10 +108,10 @@ menu:
       name: archives
       url: /archives/
       weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
+    # - identifier: tags
+    #   name: tags
+    #   url: /tags/
+    #   weight: 20
     - identifier: newsletter
       name: newsletter
       url: https://buttondown.email/andwati
