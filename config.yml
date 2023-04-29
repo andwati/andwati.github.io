@@ -60,7 +60,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Content: Welcome to my blog.Thoughts and musings.A little bit of this and that
 
   socialIcons:
     - name: twitter
