@@ -3,7 +3,7 @@ title: "Subresource Integrity"
 date: 2023-04-29
 # weight: 1
 # aliases: ["/first"]
-tags: ["Subresource Integrity"]
+tags: ["Subresource Integrity", "CSP", "CORS"]
 author: "Ian Andwati"
 # author: ["Me", "You"] # multiple authors
 showToc: false
@@ -13,7 +13,6 @@ hidemeta: false
 comments: false
 description: "Understanding Subresource Integrity"
 canonicalURL: ""
-disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
 hideSummary: false

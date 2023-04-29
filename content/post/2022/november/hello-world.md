@@ -1,6 +1,6 @@
 ---
 title: "Hello World"
-date:  2022-11-04
+date: 2022-11-04
 tags: ["hugo, blog, Go"]
 author: "Ian Andwati"
 showToc: true
@@ -10,7 +10,6 @@ hidemeta: false
 comments: false
 description: "Hello world"
 canonicalURL: ""
-disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
 hideSummary: false
@@ -22,8 +21,8 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 editPost:
-    URL: "https://github.com/andwati/content"
-    Text: "Suggest Changes" # edit text
+  URL: "https://github.com/andwati/content"
+  Text: "Suggest Changes" # edit text
 appendFilePath: true # to append file path to Edit link
 ---
 

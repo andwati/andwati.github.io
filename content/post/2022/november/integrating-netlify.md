@@ -12,7 +12,6 @@ hidemeta: false
 comments: false
 description: "Integrating netlify cms."
 canonicalURL: ""
-disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
 hideSummary: false
