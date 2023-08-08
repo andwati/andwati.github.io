@@ -107,7 +107,7 @@ sudo su - postgres
 
 ### 2.5 With the following command, you can now initialize PostgreSQL’s data directory:
 
-```shell
+```sh
 [postgres]$ initdb -D /var/lib/postgres/data
 ```
 
