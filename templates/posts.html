@@ -5,7 +5,11 @@
         <header>
             <h1>Posts</h1>
         </header>
-        {% for page in section.pages %}{{ post_macros::snippet(page=page) }}{% endfor %}
+        {% for page in paginator.pages %}{{ post_macros::snippet(page=page) }}{% endfor %}
+        <nav>
+            {% if paginator.previous %}<a href="{{ paginator.previous }}" class="previous">Previous</a>{% endif %}
+            {% if paginator.next %}<a href="{{ paginator.next }}" class="next">Next</a>{% endif %}
+        </nav>
     </main>
     {% include "footer.html" %}
 {% endblock content %}
