@@ -6,12 +6,9 @@ genenerate_categories_pages = false
 generate_tags_pages = false
 generate_rss = true
 feed_filename = "rss.xml"
-minify_html = true
+minify_html = false
 taxonomies = [{ name = 'tags', feed = false }]
 compile_sass = true
-
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
 
 [markdown]
 highlight_code = true
