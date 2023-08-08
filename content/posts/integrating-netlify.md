@@ -2,6 +2,7 @@
 title = "Integrating Netlify CMS"
 description = "Integrating netlify cms"
 date = 2022-11-24T15:34:14.160Z
+author = "Ian Andwati"
 [taxonomies]
 tags =  ["blog", "hugo", "netlify","netlify-cms","github"]
 +++

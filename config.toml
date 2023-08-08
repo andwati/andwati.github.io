@@ -4,7 +4,7 @@ base_url = "https://andwati.com"
 
 genenerate_categories_pages = false
 generate_tags_pages = false
-generate_rss = true
+generate_feed = true
 feed_filename = "rss.xml"
 minify_html = false
 taxonomies = [{ name = 'tags', feed = false }]
