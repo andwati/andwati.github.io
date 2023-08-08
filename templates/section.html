@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block title %}
+    {{ section.title }}
+{% endblock title %}
+{% block meta %}
+    <meta name="description" content="{{ section.description }}" />
+    <meta property="og:site_name" content="andwati.com" />
+    <meta property="og:locale" content="en-us" />
+    <meta property="og:url" content="{{ section.permalink }}" />
+    <meta property="og:title" content="{{ section.title }}" />
+    <meta property="og:description" content="{{ section.description }}" />
+    <meta property="og:image" content="https://andati.com/self.jpg" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@andwati_" />
+    <meta property="twitter:title" content="{{ section.title }}" />
+    <meta property="twitter:description" content="{{ section.description }}" />
+    <meta property="twitter:image" content="https://andwati.com/self.jpg" />
+{% endblock meta %}
+{% block links %}
+    <link rel="canonical" href="{{ section.permalink }}" />
+{% endblock links %}
+{% block content %}
+    <main>
+        <header>
+            <h1>{{ section.title }}</h1>
+        </header>
+        {{ section.content | safe }}}
+    </main>
+{% endblock content %}
