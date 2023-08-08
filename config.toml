@@ -1,6 +1,11 @@
 # The URL the site will be built for
 base_url = "https://andwati.com"
 
+title = 'Ian Andwati'
+description = 'Software Engineer'
+
+minify_html = false
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 

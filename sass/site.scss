@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@import "normalize";
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+$text: #030d02;
+$background: #ebfbe9;
+$primary:#35de79;
+$secondary: #c2f5f0;
+$accent:#21cab9;
