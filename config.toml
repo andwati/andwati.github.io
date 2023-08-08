@@ -1,21 +1,24 @@
-# The URL the site will be built for
+title = "Ian Andwati"
+description = "Ian Andwati's personal website"
 base_url = "https://andwati.com"
 
-title = 'Ian Andwati'
-description = 'Software Engineer'
-
-minify_html = false
-
-# Whether to automatically compile all Sass files in the sass directory
+genenerate_categories_pages = false
+generate_tags_pages = false
+generate_rss = true
+feed_filename = "rss.xml"
+minify_html = true
+taxonomies = [{ name = 'tags', feed = false }]
 compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "gruvbox-dark"
+
+[link_checker]
+skip_anchor_prefixes = ["https://github.com/"]
 
 [extra]
-# Put all your custom variables here
+author = "Ian Andwati"
