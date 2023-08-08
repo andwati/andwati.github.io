@@ -8,7 +8,7 @@ tags =  ["blog", "hugo", "netlify","netlify-cms","github"]
 
 Migrating to a better content management system through Netlify CMS
 
-<!--more-->
+<!-- more -->
 
 # Heavy Lifting
 

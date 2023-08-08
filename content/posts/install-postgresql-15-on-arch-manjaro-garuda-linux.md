@@ -8,7 +8,7 @@ tags = ["postgresql", "archlinux", "manjaro", "garuda", "linux"]
 
 Getting PostgreSQL up and running on Arch Linux-based distros
 
-<!--more-->
+<!-- more -->
 
 # Overview
 
@@ -50,7 +50,7 @@ Now with all that fluff out of the way, let's get to business. The steps have be
 
 ## Step 1: Installing the PostgreSQL Package
 
-```shell
+```sh
 $ sudo pacman -Syu postgresql
 ```
 
@@ -60,13 +60,13 @@ You can switch to the PostgreSQL user by executing the following command:
 
 - If you have sudo and are in sudoers
 
-  ```shell
+  ```sh
   $ sudo -iu postgres
   ```
 
 - Otherwise using su:
 
-  ```shell
+  ```sh
   $ su
   # su -l postgres
   ```
@@ -77,20 +77,20 @@ Before PostgreSQL can function correctly, the database cluster must be initializ
 
 ### 2.1 We can confirm the installed PostgreSQL version by running:
 
-```shell
+```sh
 $ postgres --version                                                                           ─╯
 postgres (PostgreSQL) 15.1
 ```
 
 ### 2.2 Set applicable entries in **/etc/locale.gen**
 
-```shell
+```sh
 $ echo "en_US.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 ```
 
 ### 2.3 Then run **\*\*locale-gen\*\*** to generate locale settings
 
-```shell
+```sh
 $ sudo locale-gen
 Generating locales...
   en_US.UTF-8... done
@@ -101,7 +101,7 @@ Generation complete.
 
 You must first log in as the **postgres** user using the following command before you can initialize PostgreSQL’s data directory:
 
-```shell
+```sh
 sudo su - postgres
 ```
 
@@ -115,7 +115,7 @@ sudo su - postgres
 
 ### 3.1 Check PostgreSQL status with the following command:
 
-```shell
+```sh
 $ systemctl status postgresql                                                                  ─╯
  postgresql.service - PostgreSQL database server
      Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled; preset: disabled)
@@ -124,19 +124,19 @@ $ systemctl status postgresql                                                   
 
 ### 3.2 Start the PostgreSQL service by running the following command:
 
-```shell
+```sh
 sudo systemctl start postgresql
 ```
 
 ### 3.3 Enable the PostgreSQL service to start automatically at boot by running the following command:
 
-```shell
+```sh
 $ sudo systemctl enable postgresql
 ```
 
 ### 3.4 Verify that PostgreSQL is running by running the following command:
 
-```shell
+```sh
 $ sudo systemctl status postgresql                                                             ─╯
 ● postgresql.service - PostgreSQL database server
      Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: disabled)

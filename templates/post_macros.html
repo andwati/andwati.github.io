@@ -1,6 +1,6 @@
 {% macro meta(page) %}
     <div class="post-meta">
-        <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time>
+        <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d,%Y") }}</time>
         {% if page.taxonomies.tags %}
             <span class="accent">⬡</span>
             {% for tag in page.taxonomies.tags %}
@@ -18,7 +18,8 @@
         {{ self::meta(page=page) }}
         {% if page.summary %}{{ page.summary | safe }}{% endif %}
         <nav>
-            <a href="{{ page.permalink }}">Read More</a>
+            <a href="{{ page.permalink }}">Read More →</a>
         </nav>
+        %d%
     </article>
 {% endmacro snippet %}

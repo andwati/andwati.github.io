@@ -1,6 +1,6 @@
 +++
 title= "Subresource Integrity"
-description= "Understanding Subresource Integrity"
+description = "Understanding Subresource Integrity"
 date= 2023-04-29
 [taxonomies]
 tags= ["Subresource Integrity", "CSP", "CORS"]
@@ -105,7 +105,7 @@ Access-Control-Allow-Origin: *
 
 # How browsers handle Subresource Integrity
 
-Web browsers employ several mechanisms to handle Subresource Integrity (SRI). When a <script> or <link> element with an integrity attribute is encountered by the browser, it compares the script or stylesheet to the expected hash given in the integrity value before executing the script or applying the stylesheet.
+Web browsers employ several mechanisms to handle Subresource Integrity (SRI). When a **script** or **link** element with an integrity attribute is encountered by the browser, it compares the script or stylesheet to the expected hash given in the integrity value before executing the script or applying the stylesheet.
 
 For resources served from a different domain than the document in which it's embedded, the browser also checks the resource using Cross-Origin Resource Sharing (CORS) to ensure that the origin serving the resource allows it to be shared with the requesting domain. This additional check is important for preventing unauthorized access to sensitive resources.
 
@@ -113,9 +113,9 @@ If the script or stylesheet fails to match its associated integrity value, the b
 
 # References
 
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-- https://www.srihash.org/
-- https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
-- https://html.spec.whatwg.org/multipage/semantics.html#attr-script-integrity
-- https://html.spec.whatwg.org/multipage/semantics.html#attr-link-integrity
-- https://w3c.github.io/webappsec-subresource-integrity/#the-integrity-attribute
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- [https://www.srihash.org/](https://www.srihash.org/)
+- [https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)
+- [https://html.spec.whatwg.org/multipage/semantics.html#attr-script-integrity](https://html.spec.whatwg.org/multipage/semantics.html#attr-script-integrity)
+- [https://html.spec.whatwg.org/multipage/semantics.html#attr-link-integrity](https://html.spec.whatwg.org/multipage/semantics.html#attr-link-integrity)
+- [https://w3c.github.io/webappsec-subresource-integrity/#the-integrity-attribute](https://w3c.github.io/webappsec-subresource-integrity/#the-integrity-attribute)

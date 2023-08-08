@@ -8,7 +8,7 @@ tags= ["git", "semver","workflow", "conventional commits"]
 
 Adopting best practices in your git and build workflows.
 
-<!--more-->
+<!-- more -->
 
 # W﻿hat is Semver?
 
