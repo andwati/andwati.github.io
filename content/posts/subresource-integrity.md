@@ -22,7 +22,7 @@ In my junior year while I was learning HTML and CSS I got to use the Bootstrap c
 />
 ```
 
-I didnt bother with the `integrity` attribute of the link(guess I wasnt curios enough). The integrity attribute has a cryptographic hash value that is important in CDNs and its called the Subresource Integrity.
+I didn't bother with the `integrity` attribute of the link(guess I wasn't curios enough). The integrity attribute has a cryptographic hash value that is important in CDNs and its called the Subresource Integrity.
 
 Subresource Integrity (SRI) is a security feature in web browsers that helps prevent malicious or compromised scripts from being loaded and executed on a website.a security feature that enables browsers to verify that resources they fetch (for example, from a CDN) are delivered without unexpected manipulation. It works by allowing you to provide a cryptographic hash that a fetched resource must match.
 

@@ -23,7 +23,7 @@ The dependency issue arises when several packages have dependencies on the same 
 
 ### Summary
 
-Semantic versioning is based on three numbers that indicate the versions of the software and the compatibilities.They are `X.Y.Z` correspondind to `Major.Minor.Patch`
+Semantic versioning is based on three numbers that indicate the versions of the software and the compatibilities.They are `X.Y.Z` corresponding to `Major.Minor.Patch`
 
 - **Major Version (X):**Introduces major changes to the code and breaking changes toward backward compatibility
 - **Minor Version (Y):** These code changes don’t introduce breaking changes. This could be adding a new feature that doesn't break changes but are not exactly bug fixes.
