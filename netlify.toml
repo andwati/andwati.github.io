@@ -1,33 +1,9 @@
 [build]
-command = "hugo"
 publish = "public"
+command = "zola build"
 
 [build.environment]
-HUGO_VERSION = "0.111.3"
+ZOLA_VERSION = "0.17.2"
 
-[build.processing]
-skip_processing = false
-
-[build.processing.css]
-bundle = true
-minify = false
-
-[build.processing.js]
-bundle = true
-minify = false
-
-[build.processing.html]
-pretty_urls = true
-
-[build.processing.images]
-compress = true
-
-[[headers]]
-for = "/*"
-[headers.values]
-Cache-Control = "public, max-age=600"
-
-[[headers]]
-for = "*.(css|js|woff|woff2|ttf|png|jpg|jpeg)"
-[headers.values]
-Cache-Control = "public, max-age=2592000"
+[context.deploy-preview]
+command = "zola buld --base-url $DEPLOY_PRIME_URL"

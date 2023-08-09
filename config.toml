@@ -1,0 +1,21 @@
+title = "Ian Andwati"
+description = "Ian Andwati's personal website"
+base_url = "https://andwati.com"
+
+genenerate_categories_pages = false
+generate_tags_pages = false
+generate_feed = true
+feed_filename = "rss.xml"
+minify_html = false
+taxonomies = [{ name = 'tags', feed = false }]
+compile_sass = true
+
+[markdown]
+highlight_code = true
+highlight_theme = "gruvbox-dark"
+
+[link_checker]
+skip_anchor_prefixes = ["https://github.com/"]
+
+[extra]
+author = "Ian Andwati"
