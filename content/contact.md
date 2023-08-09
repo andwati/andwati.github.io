@@ -4,7 +4,7 @@ description = "Let's get in touch."
 +++
 # Find me on:
 
-- Github : https://github.com/andwati
+- Github : [https://github.com/andwati](https://github.com/andwati)
 
 ![Github contribution graph](https://ghchart.rshah.org/andwati)
 
@@ -14,6 +14,6 @@ description = "Let's get in touch."
 
 - Twitter : [https://twitter.com/andwati_]( https://twitter.com/andwati_)
 
-- Email: [andwatiian@gmail.com](andwatiian@gmail.com)
+- Email: [andwatiian@gmail.com](mailto:andwatiian@gmail.com)
 
-- LinkedIn : [https://linkedin.com/in/andwati]("https://linkedin.com/in/andwati")
+- LinkedIn : [https://linkedin.com/in/andwati](https://linkedin.com/in/andwati)
