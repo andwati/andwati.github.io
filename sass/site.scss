@@ -5,9 +5,12 @@
    - Serve fonts from the local server rather than Google's API.
    - Support a "display title" in an [extra] section to allow for <br> elements
      or other manual control over title display. */
-
      @charset "utf-8";
+     @use '_pagination.scss';
+     @use '_codeblocks.scss';
+     
      @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Noto+Sans+Mono');
+     
      
      :root {
        /* Fonts and Text Sizes */
@@ -163,37 +166,6 @@
        /* De-emphasize figure captions. */
        font-size: 0.85rem;
        color: var(--muted-color);
-     }
-     
-     /* ---- Code blocks ---------------------------------------------------------*/
-     
-     pre {
-       display: block;
-       padding: 0.25rem 1.25rem;
-       font-size: 85%;
-       border-left: 0.25rem solid var(--primary-accent-color);
-     }
-     
-     code {
-       padding: 0 0.4rem;
-       // background-color: #3c3836;
-       background-color: var(--inline-code-background-color);
-       /* Inline code blocks look less aggresive with a little rounding. */
-       border-radius: 2px;
-     }
-     
-     pre, code {
-       overflow: auto;
-       font-family: var(--default-mono-font);
-     }
-     
-     /* Without this the <code> tag gains a little padding that offsets text by like
-        2 pixels. Let's *not* do that. */
-     pre > code {
-       padding: 0;
-       background-color: var(--code-background-color);
-       // Code inside a pre block doesn't need rounded borders.
-       border-radius: unset;
      }
      
      /* ---- Tables --------------------------------------------------------------*/

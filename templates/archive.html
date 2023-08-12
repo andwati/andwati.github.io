@@ -1,5 +1,6 @@
 {% extends "section.html" %}
 {% import "post_macros.html" as page_macros %}
+{% import "paginate.html" as paginate_macro %}
 {% block content %}
     <main id="content">
         <header>
@@ -22,6 +23,7 @@
                 </ul>
             </div>
         {% endfor %}
+        {% if paginator %}{{ paginate_macro::paginate() }}{% endif %}
     </main>
     {% include "footer.html" %}
 {% endblock content %}

@@ -1,0 +1,16 @@
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+
+    .page-item .disabled{
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    
+    .page-numbers{
+        font-size: 0.9rem;
+        color: var(--link-color);
+    }
+}

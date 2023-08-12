@@ -8,7 +8,7 @@
                 {%- if page.taxonomies.tags | length > 1 and loop.index != page.taxonomies.tags | length -%},{% endif %}
             {% endfor %}
         {% endif %}
-        <div class="accent">☕{{ page.reading_time }} minutes 📝 {{ page.word_count }}</div>
+        <div class="accent">☕ {{ page.reading_time }} minutes 📝 {{ page.word_count }}</div>
     </div>
 {% endmacro meta %}
 {% macro snippet(page) %}
