@@ -4,7 +4,7 @@ description = "Managing secrets"
 author = "Ian Andwati"
 date = 2022-11-11T15:34:14.160Z
 [taxonomies]
-tags = ["tutorial", "Django", "Python", ".env"]
+tags = ["tutorial", "django", "python", ".env"]
 +++
 
 Managing the Django SECRET_KEY variable.
