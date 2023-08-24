@@ -15,7 +15,6 @@ highlight_code = true
 highlight_theme = "gruvbox-dark"
 
 [link_checker]
-skip_anchor_prefixes = ["https://github.com/"]
 
 [extra]
 author = "Ian Andwati"

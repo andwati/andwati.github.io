@@ -7,11 +7,6 @@
             <h1>Posts</h1>
         </header>
         {% for page in paginator.pages %}{{ post_macros::snippet(page=page) }}{% endfor %}
-        <!--<div class="pagination">
-            {% if paginator.previous %}<a href="{{ paginator.previous }}" class="page-item previous">Previous</a>{% endif %}
-            {% if paginator.next %}<a href="{{ paginator.next }}" class="page-item  next">Next</a>{% endif %}
-        </div>
--->
         {% if paginator %}{{ paginate_macro::paginate() }}{% endif %}
     </main>
     {% include "footer.html" %}

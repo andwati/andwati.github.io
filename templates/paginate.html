@@ -1,5 +1,6 @@
 {% macro paginate() %}
     {% if paginator %}
+    <div>
         <ul class="pagination">
             {% if paginator.previous %}
                 <li class="page-item page-prev">
@@ -21,5 +22,6 @@
                 </li>
             {% endif %}
         </ul>
+    </div>
     {% endif %}
 {% endmacro paginate %}
