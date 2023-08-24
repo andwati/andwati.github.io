@@ -3,23 +3,29 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/471edaff-df82-49b0-87c4-0027d02c9784/deploy-status)](https://app.netlify.com/sites/andwati/deploys)
 
 MY personal page and blog site.
-![home](/screenshots/home.png)
-![posts](/screenshots/posts.png)
-![archive](/screenshots/archive.png)
-![about](/screenshots/about.png)
+
+<p align="center" width="100%">
+  <img src="./screenshots/home.png" alt="word counter pro logo" />
+ <img src="./screenshots/posts.png" alt="word counter pro logo" />
+</p>
+
+<p align="center" width="100%">
+  <img src="./screenshots/archive.png" alt="word counter pro logo" />
+ <img src="./screenshots/about.png" alt="word counter pro logo" />
+</p>
 
 ## Features
 
-- [-] Dark and light themes. Defaults to the OS setting, with a switcher in the navigation bar.
+- [] Dark and light themes. Defaults to the OS setting, with a switcher in the navigation bar.
 - [x] Support for comments using utterances
 - [x] Perfect Lighthouse score (Performance, Accessibility, Best Practices and SEO).
-- [-] [KaTeX](https://katex.org/) support.
+- [] [KaTeX](https://katex.org/) support.
 - [x] [feed](https://andwati.com/rss.xml).
 - [x] [Archive page](https://andwati.com/archive/).
 - [x] [Tags](<(https://andwati.com/tags/)>)
 - [x] Responsive design.
 - [x] Code syntax highlighting.
-- [-] Newsletter
+- [] Newsletter
 - [x] Word Count and Reading time
 - [x] Pagination
 
