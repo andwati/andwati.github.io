@@ -44,8 +44,10 @@ body {
 }
 
 body {
-  display: flex; /* Required for sticky footer. */
-  flex-direction: column; /* Required for sticky footer. */
+  display: flex;
+  /* Required for sticky footer. */
+  flex-direction: column;
+  /* Required for sticky footer. */
   margin: 0;
   line-height: var(--default-line-height);
   font-size: var(--default-font-size);
@@ -56,7 +58,8 @@ body {
 }
 
 main {
-  flex: 1 0 auto; /* Required for sticky footer. */
+  flex: 1 0 auto;
+  /* Required for sticky footer. */
 }
 
 /* FIXME: For reasons that utterly bewilder me, an <article> with this id needs
@@ -72,14 +75,15 @@ main {
 }
 
 header {
-  overflow: hidden; /* FIXME: This WILL cut off titles that are too long! */
+  overflow: hidden;
+  /* FIXME: This WILL cut off titles that are too long! */
   margin-top: 1.4em;
   margin-bottom: 1.4em;
   margin-left: 1em;
   margin-right: 1em;
 }
 
-header > h1 {
+header>h1 {
   text-align: center;
   font-size: var(--header-font-size);
   font-family: var(--default-sans-font);
@@ -130,10 +134,32 @@ a {
   text-decoration: none;
 }
 
+/* ---- Button down form --------------------------------------------------------*/
+.embeddable-buttondown-form {
+  display: block;
+}
+
+input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 3px;
+  background-color: var(--primary-accent-color);
+  border: 1px solid var(--color-primary);
+  color: #ffff;
+  font-weight: 400;
+  padding: 0.5em 1em;
+}
+
+input[type="email"] {
+  border: 1px solid var(--color-primary);
+  font-weight: 400;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+
 /* ---- Anchor links --------------------------------------------------------*/
 
 /* Add a # to the left of a subheading when it references an internal link... */
-:where(h2, h3, h4, h5, h6) > a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6)>a[href^="#"]::before {
   content: "#";
   display: inline-block;
   width: 1.2rem;
@@ -142,12 +168,12 @@ a {
 }
 
 /* ... but only display the internal anchor link when hovered over. */
-:where(h2, h3, h4, h5, h6):hover > a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6):hover>a[href^="#"]::before {
   opacity: 1;
 }
 
 /* When internal links are linked directly, display with the accent color. */
-:where(h2, h3, h4, h5, h6):target > a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6):target>a[href^="#"]::before {
   opacity: 1;
   color: var(--primary-accent-color);
 }
@@ -220,7 +246,8 @@ footer {
           in a code snippet. */
   background-color: var(--code-background-color);
   padding: 1.4em;
-  flex-shrink: 0; /* Required for sticky footer. */
+  flex-shrink: 0;
+  /* Required for sticky footer. */
 }
 
 footer a {
@@ -228,7 +255,7 @@ footer a {
 }
 
 /* Give footer nav links some breathing room. */
-footer > nav > a {
+footer>nav>a {
   // margin: 0 1.4em;
   margin: 0 0.4em;
 }
@@ -288,7 +315,7 @@ code {
 
 /* Without this the <code> tag gains a little padding that offsets text by like
    2 pixels. Let's *not* do that. */
-pre > code {
+pre>code {
   padding: 0;
   background-color: var(--code-background-color);
   // Code inside a pre block doesn't need rounded borders.
@@ -301,6 +328,7 @@ pre > code {
   :root {
     --default-font-size: 17px;
   }
+
   /* Above this size, increase the header margins. Smaller sizes benefit from
           extra breathing room in the title. */
   header {
@@ -331,8 +359,9 @@ pre > code {
   :root {
     --default-font-size: 21px;
   }
+
   /* On larger devices, give the anchor link some more space. */
-  :where(h2, h3, h4, h5, h6) > a[href^="#"]::before {
+  :where(h2, h3, h4, h5, h6)>a[href^="#"]::before {
     width: 1.8rem;
     margin-left: -1.8rem;
   }
