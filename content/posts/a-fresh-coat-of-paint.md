@@ -10,7 +10,6 @@ tags = ["zola", "blog", "tera", "rust"]
 Using Zola as my preferred static site generator
 
 <!-- more -->
-
 After using Hugo for over eight months I got tired of it and looked for other alternatives. That's when I stumbled upon Zola. Zola is a static site generator (SSG), similar to [Hugo](https://gohugo.io/), [Pelican](https://blog.getpelican.com/), and [Jekyll](https://jekyllrb.com/).
 
 It is written in Rust and uses the Tera template engine, similar to Jinja2, Django templates, Liquid, and Twig. SSGs use dynamic templates to transform content into static HTML pages. Static sites are thus very fast and require no databases, making them easy to host.
@@ -48,12 +47,12 @@ author = "Ian Andwati"
 
 ## Inspiration
 
-The motivation to use Zola also came from my decision to move from independently developed themes. I decided to write the html and css myself and endeavor to maintain the site individually. The base CSS is borrowed from [Reilly Tucker Siemens](https://tuckersiemens.com/) who had created a nice gruvbox palette for his site.
+The motivation to use Zola also came from my decision to move from independently developed themes. I decided to write the HTML and CSS myself and endeavor to maintain the site individually. The base CSS is borrowed from [Reilly Tucker Siemens](https://tuckersiemens.com/) who had created a nice gruvbox palette for his site.
 
-I improved on it by adding an archive page, pagination, a comment system, and google analytics(more of these in later posts). I also implemented article read time and word count.
+I improved on it by adding an archive page, pagination, a comment system, and Google Analytics (more of these in later posts). I also implemented article read time and word count.
 
 ## What next
 
-The site is a working progress and is far from polished. I plan on implementing a newsletter to notify readers of new posts. The site is primarily a dark theme, in the future I'll also add theme toggling and maybe different palettes.
+The site is a work in progress and is far from polished. I plan on implementing a newsletter to notify readers of new posts. The site is primarily a dark theme, in the future I'll also add theme toggling and maybe different palettes.
 
 You can subscribe to the site's RSS feed at [https://andwati.com/rss.xml](https://andwati.com/rss.xml).
