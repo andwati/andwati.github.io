@@ -2,12 +2,9 @@
    - Reset all margin and padding for * to 0.
    - Use the <abbr> tag for abbreviations.
    - Support footnotes or asides for notes sections.
-   - Serve fonts from the local server rather than Google's API.
    - Support a "display title" in an [extra] section to allow for <br> elements
      or other manual control over title display. 
 */
-
-@charset "utf-8";
 
 @font-face {
   font-family: 'Noto Serif';
