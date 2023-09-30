@@ -117,4 +117,4 @@ The Obsidian synchronization task is now set up and ready to run automatically b
 
 When looking up on how to implement this I found some breakthrough from this [stack overflow](https://stackoverflow.com/questions/7195503/setting-up-a-cron-job-in-windows) post. There are suggestions on how to do this using cron jobs in wsl. They are worth a look at. This article on [powershell](https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/new-scheduledtask?view=windowsserver2022-ps) with windows server was also helpful.
 
-[^note]: This method is only optimal for desktop sync. To sync accross devices obsidian has a paid plan that has some extrafeatures Such as Sync notes across devices, End-to-end encryption, Version history, Priority email support. Consider checking it out at [https://obsidian.md/pricing](https://obsidian.md/pricing)
+[^note]: This method is only optimal for desktop sync. To sync across devices obsidian has a paid plan that has some extra features Such as Sync notes across devices, End-to-end encryption, Version history, Priority email support. Consider checking it out at [https://obsidian.md/pricing](https://obsidian.md/pricing)
