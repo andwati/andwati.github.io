@@ -150,27 +150,6 @@ a {
   text-decoration: none;
 }
 
-/* ---- Button down form --------------------------------------------------------*/
-.embeddable-buttondown-form {
-  display: block;
-}
-
-input[type="submit"] {
-  -webkit-appearance: none;
-  border-radius: 3px;
-  background-color: var(--primary-accent-color);
-  border: 1px solid var(--color-primary);
-  color: #ffff;
-  font-weight: 400;
-  padding: 0.5em 1em;
-}
-
-input[type="email"] {
-  border: 1px solid var(--color-primary);
-  font-weight: 400;
-  padding: 0.5em 1em;
-  border-radius: 5px;
-}
 
 /* ---- Anchor links --------------------------------------------------------*/
 
