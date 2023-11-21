@@ -25,7 +25,7 @@ Zola is very minimalistic, it is installed only as a single binary, with no extr
 ```toml
 title = "Ian Andwati"
 description = "Ian Andwati's personal website"
-base_url = "https://andwati.com"
+base_url = "https://andwati.github.io"
 
 generate_categories_pages = false
 generate_tags_pages = false
@@ -55,4 +55,4 @@ I improved on it by adding an archive page, pagination, a comment system, and Go
 
 The site is a work in progress and is far from polished. I plan on implementing a newsletter to notify readers of new posts. The site is primarily a dark theme, in the future I'll also add theme toggling and maybe different palettes.
 
-You can subscribe to the site's RSS feed at [https://andwati.com/rss.xml](https://andwati.com/rss.xml).
+You can subscribe to the site's RSS feed at [https://andwati.github.io/rss.xml](https://andwati.github.io/rss.xml).
