@@ -1,6 +1,6 @@
-# https://andwati.com
+# https://andwati.github.io
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/471edaff-df82-49b0-87c4-0027d02c9784/deploy-status)](https://app.netlify.com/sites/andwati/deploys)
+
 
 MY personal page and blog site.
 
@@ -20,9 +20,9 @@ MY personal page and blog site.
 - [x] Support for comments using utterances
 - [x] Perfect Lighthouse score (Performance, Accessibility, Best Practices and SEO).
 - [] [KaTeX](https://katex.org/) support.
-- [x] [feed](https://andwati.com/rss.xml).
-- [x] [Archive page](https://andwati.com/archive/).
-- [x] [Tags](<(https://andwati.com/tags/)>)
+- [x] [feed](https://andwati.github.io/rss.xml).
+- [x] [Archive page](https://andwati.github.io/archive/).
+- [x] [Tags](<(https://andwati.github.io/tags/)>)
 - [x] Responsive design.
 - [x] Code syntax highlighting.
 - [] Newsletter
@@ -36,7 +36,7 @@ MY personal page and blog site.
 1. Clone this site and enter the directory.
 
 ```
-repo='andwati.com'; git clone git@github.com:andwati/${repo}.git && cd $repo
+repo='andwati.github.io'; git clone git@github.com:andwati/${repo}.git && cd $repo
 ```
 
 2. Install or update to the latest Zola.
