@@ -1,6 +1,6 @@
 title = "Ian Andwati"
 description = "Ian Andwati's personal website"
-base_url = "https://andwati.com"
+base_url = "https://andwati.github.io"
 
 genenerate_categories_pages = false
 generate_tags_pages = false
