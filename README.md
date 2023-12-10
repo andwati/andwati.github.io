@@ -16,16 +16,16 @@ MY personal page and blog site.
 
 ## Features
 
-- [] Dark and light themes. Defaults to the OS setting, with a switcher in the navigation bar.
+- [ ] Dark and light themes. Defaults to the OS setting, with a switcher in the navigation bar.
 - [x] Support for comments using utterances
 - [x] Perfect Lighthouse score (Performance, Accessibility, Best Practices and SEO).
-- [] [KaTeX](https://katex.org/) support.
+- [ ] [KaTeX](https://katex.org/) support.
 - [x] [feed](https://andwati.github.io/rss.xml).
 - [x] [Archive page](https://andwati.github.io/archive/).
 - [x] [Tags](<(https://andwati.github.io/tags/)>)
 - [x] Responsive design.
 - [x] Code syntax highlighting.
-- [] Newsletter
+- [ ] Newsletter
 - [x] Word Count and Reading time
 - [x] Pagination
 
