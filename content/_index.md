@@ -1,8 +1,9 @@
 +++
 path = "/"
 title = "Latest Posts"
-template = "section.html"
 sort_by = "date"
+template = "section.html"
+
 
 [extra]
 section_path = "blog/_index.md"
