@@ -32,9 +32,6 @@ highlight_theme = "css"
 smart_punctuation = true
 render_emoji = true
 
-
-taxonomies = [{ name = "tags", feed = true }]
-
 [extra]
 # Enable JavaScript theme toggler to allow users to switch between dark/light mode.
 # If disabled, your site will only use the theme specified in the `default_theme` variable.
@@ -51,7 +48,7 @@ default_theme = ""
 # contrast (in light theme) for readability and might not be suitable for all users.
 # Furthermore, low contrasting elements will affect your Google Lighthouse rating.
 # All other skins have optimal contrast.
-skin = ""
+skin = "sakura"
 
 # Set browser theme colour. Can be a single colour or [light, dark].
 # Note: Bright colors may be ignored in dark mode.
@@ -153,18 +150,18 @@ encode_plaintext_email = true # Setting is ignored if email is already encoded.
 
 # The icons available can be found in "social_icons" in the "static" folder
 socials = [
-    { name = "github", url = "https://github.com/andwati/", icon = "github" },
+    { name = "github", url = "https://github.com/andwati", icon = "github" },
     { name = "youtube", url = "https://youtube.com/@andwati", icon = "youtube" },
     { name = "linkedin", url = "https://linkedin.com/in/andwati", icon = "linkedin" },
     { name = "twitter", url = "https://twitter.com/@andwati_", icon = "twitter" },
 ]
 
-# Extra menu to show on the footer, below socials section.
-footer_menu = [
-    { url = "privacy", name = "privacy", trailing_slash = true },
-    # { url = "https://stats.osc.garden/", name = "site_statistics", trailing_slash = false },
-    { url = "sitemap.xml", name = "sitemap", trailing_slash = false },
-]
+# # Extra menu to show on the footer, below socials section.
+# footer_menu = [
+#     { url = "privacy", name = "privacy", trailing_slash = true },
+#     { url = "https://stats.osc.garden/", name = "site_statistics", trailing_slash = false },
+#     { url = "sitemap.xml", name = "sitemap", trailing_slash = false },
+# ]
 
 # Custom security headers. What urls should your website be able to connect to?
 # You need to specify the CSP and the URLs associated with the directive.
@@ -187,10 +184,6 @@ allowed_domains = [
     ] },
     { directive = "style-src", domains = [
         "'self'",
-    ] },
-    { directive = "frame-src", domains = [
-        "player.vimeo.com",
-        "https://www.youtube-nocookie.com",
     ] },
 ]
 
