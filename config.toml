@@ -134,7 +134,7 @@ favicon_emoji = "🌱"
 menu = [
     { name = "blog", url = "blog/" },
     { name = "archive", url = "archive/" },
-    # { name = "projects", url = "projects/" },
+    { name = "tags", url = "tags/" },
 ]
 
 # The RSS icon will be shown if (1) it's enabled and (2) the following variable is set to true.
