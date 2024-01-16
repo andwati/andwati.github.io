@@ -163,12 +163,6 @@ socials = [
 #     { url = "sitemap.xml", name = "sitemap", trailing_slash = false },
 # ]
 
-# Custom security headers. What urls should your website be able to connect to?
-# You need to specify the CSP and the URLs associated with the directive.
-# Useful if you want to load remote content safely (embed YouTube videos, which needs frame-src, for example).
-# Default directive is self.
-# Default config, allows for https remote images and embedding YouTube and Vimeo content.
-# This configuration (along with the right webserver settings) gets an A+ in Mozilla's Observatory: https://observatory.mozilla.org
 allowed_domains = [
     { directive = "font-src", domains = [
         "'self'",
@@ -185,7 +179,17 @@ allowed_domains = [
     { directive = "style-src", domains = [
         "'self'",
     ] },
-]
+    { directive = "connect-src", domains = [
+        "'self'",
+        "gc.zgo.at",
+        "andwati.goatcounter.com",
+    ] },
+] # Custom security headers. What urls should your website be able to connect to?
+# You need to specify the CSP and the URLs associated with the directive.
+# Useful if you want to load remote content safely (embed YouTube videos, which needs frame-src, for example).
+# Default directive is self.
+# Default config, allows for https remote images and embedding YouTube and Vimeo content.
+# This configuration (along with the right webserver settings) gets an A+ in Mozilla's Observatory: https://observatory.mozilla.org
 
 # Custom subset of characters for the header.
 # If set to true, the `static/custom_subset.css` file will be loaded first.
