@@ -15,4 +15,4 @@ jobs:
           PAGES_BRANCH: gh-pages
           # Provide personal access token
           TOKEN: ${{ secrets.TOKEN }}
-          BUILD_THEMES: false
+          BUILD_THEMES: true
