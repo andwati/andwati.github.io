@@ -1,9 +1,12 @@
 +++
-title = "Home"
-paginate_by = 5 # Set the number of posts per page
-template = "index.html"
+path = "/"
+title = "Latest Posts"
+template = "section.html"
+sort_by = "date"
 
 [extra]
 section_path = "blog/_index.md"
-header = {title = "Hello! I'm tabi~", img = "img/main.webp", img_alt = "Your Name" }
+header = {title = "Hello! I'm Ian.", img = "", img_alt = "Your Name" }
+max_posts = 4
 +++
+A software engineer programming high performance systems.
