@@ -1,15 +1,11 @@
 +++
-title ="Install PostgreSQL 15 on Arch | Manjaro | Garuda Linux"
-description = "Installing postgresql"
+title ="Install PostgreSQL  on Arch | Manjaro | Garuda Linux"
+description = "Getting PostgreSQL up and running on Arch Linux-based distros"
 date = 2023-02-16T15:34:14.160Z
 author = "Ian Andwati"
 [taxonomies]
 tags = ["postgresql", "archlinux", "manjaro", "garuda", "linux"]
 +++
-
-Getting PostgreSQL up and running on Arch Linux-based distros
-
-<!-- more -->
 
 # Overview
 
@@ -19,7 +15,7 @@ PostgreSQL is designed to handle high levels of **concurrency**, providing featu
 
 Some of the key features of PostgreSQL include support for **complex SQL queries**, **advanced indexing** and **query optimization**, **transactional integrity**, and support for a **wide range of programming languages** and development frameworks.PostgreSQL is used by a wide range of organizations, from small businesses to large enterprises, and is particularly popular in industries such as finance, healthcare, and e-commerce, where high levels of data security and reliability are critical.
 
-In this tutorial, we’ll look at how to install PostgreSQL 15 on Arch Linux, Manjaro, Garuda Linux, or any other Arch-based distro out there.
+In this tutorial, we’ll look at how to install PostgreSQL on Arch Linux, Manjaro, Garuda Linux, or any other Arch-based distro out there.
 
 # PostgreSQL use cases
 
@@ -52,7 +48,7 @@ Now with all that fluff out of the way, let's get to business. The steps have be
 ## Step 1: Installing the PostgreSQL Package
 
 ```sh
-$ sudo pacman -Syu postgresql
+sudo pacman -Syu postgresql
 ```
 
 This command will update the package database and update all packages on the system then install the PostgreSQL package from your distribution mirrors. Never install a package without updating the system first. On a rolling release, this can lead to an unbootable system. Installing the package will also create a system user called *postgres*. You can now switch to the *postgres* user using a privilege elevation program.
@@ -62,14 +58,14 @@ You can switch to the PostgreSQL user by executing the following command:
 - If you have sudo and are in sudoers
 
   ```sh
-  $ sudo -iu postgres
+  sudo -iu postgres
   ```
 
 - Otherwise using su:
 
   ```sh
-  $ su
-  # su -l postgres
+  su
+  su -l postgres
   ```
 
 ## Step 2: Initial Configuration
@@ -79,20 +75,20 @@ Before PostgreSQL can function correctly, the database cluster must be initializ
 ### 2.1 We can confirm the installed PostgreSQL version by running:
 
 ```sh
-$ postgres --version                                                                           ─╯
+postgres --version                                                                           ─╯
 postgres (PostgreSQL) 15.1
 ```
 
 ### 2.2 Set applicable entries in **/etc/locale.gen**
 
 ```sh
-$ echo "en_US.UTF-8 UTF-8" | sudo tee /etc/locale.gen
+echo "en_US.UTF-8 UTF-8" | sudo tee /etc/locale.gen
 ```
 
 ### 2.3 Then run **\*\*locale-gen\*\*** to generate locale settings
 
 ```sh
-$ sudo locale-gen
+sudo locale-gen
 Generating locales...
   en_US.UTF-8... done
 Generation complete.
@@ -117,7 +113,7 @@ sudo su - postgres
 ### 3.1 Check PostgreSQL status with the following command:
 
 ```sh
-$ systemctl status postgresql                                                                  ─╯
+systemctl status postgresql                                                                  ─╯
  postgresql.service - PostgreSQL database server
      Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled; preset: disabled)
      Active: inactive (dead)
@@ -132,13 +128,13 @@ sudo systemctl start postgresql
 ### 3.3 Enable the PostgreSQL service to start automatically at boot by running the following command:
 
 ```sh
-$ sudo systemctl enable postgresql
+sudo systemctl enable postgresql
 ```
 
 ### 3.4 Verify that PostgreSQL is running by running the following command:
 
 ```sh
-$ sudo systemctl status postgresql                                                             ─╯
+sudo systemctl status postgresql                                                             ─╯
 ● postgresql.service - PostgreSQL database server
      Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: disabled)
      Active: active (running) since Thu 2023-02-16 22:52:43 EAT; 20s ago
@@ -153,6 +149,14 @@ $ sudo systemctl status postgresql                                              
              ├─26110 "postgres: walwriter "
              ├─26111 "postgres: autovacuum launcher "
              └─26112 "postgres: logical replication launcher "
+```
+
+### Change postgres user password
+
+To change the postgres user password execute the following command:
+
+```sh
+sudo -u postgres psql -c "ALTER USER postgres PASSWORD '$PGPASSWORD';"
 ```
 
 # Resources
