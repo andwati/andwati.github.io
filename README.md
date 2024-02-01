@@ -1,5 +1,3 @@
-# https://andwati.github.io
-
 MY personal page and blog site.
 
 # Generating the site
