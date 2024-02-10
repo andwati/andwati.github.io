@@ -1,0 +1,498 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://andwati.github.io">
+
+    
+    <title>Subresource Integrity • echos from within</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://andwati.github.io/favicon.ico"/>
+    
+    
+        <link rel=icon href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 55"><text y=".7em" font-size="82">🌱</text></svg>'>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="echos from within" href="https://andwati.github.io/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" href="https://andwati.github.io/custom_subset.css?h=544e46044f6a0b88131c">
+    
+
+    
+        <link rel="stylesheet" href="https://andwati.github.io/main.css?h=535466ab6246c071418d" />
+        <link rel="stylesheet" href="https://andwati.github.io/skins/sakura.css?h=79eac8d397b4620ff948" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+        <meta name="description" content="Understanding Subresource Integrity" />
+        <meta property="og:description" content="Understanding Subresource Integrity" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Subresource Integrity" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;blog&#x2F;subresource-integrity&#x2F;" /><meta property="og:site_name" content="echos from within"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;style-src &#x27;self&#x27;;;connect-src 'self' gc.zgo.at 'self' gc.zgo.at andwati.goatcounter.com;script-src 'self' gc.zgo.at 'self'">
+
+        <noscript><link rel="stylesheet" href="https://andwati.github.io/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://andwati.github.io/js/initializeTheme.min.js"></script>
+        <script defer src="https://andwati.github.io/js/themeSwitcher.min.js"></script>
+
+
+
+
+    
+    
+    <script async
+    
+        data-goatcounter="https://andwati.goatcounter.com/count"
+        src="https://gc.zgo.at/count.js"
+        
+    ></script>
+    
+
+
+
+        <script defer src="https://andwati.github.io/js/searchElasticlunr.min.js?h=5ddcb5767730b9edb560"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://andwati.github.io>echos from within</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/blog/">
+                                blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/archive/">
+                                archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/tags/">
+                                tags
+                                </a>
+                            </li>
+                        <li class="js">
+                        <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                            </svg>
+                        </div>
+                    </li>
+
+                    
+                    
+
+                    <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Subresource Integrity
+        </h1>
+
+        <ul class="meta">
+            
+
+            
+                <li>
+
+
+
+
+
+    
+
+    
+        
+        
+            
+        
+    
+
+    
+    29th
+    
+        Apr 2023
+    
+
+
+</li>
+            
+
+            
+            
+                • <li title="1152 words">6&nbsp;min read</li>
+            •&nbsp;<li>Tags:&nbsp;</li><li><a href=https://andwati.github.io/tags/subresource-integrity/>subresource integrity</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/csp/>csp</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/cors/>cors</a></li>
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            
+            
+            <p>Understanding Subresource Integrity</p>
+<span id="continue-reading"></span>
+<p>In my junior year while I was learning HTML and CSS I got to use the Bootstrap css library.The easiest way to obtain the files was from a Content Delivery Network(CDN). I could see links such as:</p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">link</span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html">  <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">href</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html">  <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">rel</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>stylesheet<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html">  <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">integrity</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html">  <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">crossorigin</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>anonymous<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span></code></pre>
+<p>I didn’t bother with the <code>integrity</code> attribute of the link(guess I wasn’t curios enough). The integrity attribute has a cryptographic hash value that is important in CDNs and its called the Subresource Integrity.</p>
+<p>Subresource Integrity (SRI) is a security feature in web browsers that helps prevent malicious or compromised scripts from being loaded and executed on a website.a security feature that enables browsers to verify that resources they fetch (for example, from a CDN) are delivered without unexpected manipulation. It works by allowing you to provide a cryptographic hash that a fetched resource must match.</p>
+<p>When a resource, such as a script or stylesheet, fails the SRI check, the browser will block the resource from being loaded and displayed on the website.</p>
+<h1 id="how-subresource-integrity-helps">How Subresource Integrity Helps</h1>
+<p>Subresource Integrity (SRI) is a security feature that helps protect against certain types of attacks, such as those that involve malicious modifications to third-party resources that a website loads.</p>
+<p>SRI works by allowing a website to specify a cryptographic hash for a particular external resource (such as a JavaScript file or a CSS stylesheet) that it expects to load. When a user’s browser fetches that resource, it checks the hash against the actual contents of the resource. If the hash doesn’t match, the browser will refuse to load the resource, indicating that it may have been tampered with.</p>
+<p>This can help prevent a variety of attacks, such as those involving a compromised content delivery network (CDN) or a man-in-the-middle attacker who intercepts and modifies network traffic. By using SRI, a website can help ensure that it is loading only the resources it expects, and that those resources have not been tampered with in transit.</p>
+<h1 id="using-it">Using it</h1>
+<p>Using Subresource Integrity (SRI) involves a few steps, but it is relatively straightforward.An integrity value begins with at least one string, with each string including a prefix indicating a particular hash algorithm (currently the allowed prefixes are sha256, sha384, and sha512), followed by a dash, and ending with the actual base64-encoded hash.</p>
+<ul>
+<li>
+<p>Generate a cryptographic hash(a base64-encoded cryptographic hash) of the external resource you want to load on your website. This can be done using a hash function such as SHA-256.</p>
+</li>
+<li>
+<p>Add the hash as an attribute to the tag that loads the external resource. For example, for a JavaScript file, you would add the integrity attribute to the <code>&lt;script&gt;</code> tag like this:</p>
+</li>
+</ul>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-script z-begin z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-script z-html">script</span></span><span class="z-meta z-tag z-script z-begin z-html">
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-script z-begin z-html">  <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">src</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>https://example.com/example.js<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-script z-begin z-html">  <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">integrity</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>sha256-ABC123XYZ456<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span>
+</span></span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-script z-begin z-html"><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span><span class="z-meta z-tag z-script z-end z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-script z-html">script</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<blockquote>
+<p>An integrity value may contain multiple hashes separated by whitespace. A resource will be loaded if it matches one of those hashes.</p>
+</blockquote>
+<p>Make sure the hash you’ve generated matches the actual contents of the external resource.</p>
+<p>Test your website to ensure that the external resource is loading correctly and that the SRI feature is working as intended.</p>
+<h1 id="tools-for-generating-sri-hashes">Tools for generating SRI hashes</h1>
+<p>You can use a tool such as the <a href="https://www.srihash.org/">SRI Hash Generator</a> to generate the hash and check it against the file’s contents.</p>
+<p>You can generate SRI hashes from the command-line with openssl using a command invocation such as:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> FILENAME.py</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">openssl</span></span><span class="z-meta z-function-call z-arguments z-shell"> dgst<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>sha384</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>binary</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">openssl</span></span><span class="z-meta z-function-call z-arguments z-shell"> base64<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>A</span></span>
+</span></code></pre>
+<p>or with shasum using a command invocation such as:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">shasum</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>b</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>a</span> 384 FILENAME.js</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">awk</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>{ print $1 }<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xxd</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>r</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>p</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">base64</span></span>
+</span></code></pre>
+<blockquote>
+<p>The pipe-through xxd step takes the hexadecimal output from shasum and converts it to binary.
+The pipe-through awk step is necessary because shasum will pass the hashed filename in its output to xxd. That can have disastrous consequences if the filename happens to have valid hex characters in it — because xxd will also decode that and pass it to base64.</p>
+</blockquote>
+<p>In a Windows environment, you can create a tool for generating SRI hashes with the following code:</p>
+<pre data-lang="bat" class="language-bat z-code"><code class="language-bat" data-lang="bat"><span class="z-source z-dosbatch"><span class="z-keyword z-operator z-at z-dosbatch">@</span><span class="z-keyword z-command z-dosbatch">echo</span> off
+</span><span class="z-source z-dosbatch"><span class="z-keyword z-command z-dosbatch">set</span> <span class="z-variable z-other z-readwrite z-dosbatch">bits</span><span class="z-keyword z-operator z-assignment z-dosbatch">=</span><span class="z-string z-unquoted z-dosbatch">384</span>
+</span><span class="z-source z-dosbatch">openssl dgst -sha<span class="z-variable z-other z-readwrite z-dosbatch"><span class="z-punctuation z-definition z-variable z-begin z-dosbatch">%</span>bits<span class="z-punctuation z-definition z-variable z-end z-dosbatch">%</span></span> -binary <span class="z-variable z-parameter z-dosbatch"><span class="z-punctuation z-definition z-variable z-dosbatch">%</span>1</span>% <span class="z-keyword z-operator z-pipe z-dosbatch">|</span> openssl base64 -A <span class="z-keyword z-operator z-redirection z-dosbatch">&gt;</span> tmp
+</span><span class="z-source z-dosbatch"><span class="z-keyword z-command z-dosbatch">set</span> /p <span class="z-meta z-prompt z-set z-dosbatch"><span class="z-variable z-other z-readwrite z-dosbatch">a</span><span class="z-keyword z-operator z-assignment z-dosbatch">=</span><span class="z-string z-unquoted z-dosbatch"> </span></span><span class="z-keyword z-operator z-redirection z-dosbatch">&lt;</span> tmp
+</span><span class="z-source z-dosbatch"><span class="z-keyword z-command z-dosbatch">del</span> tmp
+</span><span class="z-source z-dosbatch"><span class="z-keyword z-command z-dosbatch">echo</span> sha<span class="z-variable z-other z-readwrite z-dosbatch"><span class="z-punctuation z-definition z-variable z-begin z-dosbatch">%</span>bits<span class="z-punctuation z-definition z-variable z-end z-dosbatch">%</span></span>-<span class="z-variable z-other z-readwrite z-dosbatch"><span class="z-punctuation z-definition z-variable z-begin z-dosbatch">%</span>a<span class="z-punctuation z-definition z-variable z-end z-dosbatch">%</span></span>
+</span><span class="z-source z-dosbatch"><span class="z-keyword z-command z-dosbatch">pause</span>
+</span></code></pre>
+<p>To use that code:</p>
+<ol>
+<li>Save that code in a file named sri-hash.bat in the Windows SendTo folder in your environment (for example, C:\Users\USER\AppData\Roaming\Microsoft\Windows\SendTo).</li>
+<li>Right-click a file in the File Explorer, select Send to…, and then select sri-hash. You will see the integrity value in a command box.</li>
+<li>Select the integrity value and right-click to copy it to the Clipboard.</li>
+<li>Press any key to dismiss the command box</li>
+</ol>
+<h1 id="cross-origin-resource-sharing-and-subresource-integrity">Cross-Origin Resource Sharing and Subresource Integrity</h1>
+<p>When verifying the subresource integrity of a resource that originates from a different domain than the document it’s embedded in, web browsers will check the resource using Cross-Origin Resource Sharing (CORS) to ensure that the domain serving the resource allows it to be shared with the requesting domain.
+As a result, the resource must be served with an Access-Control-Allow-Origin header that permits the resource to be shared with the requesting domain. For example, the header could include a wildcard (*) to allow any domain to access the resource.</p>
+<pre class="z-code"><code><span class="z-text z-plain">Access-Control-Allow-Origin: *
+</span></code></pre>
+<h1 id="how-browsers-handle-subresource-integrity">How browsers handle Subresource Integrity</h1>
+<p>Web browsers employ several mechanisms to handle Subresource Integrity (SRI). When a <strong>script</strong> or <strong>link</strong> element with an integrity attribute is encountered by the browser, it compares the script or stylesheet to the expected hash given in the integrity value before executing the script or applying the stylesheet.</p>
+<p>For resources served from a different domain than the document in which it’s embedded, the browser also checks the resource using Cross-Origin Resource Sharing (CORS) to ensure that the origin serving the resource allows it to be shared with the requesting domain. This additional check is important for preventing unauthorized access to sensitive resources.</p>
+<p>If the script or stylesheet fails to match its associated integrity value, the browser will refuse to execute the script or apply the stylesheet and return a network error, indicating that the fetching of that script or stylesheet failed. This behavior ensures that the resource being loaded is trustworthy and helps to protect users from potential security threats.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</a></li>
+<li><a href="https://www.srihash.org/">https://www.srihash.org/</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</a></li>
+<li><a href="https://html.spec.whatwg.org/multipage/semantics.html#attr-script-integrity">https://html.spec.whatwg.org/multipage/semantics.html#attr-script-integrity</a></li>
+<li><a href="https://html.spec.whatwg.org/multipage/semantics.html#attr-link-integrity">https://html.spec.whatwg.org/multipage/semantics.html#attr-link-integrity</a></li>
+<li><a href="https://w3c.github.io/webappsec-subresource-integrity/#the-integrity-attribute">https://w3c.github.io/webappsec-subresource-integrity/#the-integrity-attribute</a></li>
+</ul>
+
+        </section>
+
+        
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+
+        
+        
+
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/subresource-integrity/#how-subresource-integrity-helps">How Subresource Integrity Helps</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/subresource-integrity/#using-it">Using it</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/subresource-integrity/#tools-for-generating-sri-hashes">Tools for generating SRI hashes</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/subresource-integrity/#cross-origin-resource-sharing-and-subresource-integrity">Cross-Origin Resource Sharing and Subresource Integrity</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/subresource-integrity/#how-browsers-handle-subresource-integrity">How browsers handle Subresource Integrity</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/subresource-integrity/#references">References</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://andwati.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href=https://andwati.github.io/atom.xml>
+                        <img alt="feed" title="feed" src="https://andwati.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW5kd2F0aWlhbkBnbWFpbC5jb20="><img alt="email" title="email" src="https://andwati.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://github.com/andwati>
+                                <img alt=github title=github src="https://andwati.github.io/social_icons/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://youtube.com/@andwati>
+                                <img alt=youtube title=youtube src="https://andwati.github.io/social_icons/youtube.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://linkedin.com/in/andwati>
+                                <img alt=linkedin title=linkedin src="https://andwati.github.io/social_icons/linkedin.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://twitter.com/@andwati_>
+                                <img alt=twitter title=twitter src="https://andwati.github.io/social_icons/twitter.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                •
+                    <a rel=""  href="https:&#x2F;&#x2F;github.com&#x2F;andwati&#x2F;andwati.github.io">
+                        Site source
+                    </a></small>
+        </div>
+    </section>
+
+    <script src="https://andwati.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox", autocomplete="off", spellcheck="false" aria-expanded="false", aria-controls="results-container", placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info">
+                <span id="n-results">0</span>&nbsp;<span id="result-text-singular">result</span>
+                <span id="result-text-plural">results</span>
+            </div>
+        <div id="results" role="listbox"></div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

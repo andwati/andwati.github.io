@@ -1,0 +1,551 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://andwati.github.io">
+
+    
+    <title>Export default and module.exports in Javascript • echos from within</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://andwati.github.io/favicon.ico"/>
+    
+    
+        <link rel=icon href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 55"><text y=".7em" font-size="82">🌱</text></svg>'>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="echos from within" href="https://andwati.github.io/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" href="https://andwati.github.io/custom_subset.css?h=544e46044f6a0b88131c">
+    
+
+    
+        <link rel="stylesheet" href="https://andwati.github.io/main.css?h=535466ab6246c071418d" />
+        <link rel="stylesheet" href="https://andwati.github.io/skins/sakura.css?h=79eac8d397b4620ff948" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+        <meta name="description" content="Modules are the building blocks of modern JavaScript applications, allowing for the encapsulation of code into reusable components. Two primary systems govern the exportation of these modules: export default in ES6 and module.exports in CommonJS. " />
+        <meta property="og:description" content="Modules are the building blocks of modern JavaScript applications, allowing for the encapsulation of code into reusable components. Two primary systems govern the exportation of these modules: export default in ES6 and module.exports in CommonJS. " />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Export default and module.exports in Javascript" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;blog&#x2F;javascript-exporting-modules&#x2F;" /><meta property="og:site_name" content="echos from within"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;style-src &#x27;self&#x27;;;connect-src 'self' gc.zgo.at 'self' gc.zgo.at andwati.goatcounter.com;script-src 'self' gc.zgo.at 'self'">
+
+        <noscript><link rel="stylesheet" href="https://andwati.github.io/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://andwati.github.io/js/initializeTheme.min.js"></script>
+        <script defer src="https://andwati.github.io/js/themeSwitcher.min.js"></script>
+
+
+
+
+    
+    
+    <script async
+    
+        data-goatcounter="https://andwati.goatcounter.com/count"
+        src="https://gc.zgo.at/count.js"
+        
+    ></script>
+    
+
+
+
+        <script defer src="https://andwati.github.io/js/searchElasticlunr.min.js?h=5ddcb5767730b9edb560"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://andwati.github.io>echos from within</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/blog/">
+                                blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/archive/">
+                                archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/tags/">
+                                tags
+                                </a>
+                            </li>
+                        <li class="js">
+                        <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                            </svg>
+                        </div>
+                    </li>
+
+                    
+                    
+
+                    <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Export default and module.exports in Javascript
+        </h1>
+
+        <ul class="meta">
+            
+
+            
+                <li>
+
+
+
+
+
+    
+
+    
+        
+        
+            
+        
+    
+
+    
+    17th
+    
+        Jan 2024
+    
+
+
+</li>
+            
+
+            
+            
+                • <li title="886 words">5&nbsp;min read</li>
+            •&nbsp;<li>Tags:&nbsp;</li><li><a href=https://andwati.github.io/tags/javascript/>javascript</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/node/>node</a></li>
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            
+            
+            <p>Javascript is a popular programming language that can run both in the browser and on the server. However, different environments may have different ways of organizing and importing Javascript modules. In this article, we will compare two common methods of exporting and importing modules: <strong>export default</strong> and <strong>module.exports</strong>.</p>
+<h2 id="what-are-modules">What are modules?</h2>
+<p>Modules are reusable pieces of code that can be separated into different files. Modules can export values, functions, classes, or objects that can be imported by other modules. This way, modules can avoid polluting the global scope and enable code reuse and modularity.</p>
+<h2 id="how-to-export-modules-in-node-js">How to export modules in Node.js?</h2>
+<p>Node.js is a runtime environment that allows Javascript to run on the server. Node.js uses a module system called CommonJS, which is based on the require and module.exports syntax.</p>
+<p>To export a module in Node.js, you can assign the value that you want to export to the module.exports object. For example:</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> my-module.js</span>
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export a function</span>
+</span><span class="z-source z-ts"><span class="z-support z-type z-object z-module z-ts">module</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-type z-object z-module z-ts">exports</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function z-ts"><span class="z-storage z-type z-function z-ts">function</span> <span class="z-meta z-definition z-function z-ts"><span class="z-entity z-name z-function z-ts">add</span></span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-variable z-parameter z-ts">a</span><span class="z-punctuation z-separator z-parameter z-ts">,</span> <span class="z-variable z-parameter z-ts">b</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">  <span class="z-keyword z-control z-flow z-ts">return</span> <span class="z-variable z-other z-readwrite z-ts">a</span> <span class="z-keyword z-operator z-arithmetic z-ts">+</span> <span class="z-variable z-other z-readwrite z-ts">b</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export an object</span>
+</span><span class="z-source z-ts"><span class="z-support z-type z-object z-module z-ts">module</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-type z-object z-module z-ts">exports</span> <span class="z-keyword z-operator z-assignment z-ts">=</span><span class="z-meta z-objectliteral z-ts"> <span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">name</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Alice<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">age</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-constant z-numeric z-decimal z-ts">25</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>To import a module in Node.js, you can use the require function and pass the path of the module file as an argument. The require function will return the value of module.exports from the module file. For example:</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> main.js</span>
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import a function</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">add</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-function z-ts">require</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">add</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">2</span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-constant z-numeric z-decimal z-ts">3</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 5</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import an object</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">person</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-function z-ts">require</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> Alice</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 25</span>
+</span></code></pre>
+<p>Note that Node.js will cache the modules that are imported with require, so if you import the same module multiple times, you will get the same instance of the module.</p>
+<h2 id="how-to-export-modules-in-es6">How to export modules in ES6?</h2>
+<p>ES6 is the  version of Javascript that introduced many new features, including a native module system. ES6 modules use the <code>import</code> and <code>export</code> syntax.</p>
+<p>To export a module in ES6, you can use the <code>export</code> keyword followed by the declaration of the value that you want to export. You can also use the export keyword with curly braces to export a list of named values. For example:</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> my-module.js</span>
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export a function</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-function z-ts">function</span> <span class="z-meta z-definition z-function z-ts"><span class="z-entity z-name z-function z-ts">add</span></span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-variable z-parameter z-ts">a</span><span class="z-punctuation z-separator z-parameter z-ts">,</span> <span class="z-variable z-parameter z-ts">b</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">  <span class="z-keyword z-control z-flow z-ts">return</span> <span class="z-variable z-other z-readwrite z-ts">a</span> <span class="z-keyword z-operator z-arithmetic z-ts">+</span> <span class="z-variable z-other z-readwrite z-ts">b</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export a class</span>
+</span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-class z-ts">class</span> <span class="z-entity z-name z-type z-class z-ts">Person</span> <span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts">  <span class="z-storage z-type z-ts">constructor</span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-variable z-parameter z-ts">name</span><span class="z-punctuation z-separator z-parameter z-ts">,</span> <span class="z-variable z-parameter z-ts">age</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-language z-this z-ts">this</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-variable z-other z-readwrite z-ts">name</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-language z-this z-ts">this</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-variable z-other z-readwrite z-ts">age</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">  <span class="z-punctuation z-definition z-block z-ts">}</span></span></span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export an object</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">person</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">name</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Alice<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">age</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-constant z-numeric z-decimal z-ts">25</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>To import a module in ES6, you can use the <code>import</code> keyword followed by the name of the value that you want to import and the path of the module file. You can also use the import keyword with curly braces to import a list of named values. For example:</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> main.js</span>
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import a function</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-variable z-other z-readwrite z-alias z-ts">add</span> <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">add</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">2</span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-constant z-numeric z-decimal z-ts">3</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 5</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import a class</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-variable z-other z-readwrite z-alias z-ts">Person</span> <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">person</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-new z-expr z-ts"><span class="z-keyword z-operator z-new z-ts">new</span> <span class="z-entity z-name z-type z-ts">Person</span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Bob<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-constant z-numeric z-decimal z-ts">30</span><span class="z-meta z-brace z-round z-ts">)</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> Bob</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 30</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import an object</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span> <span class="z-variable z-other z-readwrite z-ts">person</span> <span class="z-keyword z-control z-as z-ts">as</span> <span class="z-variable z-other z-readwrite z-alias z-ts">Alice</span> <span class="z-punctuation z-definition z-block z-ts">}</span></span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">Alice</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> Alice</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">Alice</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 25</span>
+</span></code></pre>
+<p>Note that ES6 modules are imported and executed only once, so if you import the same module multiple times, you will get the same instance of the module.</p>
+<h2 id="what-is-the-difference-between-export-default-and-module-exports">What is the difference between export default and module.exports?</h2>
+<p>One of the main differences between export default and module.exports is that export default is an ES6 feature, while module.exports is a CommonJS feature. Therefore, they are not compatible with each other by default. However, some tools like Babel or Webpack can transpile ES6 modules to CommonJS modules, or vice versa, to make them work together.</p>
+<p>Another difference is that export default can only export one value per module, while module.exports can export any value, including multiple values. For example:</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> my-module.js</span>
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export default a function</span>
+</span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-keyword z-control z-default z-ts">default</span> <span class="z-meta z-function z-expression z-ts"><span class="z-storage z-type z-function z-ts">function</span> <span class="z-meta z-definition z-function z-ts"><span class="z-entity z-name z-function z-ts">add</span></span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-variable z-parameter z-ts">a</span><span class="z-punctuation z-separator z-parameter z-ts">,</span> <span class="z-variable z-parameter z-ts">b</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-function z-expression z-ts"><span class="z-meta z-block z-ts">  <span class="z-keyword z-control z-flow z-ts">return</span> <span class="z-variable z-other z-readwrite z-ts">a</span> <span class="z-keyword z-operator z-arithmetic z-ts">+</span> <span class="z-variable z-other z-readwrite z-ts">b</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-function z-expression z-ts"><span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span></span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export default an object</span>
+</span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-keyword z-control z-default z-ts">default</span> <span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">name</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Alice<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">age</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-constant z-numeric z-decimal z-ts">25</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export default a class</span>
+</span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-keyword z-control z-default z-ts">default</span> <span class="z-meta z-class z-ts"><span class="z-storage z-type z-class z-ts">class</span> <span class="z-entity z-name z-type z-class z-ts">Person</span> <span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts">  <span class="z-storage z-type z-ts">constructor</span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-variable z-parameter z-ts">name</span><span class="z-punctuation z-separator z-parameter z-ts">,</span> <span class="z-variable z-parameter z-ts">age</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-language z-this z-ts">this</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-variable z-other z-readwrite z-ts">name</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-language z-this z-ts">this</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-variable z-other z-readwrite z-ts">age</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">  <span class="z-punctuation z-definition z-block z-ts">}</span></span></span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-export z-default z-ts"><span class="z-meta z-class z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span>
+</span></code></pre>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> my-module.js</span>
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export a function</span>
+</span><span class="z-source z-ts"><span class="z-support z-type z-object z-module z-ts">module</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-type z-object z-module z-ts">exports</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function z-ts"><span class="z-storage z-type z-function z-ts">function</span> <span class="z-meta z-definition z-function z-ts"><span class="z-entity z-name z-function z-ts">add</span></span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-variable z-parameter z-ts">a</span><span class="z-punctuation z-separator z-parameter z-ts">,</span> <span class="z-variable z-parameter z-ts">b</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts">  <span class="z-keyword z-control z-flow z-ts">return</span> <span class="z-variable z-other z-readwrite z-ts">a</span> <span class="z-keyword z-operator z-arithmetic z-ts">+</span> <span class="z-variable z-other z-readwrite z-ts">b</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span><span class="z-source z-ts"><span class="z-meta z-function z-ts"><span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export an object</span>
+</span><span class="z-source z-ts"><span class="z-support z-type z-object z-module z-ts">module</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-type z-object z-module z-ts">exports</span> <span class="z-keyword z-operator z-assignment z-ts">=</span><span class="z-meta z-objectliteral z-ts"> <span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">name</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Alice<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">age</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-constant z-numeric z-decimal z-ts">25</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> export a class</span>
+</span><span class="z-source z-ts"><span class="z-support z-type z-object z-module z-ts">module</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-type z-object z-module z-ts">exports</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-class z-ts"><span class="z-storage z-type z-class z-ts">class</span> <span class="z-entity z-name z-type z-class z-ts">Person</span> <span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts">  <span class="z-storage z-type z-ts">constructor</span><span class="z-meta z-parameters z-ts"><span class="z-punctuation z-definition z-parameters z-begin z-ts">(</span><span class="z-variable z-parameter z-ts">name</span><span class="z-punctuation z-separator z-parameter z-ts">,</span> <span class="z-variable z-parameter z-ts">age</span><span class="z-punctuation z-definition z-parameters z-end z-ts">)</span></span> <span class="z-meta z-block z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-language z-this z-ts">this</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-variable z-other z-readwrite z-ts">name</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">    <span class="z-variable z-language z-this z-ts">this</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span> <span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-variable z-other z-readwrite z-ts">age</span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-meta z-method z-declaration z-ts"><span class="z-meta z-block z-ts">  <span class="z-punctuation z-definition z-block z-ts">}</span></span></span>
+</span></span><span class="z-source z-ts"><span class="z-meta z-class z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span></code></pre>
+<p>Note that you can only have one export default statement per module, but you can have multiple module.exports statements. However, each module.exports statement will overwrite the previous one, so only the last one will be exported.</p>
+<p>To import a default export, you can use the import keyword without curly braces and assign any name to the imported value. For example:</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> main.js</span>
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import a default export</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-variable z-other z-readwrite z-alias z-ts">add</span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">add</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">2</span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-constant z-numeric z-decimal z-ts">3</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 5</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import another default export</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-variable z-other z-readwrite z-alias z-ts">person</span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> Alice</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 25</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import another default export</span>
+</span><span class="z-source z-ts"><span class="z-meta z-import z-ts"><span class="z-keyword z-control z-import z-ts">import</span> <span class="z-variable z-other z-readwrite z-alias z-ts">Person</span> <span class="z-keyword z-control z-from z-ts">from</span> <span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">person</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-new z-expr z-ts"><span class="z-keyword z-operator z-new z-ts">new</span> <span class="z-entity z-name z-type z-ts">Person</span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Bob<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-constant z-numeric z-decimal z-ts">30</span><span class="z-meta z-brace z-round z-ts">)</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> Bob</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 30</span>
+</span></code></pre>
+<p>To import a module.exports value, you can use the require function and assign any name to the imported value. For example:</p>
+<pre data-lang="javascript" class="language-javascript z-code"><code class="language-javascript" data-lang="javascript"><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> main.js</span>
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import a module.exports value</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">add</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-function z-ts">require</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-meta z-function-call z-ts"><span class="z-entity z-name z-function z-ts">add</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-constant z-numeric z-decimal z-ts">2</span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-constant z-numeric z-decimal z-ts">3</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 5</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import another module.exports value</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">person</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-function z-ts">require</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> Alice</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 25</span>
+</span><span class="z-source z-ts">
+</span><span class="z-source z-ts"><span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> import another module.exports value</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">Person</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-meta z-function-call z-ts"><span class="z-support z-function z-ts">require</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>./my-module.js<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-meta z-brace z-round z-ts">)</span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">person</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span> <span class="z-new z-expr z-ts"><span class="z-keyword z-operator z-new z-ts">new</span> <span class="z-entity z-name z-type z-ts">Person</span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-string z-quoted z-double z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&quot;</span>Bob<span class="z-punctuation z-definition z-string z-end z-ts">&quot;</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-constant z-numeric z-decimal z-ts">30</span><span class="z-meta z-brace z-round z-ts">)</span></span></span><span class="z-punctuation z-terminator z-statement z-ts">;</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-variable z-property z-dom z-ts">name</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> Bob</span>
+</span><span class="z-source z-ts"><span class="z-meta z-function-call z-ts"><span class="z-support z-class z-console z-ts">console</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-support z-function z-console z-ts">log</span></span><span class="z-meta z-brace z-round z-ts">(</span><span class="z-variable z-other z-object z-ts">person</span><span class="z-punctuation z-accessor z-ts">.</span><span class="z-variable z-other z-property z-ts">age</span><span class="z-meta z-brace z-round z-ts">)</span><span class="z-punctuation z-terminator z-statement z-ts">;</span> <span class="z-comment z-line z-double-slash z-ts"><span class="z-punctuation z-definition z-comment z-ts">//</span></span><span class="z-comment z-line z-double-slash z-ts"> 30</span>
+</span></code></pre>
+<p>Node’s JavaScript has diverged from that of the browser. Understanding both CommonJS modules and ES6 modules is your first step in becoming a 10X developer. Happy coding!</p>
+
+        </section>
+
+        
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+
+        
+        
+
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/javascript-exporting-modules/#what-are-modules">What are modules?</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/javascript-exporting-modules/#how-to-export-modules-in-node-js">How to export modules in Node.js?</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/javascript-exporting-modules/#how-to-export-modules-in-es6">How to export modules in ES6?</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/javascript-exporting-modules/#what-is-the-difference-between-export-default-and-module-exports">What is the difference between export default and module.exports?</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://andwati.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href=https://andwati.github.io/atom.xml>
+                        <img alt="feed" title="feed" src="https://andwati.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW5kd2F0aWlhbkBnbWFpbC5jb20="><img alt="email" title="email" src="https://andwati.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://github.com/andwati>
+                                <img alt=github title=github src="https://andwati.github.io/social_icons/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://youtube.com/@andwati>
+                                <img alt=youtube title=youtube src="https://andwati.github.io/social_icons/youtube.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://linkedin.com/in/andwati>
+                                <img alt=linkedin title=linkedin src="https://andwati.github.io/social_icons/linkedin.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://twitter.com/@andwati_>
+                                <img alt=twitter title=twitter src="https://andwati.github.io/social_icons/twitter.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                •
+                    <a rel=""  href="https:&#x2F;&#x2F;github.com&#x2F;andwati&#x2F;andwati.github.io">
+                        Site source
+                    </a></small>
+        </div>
+    </section>
+
+    <script src="https://andwati.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox", autocomplete="off", spellcheck="false" aria-expanded="false", aria-controls="results-container", placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info">
+                <span id="n-results">0</span>&nbsp;<span id="result-text-singular">result</span>
+                <span id="result-text-plural">results</span>
+            </div>
+        <div id="results" role="listbox"></div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

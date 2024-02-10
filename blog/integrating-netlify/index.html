@@ -1,0 +1,524 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://andwati.github.io">
+
+    
+    <title>Integrating Netlify CMS • echos from within</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://andwati.github.io/favicon.ico"/>
+    
+    
+        <link rel=icon href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 55"><text y=".7em" font-size="82">🌱</text></svg>'>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="echos from within" href="https://andwati.github.io/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" href="https://andwati.github.io/custom_subset.css?h=544e46044f6a0b88131c">
+    
+
+    
+        <link rel="stylesheet" href="https://andwati.github.io/main.css?h=535466ab6246c071418d" />
+        <link rel="stylesheet" href="https://andwati.github.io/skins/sakura.css?h=79eac8d397b4620ff948" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+        <meta name="description" content="Integrating netlify cms" />
+        <meta property="og:description" content="Integrating netlify cms" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Integrating Netlify CMS" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;blog&#x2F;integrating-netlify&#x2F;" /><meta property="og:site_name" content="echos from within"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;style-src &#x27;self&#x27;;;connect-src 'self' gc.zgo.at 'self' gc.zgo.at andwati.goatcounter.com;script-src 'self' gc.zgo.at 'self'">
+
+        <noscript><link rel="stylesheet" href="https://andwati.github.io/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://andwati.github.io/js/initializeTheme.min.js"></script>
+        <script defer src="https://andwati.github.io/js/themeSwitcher.min.js"></script>
+
+
+
+
+    
+    
+    <script async
+    
+        data-goatcounter="https://andwati.goatcounter.com/count"
+        src="https://gc.zgo.at/count.js"
+        
+    ></script>
+    
+
+
+
+        <script defer src="https://andwati.github.io/js/searchElasticlunr.min.js?h=5ddcb5767730b9edb560"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://andwati.github.io>echos from within</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/blog/">
+                                blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/archive/">
+                                archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/tags/">
+                                tags
+                                </a>
+                            </li>
+                        <li class="js">
+                        <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                            </svg>
+                        </div>
+                    </li>
+
+                    
+                    
+
+                    <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Integrating Netlify CMS
+        </h1>
+
+        <ul class="meta">
+            
+
+            
+                <li>
+
+
+
+
+
+    
+
+    
+        
+        
+            
+        
+    
+
+    
+    24th
+    
+        Nov 2022
+    
+
+
+</li>
+            
+
+            
+            
+                • <li title="1354 words">7&nbsp;min read</li>
+            •&nbsp;<li>Tags:&nbsp;</li><li><a href=https://andwati.github.io/tags/blog/>blog</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/hugo/>hugo</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/netlify/>netlify</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/netlify-cms/>netlify-cms</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/github/>github</a></li>
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            
+            
+            <p>Migrating to a better content management system through Netlify CMS</p>
+<span id="continue-reading"></span><h1 id="heavy-lifting">Heavy Lifting</h1>
+<p>I use <a href="https://code.visualstudio.com/">Visual Studio Code</a> to manually edit the blog post content on this website. This is quite a hassle because I have to deal with
+markdown files. There are many problems with this approach and several gotchas. I have to work on a local site repository to be able to edit the content. My GitHub credentials are also required to push my local changes to my remote repository on GitHub so that it can trigger the build process and publish the site.</p>
+<p>This process has helped me a lot to master markdown syntax and some practice on my git skills. It’s fun to update the website content following these steps but sometimes it can be frustrating. At those times, I really miss the user interface of content management systems. After careful consideration, I moved on with Netlify CMS. At its core, Netlify CMS is an open-source React app that acts as a wrapper for the Git workflow, using the GitHub, GitLab, or Bitbucket API. This provides many advantages, including:</p>
+<ul>
+<li><strong>Fast, web-based UI:</strong> With rich-text editing, real-time preview, and drag-and-drop media uploads.</li>
+<li><strong>Platform agnostic:</strong> Works with most static site generators.</li>
+<li><strong>Easy installation:</strong> Add two files to your site and hook up the backend by including those files in your build process or linking to our Content Delivery Network (CDN).</li>
+<li><strong>Modern authentication:</strong> Using GitHub, GitLab, or Bitbucket and JSON web tokens.</li>
+<li><strong>Flexible content types:</strong> Specify an unlimited number of content types with custom fields.</li>
+<li><strong>Fully extensible:</strong> Create custom-styled previews, UI widgets, and editor plugins.</li>
+</ul>
+<h1 id="redeploying-to-netlify">Redeploying to Netlify</h1>
+<p>I decided to move the site from GitHub pages to Netlify hosting to take full control of the platform. Hugo sites on Netlify can benefit from automatic framework detection and control over Hugo version selection. When you link a repository for a project, Netlify tries to detect the framework your site is using. If your site is built with Hugo, Netlify provides a suggested build command and publish directory: Hugo and public. The build process is straight forward but you can add custom options to your <code>netlify.toml</code> file, here are my options:</p>
+<pre data-lang="toml" class="language-toml z-code"><code class="language-toml" data-lang="toml"><span class="z-source z-toml"><span class="z-punctuation z-definition z-table z-begin z-toml">[</span><span class="z-meta z-tag z-table z-toml"><span class="z-entity z-name z-table z-toml">build</span></span><span class="z-punctuation z-definition z-table z-end z-toml">]</span>
+</span><span class="z-source z-toml"><span class="z-meta z-tag z-key z-toml"><span class="z-entity z-name z-tag z-toml">command</span></span> <span class="z-punctuation z-definition z-key-value z-toml">=</span> <span class="z-string z-quoted z-double z-basic z-toml"><span class="z-punctuation z-definition z-string z-begin z-toml">&quot;</span>hugo<span class="z-punctuation z-definition z-string z-end z-toml">&quot;</span></span>
+</span><span class="z-source z-toml"><span class="z-meta z-tag z-key z-toml"><span class="z-entity z-name z-tag z-toml">publish</span></span> <span class="z-punctuation z-definition z-key-value z-toml">=</span> <span class="z-string z-quoted z-double z-basic z-toml"><span class="z-punctuation z-definition z-string z-begin z-toml">&quot;</span>public<span class="z-punctuation z-definition z-string z-end z-toml">&quot;</span></span>
+</span><span class="z-source z-toml">
+</span><span class="z-source z-toml"><span class="z-punctuation z-definition z-table z-begin z-toml">[</span><span class="z-meta z-tag z-table z-toml"><span class="z-entity z-name z-table z-toml">build</span><span class="z-punctuation z-separator z-table z-toml">.</span><span class="z-entity z-name z-table z-toml">environment</span></span><span class="z-punctuation z-definition z-table z-end z-toml">]</span>
+</span><span class="z-source z-toml"><span class="z-meta z-tag z-key z-toml"><span class="z-entity z-name z-tag z-toml">HUGO_VERSION</span></span> <span class="z-punctuation z-definition z-key-value z-toml">=</span> <span class="z-string z-quoted z-double z-basic z-toml"><span class="z-punctuation z-definition z-string z-begin z-toml">&quot;</span>0.105.0<span class="z-punctuation z-definition z-string z-end z-toml">&quot;</span></span>
+</span></code></pre>
+<h1 id="setting-up-netlify-cms">Setting up Netlify CMS</h1>
+<p>You can adapt Netlify CMS to a wide variety of projects. It works with any content written in markdown, JSON, YAML, or TOML files, stored in a repo on GitHub, GitLab, or Bitbucket. You can Netlify CMS to a site that’s built with a common static site generator, like Jekyll, Hugo, Hexo, or Gatsby. The official documentation for installing on your website can be found at the <a href="https://www.netlifycms.org/docs/intro/">official site</a></p>
+<h2 id="steps">Steps</h2>
+<p><strong>Step 1</strong></p>
+<p>Create a static admin folder containing all Netlify CMS files, stored at the root of your published site. Where you store this folder in the source files depends on your static site generator. For Hugo, it is the <code>static</code> folder.</p>
+<p><code>/static/admin</code></p>
+<p><strong>Step 2</strong></p>
+<p>Inside the admin folder, create two files: <code>index.html</code> and <code>config.yml</code>. The first file <code>admin/index.html</code> is an entry point to Netlify CMS. You will access the CMS interface from <code>yourwebsite.com/admin</code> when everything is ready.</p>
+<p><strong>Step 3</strong></p>
+<p>The first file, <code>admin/index.html</code>, is the entry point for the Netlify CMS admin interface. Paste this code in index.html and save. This HTML starter page will load the Netlify CMS Javascript file:</p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-sgml z-doctype z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;!</span><span class="z-keyword z-declaration z-doctype z-html">DOCTYPE</span> <span class="z-constant z-language z-doctype z-html">html</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-structure z-any z-html">html</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-structure z-any z-html">head</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">meta</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">charset</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>utf-8<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">meta</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">name</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>viewport<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">content</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>width=device-width, initial-scale=1.0<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">title</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>Content Manager<span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-inline z-any z-html">title</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-structure z-any z-html">head</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-structure z-any z-html">body</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-comment z-block z-html"><span class="z-punctuation z-definition z-comment z-begin z-html">&lt;!--</span> Include the script that builds the page and powers Netlify CMS <span class="z-punctuation z-definition z-comment z-end z-html">--&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-script z-begin z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-script z-html">script</span></span><span class="z-meta z-tag z-script z-begin z-html"> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">src</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span><span class="z-meta z-tag z-script z-end z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-script z-html">script</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-structure z-any z-html">body</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-structure z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-structure z-any z-html">html</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<p><strong>Step 4</strong></p>
+<p>Now let’s move to the configuration section. These are the configurations that go into the <code>config.yml</code> file. This process is different for every site. I followed the guidelines on the website and made minor adjustments. It worked on my website. The configuration options are available at the <a href="https://www.netlifycms.org/docs/add-to-your-site/#:~:text=%2C%20MyTemplate)-,Configuration,-Configuration%20is%20different">docs</a>. This is how I configured my config.yml file:</p>
+<pre data-lang="yaml" class="language-yaml z-code"><code class="language-yaml" data-lang="yaml"><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">backend</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">name</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-unquoted z-plain z-out z-yaml">git-gateway</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">branch</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-unquoted z-plain z-out z-yaml">netlify-cms</span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Branch to update (optional; defaults to master)
+</span></span><span class="z-source z-yaml">
+</span><span class="z-source z-yaml"><span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> This line should *not* be indented
+</span></span><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">publish_mode</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-unquoted z-plain z-out z-yaml">editorial_workflow</span>
+</span><span class="z-source z-yaml">
+</span><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">media_folder</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>static/images/uploads<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Media files will be stored in the repo under static/images/uploads
+</span></span><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">public_folder</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>/images/uploads<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> The src attribute for uploaded media will begin with /images/uploads
+</span></span><span class="z-source z-yaml">
+</span><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">collections</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">  <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">name</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>post<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Used in routes, e.g., /admin/collections/blog
+</span></span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">label</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>posts<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Used in the UI
+</span></span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">folder</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>content/post<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> The path to the folder where the documents are stored
+</span></span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">create</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-constant z-language z-boolean z-yaml">true</span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Allow users to create new documents in this collection
+</span></span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">slug</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>{{year}}-{{month}}-{{day}}-{{slug}}<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Filename template, e.g., YYYY-MM-DD-title.md
+</span></span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">fields</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> The fields for each document, usually in front matter
+</span></span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Layout<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>layout<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>hidden<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">d</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">efault</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>blog<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Title<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>title<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>string<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Draft<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>draft<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>boolean<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">d</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">efault</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-constant z-language z-boolean z-yaml">true</span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Publish Date<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>date<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>datetime<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Last Modified<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>lastmod<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>datetime<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Body<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>body<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>markdown<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Keywords<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>keywords<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>list<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Tags<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>tags<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>list<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Categories<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>categories<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>list<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Comments<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>comment<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>boolean<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span> <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">d</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">efault</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-constant z-language z-boolean z-yaml">true</span> </span><span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-meta z-flow-mapping z-yaml"><span class="z-punctuation z-definition z-mapping z-begin z-yaml">{</span>
+</span></span><span class="z-source z-yaml"><span class="z-meta z-flow-mapping z-yaml">          <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">l</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">abel</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>Table of Contents<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span>
+</span></span><span class="z-source z-yaml"><span class="z-meta z-flow-mapping z-yaml">          <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">n</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">ame</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>toc<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span>
+</span></span><span class="z-source z-yaml"><span class="z-meta z-flow-mapping z-yaml">          <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">w</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">idget</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>boolean<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span>
+</span></span><span class="z-source z-yaml"><span class="z-meta z-flow-mapping z-yaml">          <span class="z-meta z-flow-pair z-key z-yaml"><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">d</span></span></span><span class="z-string z-unquoted z-plain z-in z-yaml"><span class="z-entity z-name z-tag z-yaml">efault</span></span><span class="z-meta z-flow-pair z-yaml"><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span></span><span class="z-meta z-flow-pair z-value z-yaml"> <span class="z-constant z-language z-boolean z-yaml">true</span></span><span class="z-punctuation z-separator z-mapping z-yaml">,</span>
+</span></span><span class="z-source z-yaml"><span class="z-meta z-flow-mapping z-yaml">        <span class="z-punctuation z-definition z-mapping z-end z-yaml">}</span></span>
+</span></code></pre>
+<p><strong>Step 5</strong></p>
+<p><strong>Authentication</strong></p>
+<p>Now that the Netlify CMS files are in place and configured, all that’s left is to enable authentication.
+Netlify offers a built-in authentication service called Identity. In order to use it, connect your site repo with Netlify. Netlify has published a general <a href="https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/">Step-by-Step Guide</a> for this, along with detailed guides for many popular static site generators</p>
+<p>Let’s first enable Netlify Identity and Git Gateway:</p>
+<ul>
+<li>On your Netlify account, go to <strong>Settings &gt; Identity</strong> and select <strong>Enable Identity Service</strong></li>
+<li>Under <strong>Registration preferences</strong>, select <strong>Invite Only</strong>.</li>
+<li>If you want to enable login from external providers such as Google and GitHub, check the boxes you want to use, under <strong>External Providers</strong> section. I find it practical to log in with GitHub, so I added it.</li>
+<li>Go to <strong>Services &gt; Git Gateway</strong>, and click <strong>Enable Git Gateway</strong>. This authenticates with your Git Host and generates and API token.</li>
+<li>Everything is almost set up. What we need now is a front-end interface to connect. We will add the following script in two places, to include the <strong>Netlify Identity Widget</strong> on our website:</li>
+</ul>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-script z-begin z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-script z-html">script</span></span><span class="z-meta z-tag z-script z-begin z-html"> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">src</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>https://identity.netlify.com/v1/netlify-identity-widget.js<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span><span class="z-meta z-tag z-script z-end z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-script z-html">script</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<p>We will use Netlify’s <a href="https://docs.netlify.com/site-deploys/post-processing/snippet-injection/">script injection</a> feature to add the script to our site. To use snippet injection, go to <strong>Site Settings &gt; Build &amp; Deploy &gt; Post processing</strong>. Find the Snippet Injection section and select <strong>Add Snippet</strong>. Write a name for the script in the first box (e.g. Netlify Identity Widget). Paste the script inside the second box. Choose Insert before the <code>&lt;/body&gt;</code> option and save.</p>
+<p>Lastly, we will add the following script before the closing <code>&lt;body&gt;</code> tag of our website’s main index page. This script allows the user to redirect back to the <code>/admin/</code> path after completing the login with the Netlify Identity Widget:</p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-script z-begin z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-script z-html">script</span></span><span class="z-meta z-tag z-script z-begin z-html"><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">  <span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-keyword z-control z-conditional z-if z-js">if</span> <span class="z-meta z-group z-js"><span class="z-punctuation z-section z-group z-begin z-js">(</span><span class="z-support z-type z-object z-dom z-js">window</span><span class="z-punctuation z-accessor z-js">.</span><span class="z-meta z-property z-object z-js">netlifyIdentity</span><span class="z-punctuation z-section z-group z-end z-js">)</span></span> <span class="z-meta z-block z-js"><span class="z-punctuation z-section z-block z-begin z-js">{</span>
+</span></span></span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js">    <span class="z-meta z-function-call z-method z-js"><span class="z-support z-type z-object z-dom z-js">window</span><span class="z-punctuation z-accessor z-js">.</span><span class="z-meta z-property z-object z-js">netlifyIdentity</span><span class="z-punctuation z-accessor z-js">.</span><span class="z-variable z-function z-js">on</span><span class="z-meta z-group z-js"><span class="z-punctuation z-section z-group z-begin z-js">(</span><span class="z-meta z-string z-js"><span class="z-string z-quoted z-double z-js"><span class="z-punctuation z-definition z-string z-begin z-js">&quot;</span>init<span class="z-punctuation z-definition z-string z-end z-js">&quot;</span></span></span><span class="z-punctuation z-separator z-comma z-js">,</span> <span class="z-meta z-function z-js"></span><span class="z-meta z-function z-declaration z-js"><span class="z-punctuation z-section z-group z-begin z-js">(</span><span class="z-meta z-binding z-name z-js"><span class="z-variable z-parameter z-function z-js">user</span></span><span class="z-punctuation z-section z-group z-end z-js">)</span> <span class="z-storage z-type z-function z-arrow z-js">=&gt;</span></span><span class="z-meta z-function z-js"> <span class="z-meta z-block z-js"><span class="z-punctuation z-section z-block z-begin z-js">{</span>
+</span></span></span></span></span></span></span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js"><span class="z-meta z-function-call z-method z-js"><span class="z-meta z-group z-js"><span class="z-meta z-function z-js"><span class="z-meta z-block z-js">      <span class="z-meta z-conditional z-js"><span class="z-keyword z-control z-conditional z-if z-js">if</span> <span class="z-meta z-group z-js"><span class="z-punctuation z-section z-group z-begin z-js">(</span><span class="z-keyword z-operator z-logical z-js">!</span><span class="z-variable z-other z-readwrite z-js">user</span><span class="z-punctuation z-section z-group z-end z-js">)</span></span> <span class="z-meta z-block z-js"><span class="z-punctuation z-section z-block z-begin z-js">{</span>
+</span></span></span></span></span></span></span></span></span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js"><span class="z-meta z-function-call z-method z-js"><span class="z-meta z-group z-js"><span class="z-meta z-function z-js"><span class="z-meta z-block z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js">        <span class="z-meta z-function-call z-method z-js"><span class="z-support z-type z-object z-dom z-js">window</span><span class="z-punctuation z-accessor z-js">.</span><span class="z-meta z-property z-object z-js">netlifyIdentity</span><span class="z-punctuation z-accessor z-js">.</span><span class="z-variable z-function z-js">on</span><span class="z-meta z-group z-js"><span class="z-punctuation z-section z-group z-begin z-js">(</span><span class="z-meta z-string z-js"><span class="z-string z-quoted z-double z-js"><span class="z-punctuation z-definition z-string z-begin z-js">&quot;</span>login<span class="z-punctuation z-definition z-string z-end z-js">&quot;</span></span></span><span class="z-punctuation z-separator z-comma z-js">,</span> <span class="z-meta z-function z-js"></span><span class="z-meta z-function z-declaration z-js"><span class="z-punctuation z-section z-group z-begin z-js">(</span><span class="z-punctuation z-section z-group z-end z-js">)</span> <span class="z-storage z-type z-function z-arrow z-js">=&gt;</span></span><span class="z-meta z-function z-js"> <span class="z-meta z-block z-js"><span class="z-punctuation z-section z-block z-begin z-js">{</span>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js"><span class="z-meta z-function-call z-method z-js"><span class="z-meta z-group z-js"><span class="z-meta z-function z-js"><span class="z-meta z-block z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js"><span class="z-meta z-function-call z-method z-js"><span class="z-meta z-group z-js"><span class="z-meta z-function z-js"><span class="z-meta z-block z-js">          <span class="z-support z-type z-object z-dom z-js">document</span><span class="z-punctuation z-accessor z-js">.</span><span class="z-meta z-property z-object z-js">location</span><span class="z-punctuation z-accessor z-js">.</span><span class="z-meta z-property z-object z-js">href</span> <span class="z-keyword z-operator z-assignment z-js">=</span> <span class="z-meta z-string z-js"><span class="z-string z-quoted z-double z-js"><span class="z-punctuation z-definition z-string z-begin z-js">&quot;</span>/admin/<span class="z-punctuation z-definition z-string z-end z-js">&quot;</span></span></span><span class="z-punctuation z-terminator z-statement z-js">;</span>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js"><span class="z-meta z-function-call z-method z-js"><span class="z-meta z-group z-js"><span class="z-meta z-function z-js"><span class="z-meta z-block z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js"><span class="z-meta z-function-call z-method z-js"><span class="z-meta z-group z-js"><span class="z-meta z-function z-js"><span class="z-meta z-block z-js">        <span class="z-punctuation z-section z-block z-end z-js">}</span></span></span><span class="z-punctuation z-section z-group z-end z-js">)</span></span></span><span class="z-punctuation z-terminator z-statement z-js">;</span>
+</span></span></span></span></span></span></span></span></span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js"><span class="z-meta z-function-call z-method z-js"><span class="z-meta z-group z-js"><span class="z-meta z-function z-js"><span class="z-meta z-block z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js">      <span class="z-punctuation z-section z-block z-end z-js">}</span></span></span>
+</span></span></span></span></span></span></span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js"><span class="z-meta z-function-call z-method z-js"><span class="z-meta z-group z-js"><span class="z-meta z-function z-js"><span class="z-meta z-block z-js">    <span class="z-punctuation z-section z-block z-end z-js">}</span></span></span><span class="z-punctuation z-section z-group z-end z-js">)</span></span></span><span class="z-punctuation z-terminator z-statement z-js">;</span>
+</span></span></span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"><span class="z-meta z-conditional z-js"><span class="z-meta z-block z-js">  <span class="z-punctuation z-section z-block z-end z-js">}</span></span></span>
+</span></span></span><span class="z-text z-html z-basic"><span class="z-source z-js z-embedded z-html"><span class="z-source z-js"></span></span><span class="z-meta z-tag z-script z-end z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-script z-html">script</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<p><strong>Step 5</strong></p>
+<p>Now we’re all set. Since we set our registration preferences to <strong>“Invite Only”</strong>, we need to invite ourselves as site users. To do this, select the Identity tab from the Netlify site dashboard and select the Invite Users button. Add your email address and send an invitation. You will receive an email. In your email, click <strong>“accept the invitation”</strong>. You will be directed to your website admin sign-up panel. Choose a password. Now you are ready to log in to Netlify CMS.</p>
+<h1 id="setting-up-a-custom-domain">Setting up a custom domain</h1>
+<p>I﻿ bought a custom domain from <a href="https://namecheap.com">Namecheap</a>, they provide some pretty good deals. After pointing the nameservers for the domain to the Netlify nameservers, voila! everything worked smoothly. For HTTPS support, Netlify enables automatic TLS certificates with Let’s Encrypt.</p>
+
+        </section>
+
+        
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+
+        
+        
+
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/integrating-netlify/#heavy-lifting">Heavy Lifting</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/integrating-netlify/#redeploying-to-netlify">Redeploying to Netlify</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/integrating-netlify/#setting-up-netlify-cms">Setting up Netlify CMS</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://andwati.github.io/blog/integrating-netlify/#steps">Steps</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/integrating-netlify/#setting-up-a-custom-domain">Setting up a custom domain</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://andwati.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href=https://andwati.github.io/atom.xml>
+                        <img alt="feed" title="feed" src="https://andwati.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW5kd2F0aWlhbkBnbWFpbC5jb20="><img alt="email" title="email" src="https://andwati.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://github.com/andwati>
+                                <img alt=github title=github src="https://andwati.github.io/social_icons/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://youtube.com/@andwati>
+                                <img alt=youtube title=youtube src="https://andwati.github.io/social_icons/youtube.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://linkedin.com/in/andwati>
+                                <img alt=linkedin title=linkedin src="https://andwati.github.io/social_icons/linkedin.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://twitter.com/@andwati_>
+                                <img alt=twitter title=twitter src="https://andwati.github.io/social_icons/twitter.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                •
+                    <a rel=""  href="https:&#x2F;&#x2F;github.com&#x2F;andwati&#x2F;andwati.github.io">
+                        Site source
+                    </a></small>
+        </div>
+    </section>
+
+    <script src="https://andwati.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox", autocomplete="off", spellcheck="false" aria-expanded="false", aria-controls="results-container", placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info">
+                <span id="n-results">0</span>&nbsp;<span id="result-text-singular">result</span>
+                <span id="result-text-plural">results</span>
+            </div>
+        <div id="results" role="listbox"></div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

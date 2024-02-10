@@ -1,0 +1,497 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://andwati.github.io">
+
+    
+    <title>Setting up Obsidian sync in Windows • echos from within</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://andwati.github.io/favicon.ico"/>
+    
+    
+        <link rel=icon href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 55"><text y=".7em" font-size="82">🌱</text></svg>'>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="echos from within" href="https://andwati.github.io/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" href="https://andwati.github.io/custom_subset.css?h=544e46044f6a0b88131c">
+    
+
+    
+        <link rel="stylesheet" href="https://andwati.github.io/main.css?h=535466ab6246c071418d" />
+        <link rel="stylesheet" href="https://andwati.github.io/skins/sakura.css?h=79eac8d397b4620ff948" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+        <meta name="description" content="Syncing Obsidian in Windows with Windows Task Scheduler with git" />
+        <meta property="og:description" content="Syncing Obsidian in Windows with Windows Task Scheduler with git" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Setting up Obsidian sync in Windows" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;blog&#x2F;obsidian-sync&#x2F;" /><meta property="og:site_name" content="echos from within"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;style-src &#x27;self&#x27;;;connect-src 'self' gc.zgo.at 'self' gc.zgo.at andwati.goatcounter.com;script-src 'self' gc.zgo.at 'self'">
+
+        <noscript><link rel="stylesheet" href="https://andwati.github.io/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://andwati.github.io/js/initializeTheme.min.js"></script>
+        <script defer src="https://andwati.github.io/js/themeSwitcher.min.js"></script>
+
+
+
+
+    
+    
+    <script async
+    
+        data-goatcounter="https://andwati.goatcounter.com/count"
+        src="https://gc.zgo.at/count.js"
+        
+    ></script>
+    
+
+
+
+        <script defer src="https://andwati.github.io/js/searchElasticlunr.min.js?h=5ddcb5767730b9edb560"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://andwati.github.io>echos from within</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/blog/">
+                                blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/archive/">
+                                archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/tags/">
+                                tags
+                                </a>
+                            </li>
+                        <li class="js">
+                        <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                            </svg>
+                        </div>
+                    </li>
+
+                    
+                    
+
+                    <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Setting up Obsidian sync in Windows
+        </h1>
+
+        <ul class="meta">
+            
+
+            
+                <li>
+
+
+
+
+
+    
+
+    
+        
+        
+            
+        
+    
+
+    
+    1st
+    
+        Oct 2023
+    
+
+
+</li>
+            
+
+            
+            
+                • <li title="805 words">5&nbsp;min read</li>
+            •&nbsp;<li>Tags:&nbsp;</li><li><a href=https://andwati.github.io/tags/obsidian/>obsidian</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/git/>git</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/sync/>sync</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/windows/>windows</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/cron/>cron</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/task-scheduler/>task scheduler</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/powershell/>powershell</a></li>
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            
+            
+            <p>Syncing Obsidian in Windows with Windows Task Scheduler and git</p>
+<span id="continue-reading"></span>
+<p><a href="https://obsidian.md/">Obsidian</a> is a powerful note-taking and knowledge management tool that has gained a dedicated following among researchers, writers, and knowledge workers. To make the most of Obsidian, it’s essential to keep your notes synchronized across devices and ensure your data is regularly backed up.Obsidian is the private and flexible writing app that adapts to the way you think.</p>
+<p>Obsidian is free for personal use.It does not charge based on features or usage.You only pay if you use Obsidian commercially.</p>
+<p>In this article, we’ll guide you through the process of setting up automated synchronization for your Obsidian vault on Windows using Windows Task Scheduler and a PowerShell script.<sup class="footnote-reference"><a href="#note">1</a></sup></p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before we dive into setting up the synchronization task, ensure you have the following prerequisites in place:</p>
+<ol>
+<li>
+<p><strong>Obsidian Installed:</strong> Make sure Obsidian is <a href="https://obsidian.md/download">installed</a> on your Windows computer, and you have an existing Obsidian vault that you want to sync.</p>
+</li>
+<li>
+<p><strong>Git Installed:</strong> You’ll need Git installed and configured with your Obsidian vault’s repository. If you haven’t already done this, you can download Git from the <a href="https://git-scm.com/downloads">official website</a> and follow the installation instructions.</p>
+</li>
+<li>
+<p><strong>PowerShell Script:</strong> The provided PowerShell script, sync.ps1, should be located in your Obsidian vault folder.</p>
+</li>
+</ol>
+<h2 id="understanding-the-powershell-script">Understanding the PowerShell Script</h2>
+<p>The provided PowerShell script, sync.ps1, is the heart of our synchronization task. It automates the process of committing changes in your Obsidian vault’s Git repository and pushing them to your remote repository (e.g., GitHub or GitLab). Here’s a brief overview of the script:</p>
+<pre data-lang="ps1" class="language-ps1 z-code"><code class="language-ps1" data-lang="ps1"><span class="z-source z-powershell"><span class="z-comment z-line z-powershell"><span class="z-punctuation z-definition z-comment z-powershell">#</span> Define the folder path<span class="z-punctuation z-definition z-comment z-powershell">
+</span></span></span><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>FolderPath</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-string z-quoted z-double z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&quot;</span>C:\path\to\obsidian-vault<span class="z-punctuation z-definition z-string z-end z-powershell">&quot;</span></span>
+</span><span class="z-source z-powershell">
+</span><span class="z-source z-powershell"><span class="z-comment z-line z-powershell"><span class="z-punctuation z-definition z-comment z-powershell">#</span> Change directory to the repository folder<span class="z-punctuation z-definition z-comment z-powershell">
+</span></span></span><span class="z-source z-powershell"><span class="z-support z-function z-powershell">Set-Location</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Path <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>FolderPath</span>
+</span><span class="z-source z-powershell">
+</span><span class="z-source z-powershell"><span class="z-comment z-line z-powershell"><span class="z-punctuation z-definition z-comment z-powershell">#</span> Check if the working tree is clean<span class="z-punctuation z-definition z-comment z-powershell">
+</span></span></span><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>IsClean</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-punctuation z-section z-group z-begin z-powershell">(</span><span class="z-interpolated z-simple z-source z-powershell">git diff<span class="z-keyword z-operator z-assignment z-powershell">-</span>index <span class="z-keyword z-operator z-assignment z-powershell">-</span><span class="z-keyword z-operator z-assignment z-powershell">-</span>quiet HEAD <span class="z-keyword z-operator z-assignment z-powershell">-</span><span class="z-keyword z-operator z-assignment z-powershell">-</span></span><span class="z-punctuation z-section z-group z-end z-powershell">)</span> <span class="z-keyword z-operator z-logical z-powershell">-or</span> <span class="z-punctuation z-section z-group z-begin z-powershell">(</span><span class="z-interpolated z-simple z-source z-powershell">git diff<span class="z-keyword z-operator z-assignment z-powershell">-</span>files <span class="z-keyword z-operator z-assignment z-powershell">-</span><span class="z-keyword z-operator z-assignment z-powershell">-</span>quiet</span><span class="z-punctuation z-section z-group z-end z-powershell">)</span>
+</span><span class="z-source z-powershell">
+</span><span class="z-source z-powershell"><span class="z-keyword z-control z-powershell">if</span> <span class="z-punctuation z-section z-group z-begin z-powershell">(</span><span class="z-interpolated z-simple z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>IsClean</span></span><span class="z-punctuation z-section z-group z-end z-powershell">)</span> <span class="z-meta z-scriptblock z-powershell"><span class="z-punctuation z-section z-braces z-begin z-powershell">{</span>
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    <span class="z-support z-function z-powershell">Write-Host</span> <span class="z-string z-quoted z-double z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&quot;</span>Working tree is clean. Skipping commit and pushing changes.<span class="z-punctuation z-definition z-string z-end z-powershell">&quot;</span></span>
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    git push
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell"><span class="z-punctuation z-section z-braces z-end z-powershell">}</span></span> <span class="z-keyword z-control z-powershell">else</span> <span class="z-meta z-scriptblock z-powershell"><span class="z-punctuation z-section z-braces z-begin z-powershell">{</span>
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    <span class="z-comment z-line z-powershell"><span class="z-punctuation z-definition z-comment z-powershell">#</span> Get the current date in the desired format (Day - Date)<span class="z-punctuation z-definition z-comment z-powershell">
+</span></span></span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>CommitMessage</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-string z-quoted z-double z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&quot;</span><span class="z-punctuation z-definition z-variable z-powershell">$</span><span class="z-punctuation z-section z-group z-begin z-powershell">(</span><span class="z-interpolated z-complex z-source z-powershell"><span class="z-support z-function z-powershell">Get-Date</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Format <span class="z-string z-quoted z-single z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&#39;</span>dddd - yyyy-MM-dd HH:mm:ss<span class="z-punctuation z-definition z-string z-end z-powershell">&#39;</span></span></span><span class="z-punctuation z-section z-group z-end z-powershell">)</span><span class="z-punctuation z-definition z-string z-end z-powershell">&quot;</span></span>
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    <span class="z-comment z-line z-powershell"><span class="z-punctuation z-definition z-comment z-powershell">#</span> Commit the changes<span class="z-punctuation z-definition z-comment z-powershell">
+</span></span></span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    git add .
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    git commit <span class="z-keyword z-operator z-assignment z-powershell">-</span>m <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>CommitMessage</span>
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    <span class="z-comment z-line z-powershell"><span class="z-punctuation z-definition z-comment z-powershell">#</span> Push the changes<span class="z-punctuation z-definition z-comment z-powershell">
+</span></span></span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell">    git push
+</span></span><span class="z-source z-powershell"><span class="z-meta z-scriptblock z-powershell"><span class="z-punctuation z-section z-braces z-end z-powershell">}</span></span>
+</span></code></pre>
+<p>This script does the following:</p>
+<ul>
+<li>Sets the folder path to your Obsidian vault.</li>
+<li>Checks if there are any changes to commit. If the vault is clean (no changes), it skips the commit and only pushes changes.</li>
+<li>If there are changes, it commits them with a timestamped message and then pushes them to the remote repository.</li>
+</ul>
+<h2 id="setting-up-windows-task-scheduler">Setting up Windows Task Scheduler</h2>
+<p>Now that we have our PowerShell script ready, let’s set up a scheduled task using Windows Task Scheduler to automate the synchronization process. Follow these steps:</p>
+<ol>
+<li>
+<p><strong>Open an Elevated PowerShell Prompt:</strong> To run the necessary commands, open PowerShell as an administrator.</p>
+</li>
+<li>
+<p><strong>Define Task Variables:</strong> Execute the following commands to define variables for your task:</p>
+<pre data-lang="ps1" class="language-ps1 z-code"><code class="language-ps1" data-lang="ps1"><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>ScriptPath</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-string z-quoted z-double z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&quot;</span>C:\path\to\obsidian-vault\sync.ps1<span class="z-punctuation z-definition z-string z-end z-powershell">&quot;</span></span>
+</span><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>TaskName</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-string z-quoted z-double z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&quot;</span>obsidian-sync<span class="z-punctuation z-definition z-string z-end z-powershell">&quot;</span></span>
+</span><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>UserAccount</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-string z-quoted z-double z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&quot;</span><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span><span class="z-support z-variable z-drive z-powershell">env:</span>USERDOMAIN</span>\<span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span><span class="z-support z-variable z-drive z-powershell">env:</span>USERNAME</span><span class="z-punctuation z-definition z-string z-end z-powershell">&quot;</span></span>
+</span></code></pre>
+<p>Replace $ScriptPath with the actual path to your sync.ps1 script, $TaskName with a name for your task.</p>
+</li>
+<li>
+<p><strong>Configure Task Trigger:</strong> Set up a trigger for your task. In this example, we’ll schedule the task to run daily at 9:00 PM:</p>
+<pre data-lang="ps1" class="language-ps1 z-code"><code class="language-ps1" data-lang="ps1"><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Trigger</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-support z-function z-powershell">New-ScheduledTaskTrigger</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Daily <span class="z-keyword z-operator z-assignment z-powershell">-</span>At <span class="z-string z-quoted z-single z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&#39;</span>9:00 PM<span class="z-punctuation z-definition z-string z-end z-powershell">&#39;</span></span>
+</span></code></pre>
+<p>You can adjust the schedule according to your preference.</p>
+</li>
+<li>
+<p>Define Task Principal and Settings: Configure the task’s principal (the user account under which the task will run) and settings:</p>
+<pre data-lang="ps1" class="language-ps1 z-code"><code class="language-ps1" data-lang="ps1"><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Principal</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-support z-function z-powershell">New-ScheduledTaskPrincipal</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>UserId <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>UserAccount</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>RunLevel Highest
+</span><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Settings</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-support z-function z-powershell">New-ScheduledTaskSettingsSet</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>AllowStartIfOnBatteries <span class="z-keyword z-operator z-assignment z-powershell">-</span>RunOnlyIfNetworkAvailable <span class="z-keyword z-operator z-assignment z-powershell">-</span>WakeToRun
+</span></code></pre>
+<p>These settings ensure that the task runs with the necessary privileges and conditions.</p>
+</li>
+<li>
+<p><strong>Define Task Action:</strong> Specify the action that the task will perform, which is running the PowerShell script:</p>
+<pre data-lang="ps1" class="language-ps1 z-code"><code class="language-ps1" data-lang="ps1"><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Action</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-support z-function z-powershell">New-ScheduledTaskAction</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Execute <span class="z-string z-quoted z-single z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&#39;</span>PowerShell.exe<span class="z-punctuation z-definition z-string z-end z-powershell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Argument <span class="z-string z-quoted z-double z-powershell"><span class="z-punctuation z-definition z-string z-begin z-powershell">&quot;</span>-ExecutionPolicy Bypass -WindowStyle Hidden -File <span class="z-constant z-character z-escape z-powershell">`&quot;</span><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>ScriptPath</span><span class="z-constant z-character z-escape z-powershell">`&quot;</span><span class="z-punctuation z-definition z-string z-end z-powershell">&quot;</span></span>
+</span></code></pre>
+<p>This action runs PowerShell with the provided script.</p>
+</li>
+<li>
+<p><strong>Create the Scheduled Task:</strong> Finally, create the scheduled task and register it with Windows Task Scheduler:</p>
+<pre data-lang="ps1" class="language-ps1 z-code"><code class="language-ps1" data-lang="ps1"><span class="z-source z-powershell"><span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Task</span> <span class="z-keyword z-operator z-assignment z-powershell">=</span> <span class="z-support z-function z-powershell">New-ScheduledTask</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Action <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Action</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Trigger <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Trigger</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Principal <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Principal</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>Settings <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Settings</span>
+</span><span class="z-source z-powershell"><span class="z-support z-function z-powershell">Register-ScheduledTask</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>TaskName <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>TaskName</span> <span class="z-keyword z-operator z-assignment z-powershell">-</span>InputObject <span class="z-variable z-other z-readwrite z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>Task</span>
+</span></code></pre>
+</li>
+</ol>
+<p>The Obsidian synchronization task is now set up and ready to run automatically based on the schedule you defined.</p>
+<h1 id="inspiration">Inspiration</h1>
+<p>When looking up on how to implement this I found some breakthrough from this <a href="https://stackoverflow.com/questions/7195503/setting-up-a-cron-job-in-windows">stack overflow</a> post. There are suggestions on how to do this using cron jobs in wsl. They are worth a look at. This article on <a href="https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/new-scheduledtask?view=windowsserver2022-ps">powershell</a> with windows server was also helpful.</p>
+<div class="footnote-definition" id="note"><sup class="footnote-definition-label">1</sup>
+<p>This method is only optimal for desktop sync. To sync across devices obsidian has a paid plan that has some extra features Such as Sync notes across devices, End-to-end encryption, Version history, Priority email support. Consider checking it out at <a href="https://obsidian.md/pricing">https://obsidian.md/pricing</a></p>
+</div>
+
+        </section>
+
+        
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+
+        
+        
+
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/obsidian-sync/#prerequisites">Prerequisites</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/obsidian-sync/#understanding-the-powershell-script">Understanding the PowerShell Script</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/obsidian-sync/#setting-up-windows-task-scheduler">Setting up Windows Task Scheduler</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/obsidian-sync/#inspiration">Inspiration</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://andwati.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href=https://andwati.github.io/atom.xml>
+                        <img alt="feed" title="feed" src="https://andwati.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW5kd2F0aWlhbkBnbWFpbC5jb20="><img alt="email" title="email" src="https://andwati.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://github.com/andwati>
+                                <img alt=github title=github src="https://andwati.github.io/social_icons/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://youtube.com/@andwati>
+                                <img alt=youtube title=youtube src="https://andwati.github.io/social_icons/youtube.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://linkedin.com/in/andwati>
+                                <img alt=linkedin title=linkedin src="https://andwati.github.io/social_icons/linkedin.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://twitter.com/@andwati_>
+                                <img alt=twitter title=twitter src="https://andwati.github.io/social_icons/twitter.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                •
+                    <a rel=""  href="https:&#x2F;&#x2F;github.com&#x2F;andwati&#x2F;andwati.github.io">
+                        Site source
+                    </a></small>
+        </div>
+    </section>
+
+    <script src="https://andwati.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox", autocomplete="off", spellcheck="false" aria-expanded="false", aria-controls="results-container", placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info">
+                <span id="n-results">0</span>&nbsp;<span id="result-text-singular">result</span>
+                <span id="result-text-plural">results</span>
+            </div>
+        <div id="results" role="listbox"></div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

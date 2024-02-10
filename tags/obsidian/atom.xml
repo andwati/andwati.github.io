@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://andwati.github.io/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:base="http://purl.org/atompub/base/1.0/" xml:lang="en" xml:base="https:&#x2F;&#x2F;andwati.github.io">
+    <str:translations xmlns:str="https://github.com/welpo/tabi">
+        <str:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It's free.</str:about_feeds>
+        <str:visit_the_site>Visit website</str:visit_the_site>
+        <str:recent_posts>Recent posts</str:recent_posts>
+    </str:translations><link rel="extra-stylesheet" href="https://andwati.github.io/skins/sakura.css?h=79eac8d397b4620ff948" /><title>echos from within - obsidian</title>
+        <subtitle>Software engineer</subtitle>
+    <link href="https://andwati.github.io/tags/obsidian/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://andwati.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-10-01T00:00:00+00:00</updated>
+    <id>https://andwati.github.io/tags/obsidian/atom.xml</id><entry xml:lang="en">
+        <title>Setting up Obsidian sync in Windows</title>
+        <published>2023-10-01T00:00:00+00:00</published>
+        <updated>2023-10-01T00:00:00+00:00</updated>
+        <author>
+            <name>Ian Andwati</name>
+        </author>
+        <link rel="alternate" href="https://andwati.github.io/blog/obsidian-sync/" type="text/html"/>
+        <id>https://andwati.github.io/blog/obsidian-sync/</id>
+        <summary type="html">Syncing Obsidian in Windows with Windows Task Scheduler and git
+…</summary>
+        </entry>
+</feed>

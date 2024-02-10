@@ -1,0 +1,615 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://andwati.github.io">
+
+    
+    <title>Install PostgreSQL  on Arch | Manjaro | Garuda Linux • echos from within</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://andwati.github.io/favicon.ico"/>
+    
+    
+        <link rel=icon href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 55"><text y=".7em" font-size="82">🌱</text></svg>'>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="echos from within" href="https://andwati.github.io/atom.xml">
+
+    
+    
+    
+        <link rel="stylesheet" href="https://andwati.github.io/custom_subset.css?h=544e46044f6a0b88131c">
+    
+
+    
+        <link rel="stylesheet" href="https://andwati.github.io/main.css?h=535466ab6246c071418d" />
+        <link rel="stylesheet" href="https://andwati.github.io/skins/sakura.css?h=79eac8d397b4620ff948" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+        <meta name="description" content="Getting PostgreSQL up and running on Arch Linux-based distros" />
+        <meta property="og:description" content="Getting PostgreSQL up and running on Arch Linux-based distros" />
+
+    
+        <meta name="robots" content="index, nofollow" />
+    
+
+    <meta property="og:title" content="Install PostgreSQL  on Arch | Manjaro | Garuda Linux" />
+    <meta property="og:type" content="article" />
+
+    
+
+    <meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;blog&#x2F;install-postgresql-15-on-arch-manjaro-garuda-linux&#x2F;" /><meta property="og:site_name" content="echos from within"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;style-src &#x27;self&#x27;;;connect-src 'self' gc.zgo.at 'self' gc.zgo.at andwati.goatcounter.com;script-src 'self' gc.zgo.at 'self'">
+
+        <noscript><link rel="stylesheet" href="https://andwati.github.io/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://andwati.github.io/js/initializeTheme.min.js"></script>
+        <script defer src="https://andwati.github.io/js/themeSwitcher.min.js"></script>
+
+
+
+
+    
+    
+    <script async
+    
+        data-goatcounter="https://andwati.goatcounter.com/count"
+        src="https://gc.zgo.at/count.js"
+        
+    ></script>
+    
+
+
+
+        <script defer src="https://andwati.github.io/js/searchElasticlunr.min.js?h=5ddcb5767730b9edb560"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://andwati.github.io>echos from within</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/blog/">
+                                blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/archive/">
+                                archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                
+                                <a class="nav-links no-hover-padding" href="https://andwati.github.io/tags/">
+                                tags
+                                </a>
+                            </li>
+                        <li class="js">
+                        <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                            </svg>
+                        </div>
+                    </li>
+
+                    
+                    
+
+                    <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Install PostgreSQL  on Arch | Manjaro | Garuda Linux
+        </h1>
+
+        <ul class="meta">
+            
+
+            
+                <li>
+
+
+
+
+
+    
+
+    
+        
+        
+            
+        
+    
+
+    
+    16th
+    
+        Feb 2023
+    
+
+
+</li>
+            
+
+            
+            
+                • <li title="1292 words">7&nbsp;min read</li>
+            •&nbsp;<li>Tags:&nbsp;</li><li><a href=https://andwati.github.io/tags/postgresql/>postgresql</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/archlinux/>archlinux</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/manjaro/>manjaro</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/garuda/>garuda</a>,&nbsp;</li><li><a href=https://andwati.github.io/tags/linux/>linux</a></li>
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            
+            
+            <h1 id="overview">Overview</h1>
+<p><strong>PostgreSQL</strong> is a powerful open-source relational database management system (RDBMS) that allows you to store and manage large amounts of data. It was first released in 1996 and has become one of the most popular RDBMSs in the world.</p>
+<p>PostgreSQL is designed to handle high levels of <strong>concurrency</strong>, providing features such as <strong>MVCC (multi-version concurrency control)</strong> that allow multiple users to access the same data simultaneously without conflicts. It is also <strong>highly extensible</strong>, with a large number of third-party extensions and libraries available that can be used to add functionality to the core database.</p>
+<p>Some of the key features of PostgreSQL include support for <strong>complex SQL queries</strong>, <strong>advanced indexing</strong> and <strong>query optimization</strong>, <strong>transactional integrity</strong>, and support for a <strong>wide range of programming languages</strong> and development frameworks.PostgreSQL is used by a wide range of organizations, from small businesses to large enterprises, and is particularly popular in industries such as finance, healthcare, and e-commerce, where high levels of data security and reliability are critical.</p>
+<p>In this tutorial, we’ll look at how to install PostgreSQL on Arch Linux, Manjaro, Garuda Linux, or any other Arch-based distro out there.</p>
+<h1 id="postgresql-use-cases">PostgreSQL use cases</h1>
+<ul>
+<li><strong>E-commerce websites:</strong> PostgreSQL is a popular choice for e-commerce websites because it can handle large amounts of data and supports complex queries. It is used for product catalogs, order management, customer data, and more.</li>
+<li><strong>Financial institutions:</strong> PostgreSQL is used in financial institutions to store and manage transactional data, such as stock trades, bank transfers, and credit card transactions. It is highly secure and provides features such as transactional integrity and data encryption.</li>
+<li><strong>Healthcare industry:</strong> PostgreSQL is used in the healthcare industry to store patient data, such as medical records and diagnostic test results. It is also used for research purposes, where large amounts of data need to be stored and analyzed.</li>
+<li><strong>Government agencies:</strong> PostgreSQL is used by government agencies for a variety of purposes, including managing large datasets, storing and analyzing census data, and managing public health information.</li>
+<li><strong>Mobile and web applications:</strong> PostgreSQL is often used as a back-end database for mobile and web applications. It provides reliable data storage and retrieval and supports a wide range of programming languages and development frameworks.</li>
+<li><strong>Geospatial applications:</strong> PostgreSQL has built-in support for geospatial data and is often used for applications that require location-based data, such as mapping and GPS tracking.</li>
+</ul>
+<h1 id="why-postgresql">Why PostgreSQL?</h1>
+<p>Postgres offers a lot of advantages that make it an excellent choice for highly transactional environments regardless of application size and data volume. Its rich feature set and flexibility make it a popular choice for a wide range of applications and industries. Some of the top features are:</p>
+<ul>
+<li><strong>ACID Compliance:</strong> PostgreSQL is ACID (Atomicity, Consistency, Isolation, Durability) compliant, which means it provides high reliability, consistency, and data integrity, even in the presence of hardware failures, power outages, and other system errors.</li>
+<li><strong>Extensibility:</strong> PostgreSQL is highly extensible, allowing developers to add new data types, operators, and functions using its extension framework. This makes it easy to customize PostgreSQL to meet the specific needs of your application.</li>
+<li><strong>Concurrency:</strong> PostgreSQL provides a high level of concurrency, allowing multiple users to access the same data at the same time without conflicts. It uses a Multi-Version Concurrency Control (MVCC) model that enables fast and reliable access to data, even under heavy load.</li>
+<li><strong>Full-text search:</strong> PostgreSQL provides a powerful full-text search engine that supports advanced search capabilities, such as stemming, ranking, and relevance matching.</li>
+<li><strong>Advanced indexing:</strong> PostgreSQL provides a wide range of indexing options, including B-tree, Hash, GiST, SP-GiST, GIN, and BRIN. These indexing options allow developers to optimize database performance for their specific use cases.</li>
+<li><strong>JSON support:</strong> PostgreSQL provides native support for storing and querying JSON data, making it easy to work with modern web and mobile applications that rely on JSON for data exchange.</li>
+<li><strong>Security:</strong> PostgreSQL provides a high level of security, with features such as SSL support, client authentication, and role-based access control. It also provides encryption for both data at rest and data in transit.</li>
+<li><strong>Scalability:</strong> PostgreSQL is designed to scale horizontally and vertically, allowing you to add more nodes to a cluster or increase the resources of a single node to handle more load.</li>
+</ul>
+<h1 id="install-postgresql-on-arch-manjaro-garuda-linux">Install PostgreSQL on Arch | Manjaro | Garuda Linux</h1>
+<p>Now with all that fluff out of the way, let’s get to business. The steps have been tested on Arch Linux with the KDE desktop.</p>
+<blockquote>
+<p><strong>Note:</strong> Commands that should be run as the <em>postgres</em> user are prefixed by <code>[postgres]$</code> in this article.</p>
+</blockquote>
+<h2 id="step-1-installing-the-postgresql-package">Step 1: Installing the PostgreSQL Package</h2>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> pacman<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>Syu</span> postgresql</span>
+</span></code></pre>
+<p>This command will update the package database and update all packages on the system then install the PostgreSQL package from your distribution mirrors. Never install a package without updating the system first. On a rolling release, this can lead to an unbootable system. Installing the package will also create a system user called <em>postgres</em>. You can now switch to the <em>postgres</em> user using a privilege elevation program.</p>
+<p>You can switch to the PostgreSQL user by executing the following command:</p>
+<ul>
+<li>
+<p>If you have sudo and are in sudoers</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>iu</span> postgres</span>
+</span></code></pre>
+</li>
+<li>
+<p>Otherwise using su:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">su</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">su</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>l</span> postgres</span>
+</span></code></pre>
+</li>
+</ul>
+<h2 id="step-2-initial-configuration">Step 2: Initial Configuration</h2>
+<p>Before PostgreSQL can function correctly, the database cluster must be initialized.</p>
+<h3 id="2-1-we-can-confirm-the-installed-postgresql-version-by-running">2.1 We can confirm the installed PostgreSQL version by running:</h3>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">postgres</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>version</span>                                                                           ─╯</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">postgres</span></span><span class="z-meta z-function-call z-arguments z-shell"> (PostgreSQL</span><span class="z-meta z-function-call z-shell"></span>) <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">15.1</span></span>
+</span></code></pre>
+<h3 id="2-2-set-applicable-entries-in-etc-locale-gen">2.2 Set applicable entries in <strong>/etc/locale.gen</strong></h3>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>en_US.UTF-8 UTF-8<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> tee /etc/locale.gen</span>
+</span></code></pre>
+<h3 id="2-3-then-run-locale-gen-to-generate-locale-settings">2.3 Then run <strong>**locale-gen**</strong> to generate locale settings</h3>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> locale-gen</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Generating</span></span><span class="z-meta z-function-call z-arguments z-shell"> locales...</span>
+</span><span class="z-source z-shell z-bash">  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">en_US.UTF-8...</span></span><span class="z-meta z-function-call z-arguments z-shell"> done</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Generation</span></span><span class="z-meta z-function-call z-arguments z-shell"> complete.</span>
+</span></code></pre>
+<h3 id="2-4-initialize-postgres-data-directory">2.4 Initialize Postgres Data Directory</h3>
+<p>You must first log in as the <strong>postgres</strong> user using the following command before you can initialize PostgreSQL’s data directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> su - postgres</span>
+</span></code></pre>
+<h3 id="2-5-with-the-following-command-you-can-now-initialize-postgresql-s-data-directory">2.5 With the following command, you can now initialize PostgreSQL’s data directory:</h3>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">[postgres]$</span></span><span class="z-meta z-function-call z-arguments z-shell"> initdb<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>D</span> /var/lib/postgres/data</span>
+</span></code></pre>
+<h3 id="step-3-postgresql-service-management">Step 3: PostgreSQL Service Management</h3>
+<h3 id="3-1-check-postgresql-status-with-the-following-command">3.1 Check PostgreSQL status with the following command:</h3>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">systemctl</span></span><span class="z-meta z-function-call z-arguments z-shell"> status postgresql                                                                  ─╯</span>
+</span><span class="z-source z-shell z-bash"> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">postgresql.service</span></span><span class="z-meta z-function-call z-arguments z-shell"> - PostgreSQL database server</span>
+</span><span class="z-source z-shell z-bash">     <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Loaded:</span></span><span class="z-meta z-function-call z-arguments z-shell"> loaded (/usr/lib/systemd/system/postgresql.service</span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">disabled</span></span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">preset:</span></span><span class="z-meta z-function-call z-arguments z-shell"> disabled</span><span class="z-meta z-function-call z-shell"></span>)
+</span><span class="z-source z-shell z-bash">     <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Active:</span></span><span class="z-meta z-function-call z-arguments z-shell"> inactive (dead</span><span class="z-meta z-function-call z-shell"></span>)
+</span></code></pre>
+<h3 id="3-2-start-the-postgresql-service-by-running-the-following-command">3.2 Start the PostgreSQL service by running the following command:</h3>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> systemctl start postgresql</span>
+</span></code></pre>
+<h3 id="3-3-enable-the-postgresql-service-to-start-automatically-at-boot-by-running-the-following-command">3.3 Enable the PostgreSQL service to start automatically at boot by running the following command:</h3>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> systemctl enable postgresql</span>
+</span></code></pre>
+<h3 id="3-4-verify-that-postgresql-is-running-by-running-the-following-command">3.4 Verify that PostgreSQL is running by running the following command:</h3>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> systemctl status postgresql                                                             ─╯</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">●</span></span><span class="z-meta z-function-call z-arguments z-shell"> postgresql.service - PostgreSQL database server</span>
+</span><span class="z-source z-shell z-bash">     <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Loaded:</span></span><span class="z-meta z-function-call z-arguments z-shell"> loaded (/usr/lib/systemd/system/postgresql.service</span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">enabled</span></span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">preset:</span></span><span class="z-meta z-function-call z-arguments z-shell"> disabled</span><span class="z-meta z-function-call z-shell"></span>)
+</span><span class="z-source z-shell z-bash">     <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Active:</span></span><span class="z-meta z-function-call z-arguments z-shell"> active (running</span><span class="z-meta z-function-call z-shell"></span>) <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">since</span></span><span class="z-meta z-function-call z-arguments z-shell"> Thu 2023-02-16 22:52:43 EAT</span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">20s</span></span><span class="z-meta z-function-call z-arguments z-shell"> ago</span>
+</span><span class="z-source z-shell z-bash">   <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Main</span></span><span class="z-meta z-function-call z-arguments z-shell"> PID: 26106 (postgres</span><span class="z-meta z-function-call z-shell"></span>)
+</span><span class="z-source z-shell z-bash">      <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Tasks:</span></span><span class="z-meta z-function-call z-arguments z-shell"> 6 (limit: 8790</span><span class="z-meta z-function-call z-shell"></span>)
+</span><span class="z-source z-shell z-bash">     <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Memory:</span></span><span class="z-meta z-function-call z-arguments z-shell"> 16.9M</span>
+</span><span class="z-source z-shell z-bash">        <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">CPU:</span></span><span class="z-meta z-function-call z-arguments z-shell"> 113ms</span>
+</span><span class="z-source z-shell z-bash">     <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">CGroup:</span></span><span class="z-meta z-function-call z-arguments z-shell"> /system.slice/postgresql.service</span>
+</span><span class="z-source z-shell z-bash">             <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├─26106</span></span><span class="z-meta z-function-call z-arguments z-shell"> /usr/bin/postgres<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>D</span> /var/lib/postgres/data</span>
+</span><span class="z-source z-shell z-bash">             <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├─26107</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>postgres: checkpointer <span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span><span class="z-source z-shell z-bash">             <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├─26108</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>postgres: background writer <span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span><span class="z-source z-shell z-bash">             <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├─26110</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>postgres: walwriter <span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span><span class="z-source z-shell z-bash">             <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├─26111</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>postgres: autovacuum launcher <span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span><span class="z-source z-shell z-bash">             <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">└─26112</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>postgres: logical replication launcher <span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<h3 id="change-postgres-user-password">Change postgres user password</h3>
+<p>To change the postgres user password execute the following command:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>u</span> postgres psql<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>ALTER USER postgres PASSWORD &#39;<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">PGPASSWORD</span></span>&#39;;<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/PostgreSQL">Arch Linux Wiki</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PostgreSQL">Wikipedia</a></li>
+<li><a href="https://www.postgresql.org/docs/">PostgreSQL Documentation</a></li>
+</ul>
+<h1 id="conclusion">Conclusion</h1>
+<p>Installing PostgreSQL on Arch Linux-based distribution is a straightforward process that can be completed in just a few steps. By following the steps outlined above, you can install, configure, and start the PostgreSQL database server on your Arch Linux system. Once installed, you can use PostgreSQL to store, manage, and query data for a wide range of applications and use cases. With its advanced features and high level of extensibility, PostgreSQL is a popular choice for developers and businesses seeking a robust and reliable database management system.</p>
+<p>You can connect to the PostgreSQL server using the psql command-line client or a graphical tool such as pgAdmin.</p>
+
+        </section>
+
+        
+        
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+
+        
+        
+
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#overview">Overview</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#postgresql-use-cases">PostgreSQL use cases</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#why-postgresql">Why PostgreSQL?</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#install-postgresql-on-arch-manjaro-garuda-linux">Install PostgreSQL on Arch | Manjaro | Garuda Linux</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#step-1-installing-the-postgresql-package">Step 1: Installing the PostgreSQL Package</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#step-2-initial-configuration">Step 2: Initial Configuration</a>
+                                        
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#2-1-we-can-confirm-the-installed-postgresql-version-by-running">2.1 We can confirm the installed PostgreSQL version by running:</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#2-2-set-applicable-entries-in-etc-locale-gen">2.2 Set applicable entries in &#x2F;etc&#x2F;locale.gen</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#2-3-then-run-locale-gen-to-generate-locale-settings">2.3 Then run **locale-gen** to generate locale settings</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#2-4-initialize-postgres-data-directory">2.4 Initialize Postgres Data Directory</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#2-5-with-the-following-command-you-can-now-initialize-postgresql-s-data-directory">2.5 With the following command, you can now initialize PostgreSQL’s data directory:</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#step-3-postgresql-service-management">Step 3: PostgreSQL Service Management</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#3-1-check-postgresql-status-with-the-following-command">3.1 Check PostgreSQL status with the following command:</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#3-2-start-the-postgresql-service-by-running-the-following-command">3.2 Start the PostgreSQL service by running the following command:</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#3-3-enable-the-postgresql-service-to-start-automatically-at-boot-by-running-the-following-command">3.3 Enable the PostgreSQL service to start automatically at boot by running the following command:</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#3-4-verify-that-postgresql-is-running-by-running-the-following-command">3.4 Verify that PostgreSQL is running by running the following command:</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#change-postgres-user-password">Change postgres user password</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#resources">Resources</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://andwati.github.io/blog/install-postgresql-15-on-arch-manjaro-garuda-linux/#conclusion">Conclusion</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://andwati.github.io/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href=https://andwati.github.io/atom.xml>
+                        <img alt="feed" title="feed" src="https://andwati.github.io/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW5kd2F0aWlhbkBnbWFpbC5jb20="><img alt="email" title="email" src="https://andwati.github.io/social_icons/email.svg">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://github.com/andwati>
+                                <img alt=github title=github src="https://andwati.github.io/social_icons/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://youtube.com/@andwati>
+                                <img alt=youtube title=youtube src="https://andwati.github.io/social_icons/youtube.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://linkedin.com/in/andwati>
+                                <img alt=linkedin title=linkedin src="https://andwati.github.io/social_icons/linkedin.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-links no-hover-padding social" rel=" me"  href=https://twitter.com/@andwati_>
+                                <img alt=twitter title=twitter src="https://andwati.github.io/social_icons/twitter.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                •
+                    <a rel=""  href="https:&#x2F;&#x2F;github.com&#x2F;andwati&#x2F;andwati.github.io">
+                        Site source
+                    </a></small>
+        </div>
+    </section>
+
+    <script src="https://andwati.github.io/js/decodeMail.min.js" async></script><div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox", autocomplete="off", spellcheck="false" aria-expanded="false", aria-controls="results-container", placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info">
+                <span id="n-results">0</span>&nbsp;<span id="result-text-singular">result</span>
+                <span id="result-text-plural">results</span>
+            </div>
+        <div id="results" role="listbox"></div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>
