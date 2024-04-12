@@ -1,8 +1,11 @@
 +++
-title = "Ian Andwati"
-description = "Ian's Website"
+path = "/"
+title = "Latest Posts"
+sort_by = "date"
+template = "section.html"
 +++
-I spend my free time working on [hobby projects] and sometimes I [write] about my experiences. In particular, I enjoy learning about programming languages, ,web dev, and how to write fast, robust, and secure code.
-
+A software engineer programming high performance systems.
+=======
 [hobby projects]: https://github.com/andwati
 [write]: /posts
+
