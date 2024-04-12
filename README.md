@@ -25,7 +25,6 @@ MY personal page and blog site.
 - [x] [Tags](<(https://andwati.github.io/tags/)>)
 - [x] Responsive design.
 - [x] Code syntax highlighting.
-- [ ] Newsletter
 - [x] Word Count and Reading time
 - [x] Pagination
 
