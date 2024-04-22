@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta name="google-site-verification" content="lBZ8ofF4rZJjQDf6ngTrI20wzaDq9GVMCsxfZfTcllI" />
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3QJCKHZT3J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3QJCKHZT3J');
+</script>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="" />
+        <title>
+            
+    Install PostgreSQL 15 on Arch | Manjaro | Garuda Linux
+
+        </title>
+        
+    <meta name="description" content="Installing postgresql" />
+    <meta property="og:site_name" content="andwati.github.io" />
+    <meta property="og:locale" content="en-us" />
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;install-postgresql-15-on-arch-manjaro-garuda-linux&#x2F;" />
+    <meta property="og:title" content="Install PostgreSQL 15 on Arch | Manjaro | Garuda Linux" />
+    <meta property="og:description" content="Installing postgresql" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://andwati.github.io/self.png" />
+    <meta property="og:article:author" content="Ian Andwati" />
+    <meta property="og:article:published_time" content="2023-02-16T15:34:14.16Z" />
+    <meta property="og:article:section" content="Posts" />
+    <meta property="og:article:tag" content="postgresql" /><meta property="og:article:tag" content="archlinux" /><meta property="og:article:tag" content="manjaro" /><meta property="og:article:tag" content="garuda" /><meta property="og:article:tag" content="linux" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@andwati_" />
+    <meta property="twitter:title" content="Install PostgreSQL 15 on Arch | Manjaro | Garuda Linux" />
+    <meta property="twitter:description" content="Installing postgresql" />
+    <meta property="twitter:image" content="https://andwati.github.io/self.png" />
+
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="stylesheet" href="/site.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
+    <link rel="canonical" href="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;install-postgresql-15-on-arch-manjaro-garuda-linux&#x2F;" />
+
+    </head>
+    <body>
+        
+    <main>
+        <article id="content">
+            <header>
+                <h1>Install PostgreSQL 15 on Arch | Manjaro | Garuda Linux</h1>
+                
+    <div class="post-meta">
+        <time datetime="2023-02-16T15:34:14.16Z">February 16,2023</time>
+        
+            <span class="accent">⬡</span>
+            
+                <a href="https://andwati.github.io/tags/postgresql/">#postgresql</a>,
+            
+                <a href="https://andwati.github.io/tags/archlinux/">#archlinux</a>,
+            
+                <a href="https://andwati.github.io/tags/manjaro/">#manjaro</a>,
+            
+                <a href="https://andwati.github.io/tags/garuda/">#garuda</a>,
+            
+                <a href="https://andwati.github.io/tags/linux/">#linux</a>
+            
+        
+        <div class="accent">☕ 7 minutes 📝 1279</div>
+    </div>
+
+            </header>
+            <p>Getting PostgreSQL up and running on Arch Linux-based distros</p>
+<span id="continue-reading"></span><h1 id="overview">Overview<a href="#overview" aria-label='Anchor link for: overview'></a>
+</h1>
+<p><strong>PostgreSQL</strong> is a powerful open-source relational database management system (RDBMS) that allows you to store and manage large amounts of data. It was first released in 1996 and has become one of the most popular RDBMSs in the world.</p>
+<p>PostgreSQL is designed to handle high levels of <strong>concurrency</strong>, providing features such as <strong>MVCC (multi-version concurrency control)</strong> that allow multiple users to access the same data simultaneously without conflicts. It is also <strong>highly extensible</strong>, with a large number of third-party extensions and libraries available that can be used to add functionality to the core database.</p>
+<p>Some of the key features of PostgreSQL include support for <strong>complex SQL queries</strong>, <strong>advanced indexing</strong> and <strong>query optimization</strong>, <strong>transactional integrity</strong>, and support for a <strong>wide range of programming languages</strong> and development frameworks.PostgreSQL is used by a wide range of organizations, from small businesses to large enterprises, and is particularly popular in industries such as finance, healthcare, and e-commerce, where high levels of data security and reliability are critical.</p>
+<p>In this tutorial, we’ll look at how to install PostgreSQL 15 on Arch Linux, Manjaro, Garuda Linux, or any other Arch-based distro out there.</p>
+<h1 id="postgresql-use-cases">PostgreSQL use cases<a href="#postgresql-use-cases" aria-label='Anchor link for: postgresql-use-cases'></a>
+</h1>
+<ul>
+<li><strong>E-commerce websites:</strong> PostgreSQL is a popular choice for e-commerce websites because it can handle large amounts of data and supports complex queries. It is used for product catalogs, order management, customer data, and more.</li>
+<li><strong>Financial institutions:</strong> PostgreSQL is used in financial institutions to store and manage transactional data, such as stock trades, bank transfers, and credit card transactions. It is highly secure and provides features such as transactional integrity and data encryption.</li>
+<li><strong>Healthcare industry:</strong> PostgreSQL is used in the healthcare industry to store patient data, such as medical records and diagnostic test results. It is also used for research purposes, where large amounts of data need to be stored and analyzed.</li>
+<li><strong>Government agencies:</strong> PostgreSQL is used by government agencies for a variety of purposes, including managing large datasets, storing and analyzing census data, and managing public health information.</li>
+<li><strong>Mobile and web applications:</strong> PostgreSQL is often used as a back-end database for mobile and web applications. It provides reliable data storage and retrieval and supports a wide range of programming languages and development frameworks.</li>
+<li><strong>Geospatial applications:</strong> PostgreSQL has built-in support for geospatial data and is often used for applications that require location-based data, such as mapping and GPS tracking.</li>
+</ul>
+<h1 id="why-postgresql">Why PostgreSQL?<a href="#why-postgresql" aria-label='Anchor link for: why-postgresql'></a>
+</h1>
+<p>Postgres offers a lot of advantages that make it an excellent choice for highly transactional environments regardless of application size and data volume. Its rich feature set and flexibility make it a popular choice for a wide range of applications and industries. Some of the top features are:</p>
+<ul>
+<li><strong>ACID Compliance:</strong> PostgreSQL is ACID (Atomicity, Consistency, Isolation, Durability) compliant, which means it provides high reliability, consistency, and data integrity, even in the presence of hardware failures, power outages, and other system errors.</li>
+<li><strong>Extensibility:</strong> PostgreSQL is highly extensible, allowing developers to add new data types, operators, and functions using its extension framework. This makes it easy to customize PostgreSQL to meet the specific needs of your application.</li>
+<li><strong>Concurrency:</strong> PostgreSQL provides a high level of concurrency, allowing multiple users to access the same data at the same time without conflicts. It uses a Multi-Version Concurrency Control (MVCC) model that enables fast and reliable access to data, even under heavy load.</li>
+<li><strong>Full-text search:</strong> PostgreSQL provides a powerful full-text search engine that supports advanced search capabilities, such as stemming, ranking, and relevance matching.</li>
+<li><strong>Advanced indexing:</strong> PostgreSQL provides a wide range of indexing options, including B-tree, Hash, GiST, SP-GiST, GIN, and BRIN. These indexing options allow developers to optimize database performance for their specific use cases.</li>
+<li><strong>JSON support:</strong> PostgreSQL provides native support for storing and querying JSON data, making it easy to work with modern web and mobile applications that rely on JSON for data exchange.</li>
+<li><strong>Security:</strong> PostgreSQL provides a high level of security, with features such as SSL support, client authentication, and role-based access control. It also provides encryption for both data at rest and data in transit.</li>
+<li><strong>Scalability:</strong> PostgreSQL is designed to scale horizontally and vertically, allowing you to add more nodes to a cluster or increase the resources of a single node to handle more load.</li>
+</ul>
+<h1 id="install-postgresql-on-arch-manjaro-garuda-linux">Install PostgreSQL on Arch | Manjaro | Garuda Linux<a href="#install-postgresql-on-arch-manjaro-garuda-linux" aria-label='Anchor link for: install-postgresql-on-arch-manjaro-garuda-linux'></a>
+</h1>
+<p>Now with all that fluff out of the way, let's get to business. The steps have been tested on Arch Linux with the KDE desktop.</p>
+<blockquote>
+<p><strong>Note:</strong> Commands that should be run as the <em>postgres</em> user are prefixed by <code>[postgres]$</code> in this article.</p>
+</blockquote>
+<h2 id="step-1-installing-the-postgresql-package">Step 1: Installing the PostgreSQL Package<a href="#step-1-installing-the-postgresql-package" aria-label='Anchor link for: step-1-installing-the-postgresql-package'></a>
+</h2>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ sudo pacman -Syu postgresql
+</span></code></pre>
+<p>This command will update the package database and update all packages on the system then install the PostgreSQL package from your distribution mirrors. Never install a package without updating the system first. On a rolling release, this can lead to an unbootable system. Installing the package will also create a system user called <em>postgres</em>. You can now switch to the <em>postgres</em> user using a privilege elevation program.</p>
+<p>You can switch to the PostgreSQL user by executing the following command:</p>
+<ul>
+<li>
+<p>If you have sudo and are in sudoers</p>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ sudo -iu postgres
+</span></code></pre>
+</li>
+<li>
+<p>Otherwise using su:</p>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ su
+</span><span style="font-style:italic;color:#928374;"># su -l postgres
+</span></code></pre>
+</li>
+</ul>
+<h2 id="step-2-initial-configuration">Step 2: Initial Configuration<a href="#step-2-initial-configuration" aria-label='Anchor link for: step-2-initial-configuration'></a>
+</h2>
+<p>Before PostgreSQL can function correctly, the database cluster must be initialized.</p>
+<h3 id="2-1-we-can-confirm-the-installed-postgresql-version-by-running">2.1 We can confirm the installed PostgreSQL version by running:<a href="#2-1-we-can-confirm-the-installed-postgresql-version-by-running" aria-label='Anchor link for: 2-1-we-can-confirm-the-installed-postgresql-version-by-running'></a>
+</h3>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ postgres --version                                                                           ─╯
+</span><span style="color:#fdf4c1;">postgres (PostgreSQL</span><span>) </span><span style="color:#fdf4c1;">15.1
+</span></code></pre>
+<h3 id="2-2-set-applicable-entries-in-etc-locale-gen">2.2 Set applicable entries in <strong>/etc/locale.gen</strong><a href="#2-2-set-applicable-entries-in-etc-locale-gen" aria-label='Anchor link for: 2-2-set-applicable-entries-in-etc-locale-gen'></a>
+</h3>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ echo </span><span style="color:#b8bb26;">&quot;en_US.UTF-8 UTF-8&quot; </span><span style="color:#fe8019;">| </span><span style="color:#fdf4c1;">sudo tee /etc/locale.gen
+</span></code></pre>
+<h3 id="2-3-then-run-locale-gen-to-generate-locale-settings">2.3 Then run <strong>**locale-gen**</strong> to generate locale settings<a href="#2-3-then-run-locale-gen-to-generate-locale-settings" aria-label='Anchor link for: 2-3-then-run-locale-gen-to-generate-locale-settings'></a>
+</h3>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ sudo locale-gen
+</span><span style="color:#fdf4c1;">Generating locales...
+</span><span>  </span><span style="color:#fdf4c1;">en_US.UTF-8... done
+</span><span style="color:#fdf4c1;">Generation complete.
+</span></code></pre>
+<h3 id="2-4-initialize-postgres-data-directory">2.4 Initialize Postgres Data Directory<a href="#2-4-initialize-postgres-data-directory" aria-label='Anchor link for: 2-4-initialize-postgres-data-directory'></a>
+</h3>
+<p>You must first log in as the <strong>postgres</strong> user using the following command before you can initialize PostgreSQL’s data directory:</p>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">sudo su - postgres
+</span></code></pre>
+<h3 id="2-5-with-the-following-command-you-can-now-initialize-postgresql-s-data-directory">2.5 With the following command, you can now initialize PostgreSQL’s data directory:<a href="#2-5-with-the-following-command-you-can-now-initialize-postgresql-s-data-directory" aria-label='Anchor link for: 2-5-with-the-following-command-you-can-now-initialize-postgresql-s-data-directory'></a>
+</h3>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">[postgres]$ initdb -D /var/lib/postgres/data
+</span></code></pre>
+<h3 id="step-3-postgresql-service-management">Step 3: PostgreSQL Service Management<a href="#step-3-postgresql-service-management" aria-label='Anchor link for: step-3-postgresql-service-management'></a>
+</h3>
+<h3 id="3-1-check-postgresql-status-with-the-following-command">3.1 Check PostgreSQL status with the following command:<a href="#3-1-check-postgresql-status-with-the-following-command" aria-label='Anchor link for: 3-1-check-postgresql-status-with-the-following-command'></a>
+</h3>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ systemctl status postgresql                                                                  ─╯
+</span><span> </span><span style="color:#fdf4c1;">postgresql.service - PostgreSQL database server
+</span><span>     </span><span style="color:#fdf4c1;">Loaded: loaded (/usr/lib/systemd/system/postgresql.service</span><span style="color:#fe8019;">; </span><span style="color:#fdf4c1;">disabled</span><span style="color:#fe8019;">; </span><span style="color:#fdf4c1;">preset: disabled</span><span>)
+</span><span>     </span><span style="color:#fdf4c1;">Active: inactive (dead</span><span>)
+</span></code></pre>
+<h3 id="3-2-start-the-postgresql-service-by-running-the-following-command">3.2 Start the PostgreSQL service by running the following command:<a href="#3-2-start-the-postgresql-service-by-running-the-following-command" aria-label='Anchor link for: 3-2-start-the-postgresql-service-by-running-the-following-command'></a>
+</h3>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">sudo systemctl start postgresql
+</span></code></pre>
+<h3 id="3-3-enable-the-postgresql-service-to-start-automatically-at-boot-by-running-the-following-command">3.3 Enable the PostgreSQL service to start automatically at boot by running the following command:<a href="#3-3-enable-the-postgresql-service-to-start-automatically-at-boot-by-running-the-following-command" aria-label='Anchor link for: 3-3-enable-the-postgresql-service-to-start-automatically-at-boot-by-running-the-following-command'></a>
+</h3>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ sudo systemctl enable postgresql
+</span></code></pre>
+<h3 id="3-4-verify-that-postgresql-is-running-by-running-the-following-command">3.4 Verify that PostgreSQL is running by running the following command:<a href="#3-4-verify-that-postgresql-is-running-by-running-the-following-command" aria-label='Anchor link for: 3-4-verify-that-postgresql-is-running-by-running-the-following-command'></a>
+</h3>
+<pre data-lang="sh" style="background-color:#282828;color:#fdf4c1aa;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#fdf4c1;">$ sudo systemctl status postgresql                                                             ─╯
+</span><span style="color:#fdf4c1;">● postgresql.service - PostgreSQL database server
+</span><span>     </span><span style="color:#fdf4c1;">Loaded: loaded (/usr/lib/systemd/system/postgresql.service</span><span style="color:#fe8019;">; </span><span style="color:#fdf4c1;">enabled</span><span style="color:#fe8019;">; </span><span style="color:#fdf4c1;">preset: disabled</span><span>)
+</span><span>     </span><span style="color:#fdf4c1;">Active: active (running</span><span>) </span><span style="color:#fdf4c1;">since Thu 2023-02-16 22:52:43 EAT</span><span style="color:#fe8019;">; </span><span style="color:#fdf4c1;">20s ago
+</span><span>   </span><span style="color:#fdf4c1;">Main PID: 26106 (postgres</span><span>)
+</span><span>      </span><span style="color:#fdf4c1;">Tasks: 6 (limit: 8790</span><span>)
+</span><span>     </span><span style="color:#fdf4c1;">Memory: 16.9M
+</span><span>        </span><span style="color:#fdf4c1;">CPU: 113ms
+</span><span>     </span><span style="color:#fdf4c1;">CGroup: /system.slice/postgresql.service
+</span><span>             </span><span style="color:#fdf4c1;">├─26106 /usr/bin/postgres -D /var/lib/postgres/data
+</span><span>             </span><span style="color:#fdf4c1;">├─26107 </span><span style="color:#b8bb26;">&quot;postgres: checkpointer &quot;
+</span><span>             </span><span style="color:#fdf4c1;">├─26108 </span><span style="color:#b8bb26;">&quot;postgres: background writer &quot;
+</span><span>             </span><span style="color:#fdf4c1;">├─26110 </span><span style="color:#b8bb26;">&quot;postgres: walwriter &quot;
+</span><span>             </span><span style="color:#fdf4c1;">├─26111 </span><span style="color:#b8bb26;">&quot;postgres: autovacuum launcher &quot;
+</span><span>             </span><span style="color:#fdf4c1;">└─26112 </span><span style="color:#b8bb26;">&quot;postgres: logical replication launcher &quot;
+</span></code></pre>
+<h1 id="resources">Resources<a href="#resources" aria-label='Anchor link for: resources'></a>
+</h1>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/PostgreSQL">Arch Linux Wiki</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PostgreSQL">Wikipedia</a></li>
+<li><a href="https://www.postgresql.org/docs/">PostgreSQL Documentation</a></li>
+</ul>
+<h1 id="conclusion">Conclusion<a href="#conclusion" aria-label='Anchor link for: conclusion'></a>
+</h1>
+<p>Installing PostgreSQL on Arch Linux-based distribution is a straightforward process that can be completed in just a few steps. By following the steps outlined above, you can install, configure, and start the PostgreSQL database server on your Arch Linux system. Once installed, you can use PostgreSQL to store, manage, and query data for a wide range of applications and use cases. With its advanced features and high level of extensibility, PostgreSQL is a popular choice for developers and businesses seeking a robust and reliable database management system.</p>
+<p>You can connect to the PostgreSQL server using the psql command-line client or a graphical tool such as pgAdmin.</p>
+
+        </article>
+    </main>
+    
+    <div>
+    <script src="https://utteranc.es/client.js" repo="andwati/andwati.github.io" issue-term="title" theme="gruvbox-dark" crossorigin="anonymous" async>
+    </script>
+</div>
+
+    <footer>
+    <nav>
+        <a href="/">Home</a>
+        ⬡
+        <a href="/posts">Posts</a>
+        ⬡
+        <a href="/tags">Tags</a>
+        ⬡
+        <a href="/archive">Archive</a>
+        ⬡
+        <a href="/contact">Contact</a>
+    </nav>
+   
+    <p>
+        © 2022 -
+        2024
+        Ian Andwati
+        ⬡
+        <a href="https://github.com/andwati/andwati.github.io">Source</a>
+        ⬡
+        <a href="/rss.xml">Feed</a>
+    </p>
+</footer>
+
+
+    </body>
+</html>

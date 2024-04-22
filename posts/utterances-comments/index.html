@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta name="google-site-verification" content="lBZ8ofF4rZJjQDf6ngTrI20wzaDq9GVMCsxfZfTcllI" />
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3QJCKHZT3J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3QJCKHZT3J');
+</script>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="" />
+        <title>
+            
+    What say you?
+
+        </title>
+        
+    <meta name="description" content="Adding a comment system by utterances" />
+    <meta property="og:site_name" content="andwati.github.io" />
+    <meta property="og:locale" content="en-us" />
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;utterances-comments&#x2F;" />
+    <meta property="og:title" content="What say you?" />
+    <meta property="og:description" content="Adding a comment system by utterances" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://andwati.github.io/self.png" />
+    <meta property="og:article:author" content="Ian Andwati" />
+    <meta property="og:article:published_time" content="2023-08-24T15:34:14.16Z" />
+    <meta property="og:article:section" content="Posts" />
+    <meta property="og:article:tag" content="blog" /><meta property="og:article:tag" content="utterances" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@andwati_" />
+    <meta property="twitter:title" content="What say you?" />
+    <meta property="twitter:description" content="Adding a comment system by utterances" />
+    <meta property="twitter:image" content="https://andwati.github.io/self.png" />
+
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="stylesheet" href="/site.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
+    <link rel="canonical" href="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;utterances-comments&#x2F;" />
+
+    </head>
+    <body>
+        
+    <main>
+        <article id="content">
+            <header>
+                <h1>What say you?</h1>
+                
+    <div class="post-meta">
+        <time datetime="2023-08-24T15:34:14.16Z">August 24,2023</time>
+        
+            <span class="accent">⬡</span>
+            
+                <a href="https://andwati.github.io/tags/blog/">#blog</a>,
+            
+                <a href="https://andwati.github.io/tags/utterances/">#utterances</a>
+            
+        
+        <div class="accent">☕ 2 minutes 📝 373</div>
+    </div>
+
+            </header>
+            <p>Free speech enhanced</p>
+<span id="continue-reading"></span>
+<p>There is no point in writing online if your readers cannot provide feedback for your writings. You might as well be shouting at a void. My ideal commenting system has to be free, open source and should not be a hassle to setup. Luckily, <a href="https://github.com/utterance/utterances">utterances 🔮</a> checks all of these conditions</p>
+<p>It is a lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more! The notable features are:</p>
+<ul>
+<li>Open source. 🙌</li>
+<li>No tracking, no ads, always free. 📡🚫</li>
+<li>No lock-in. All data stored in GitHub issues. 🔓</li>
+<li>Styled with Primer, the css toolkit that powers GitHub. 💅</li>
+<li>Dark theme. 🌘</li>
+<li>Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers. 🐦🌲</li>
+</ul>
+<h2 id="how-it-works">How it works<a href="#how-it-works" aria-label='Anchor link for: how-it-works'></a>
+</h2>
+<p>When Utterances loads, the GitHub <a href="https://developer.github.com/v3/search/#search-issues">issue search API</a> is used to find the issue associated with the page based on url, pathname or title. If it cannot find an issue that matches the page, <a href="https://github.com/utterances-bot">utterances-bot</a> will automatically create an issue the first time someone comments.</p>
+<p>To comment, users must authorize the utterances app to post on their behalf using the GitHub <a href="https://developer.github.com/v3/oauth/#web-application-flow">OAuth flow</a>. Alternatively, users can comment on the GitHub issue directly.</p>
+<h1 id="setting-up-utterances">Setting up Utterances<a href="#setting-up-utterances" aria-label='Anchor link for: setting-up-utterances'></a>
+</h1>
+<h3 id="repository">Repository<a href="#repository" aria-label='Anchor link for: repository'></a>
+</h3>
+<p>Choose the repository utterances will connect to.</p>
+<p>Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
+Make sure the utterances app is installed on the repo, otherwise users will not be able to post comments.
+If your repo is a fork, navigate to its settings tab and confirm the issues feature is turned on.</p>
+<pre style="background-color:#282828;color:#fdf4c1aa;"><code><span>repo:
+</span><span>    username/repo
+</span></code></pre>
+<p>A public GitHub repository. This is where the blog post issues and issue-comments will be posted.</p>
+<h3 id="theme">Theme<a href="#theme" aria-label='Anchor link for: theme'></a>
+</h3>
+<p>Choose an Utterances theme that matches your blog.</p>
+<h3 id="enable-utterances">Enable Utterances<a href="#enable-utterances" aria-label='Anchor link for: enable-utterances'></a>
+</h3>
+<p>Add the following script tag to your blog's template. Position it where you want the comments to appear. Customize the layout using the .utterances and .utterances-frame selectors.</p>
+<pre data-lang="js" style="background-color:#282828;color:#fdf4c1aa;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#fe8019;">&lt;</span><span style="color:#fdf4c1;">script
+</span><span>  </span><span style="color:#fdf4c1;">src</span><span style="color:#fe8019;">=</span><span style="color:#b8bb26;">&quot;https://utteranc.es/client.js&quot;
+</span><span>  </span><span style="color:#fdf4c1;">repo</span><span style="color:#fe8019;">=</span><span style="color:#b8bb26;">&quot;[ENTER REPO HERE]&quot;
+</span><span>  </span><span style="color:#fdf4c1;">issue</span><span style="color:#fe8019;">-</span><span style="color:#fdf4c1;">term</span><span style="color:#fe8019;">=</span><span style="color:#b8bb26;">&quot;title&quot;
+</span><span>  </span><span style="color:#fdf4c1;">theme</span><span style="color:#fe8019;">=</span><span style="color:#b8bb26;">&quot;gruvbox-dark&quot;
+</span><span>  </span><span style="color:#fdf4c1;">crossorigin</span><span style="color:#fe8019;">=</span><span style="color:#b8bb26;">&quot;anonymous&quot;
+</span><span>  </span><span style="color:#fdf4c1;">async
+</span><span style="color:#fe8019;">&gt;</span><span>&lt;/</span><span style="color:#8ec07c;">script</span><span>&gt;
+</span></code></pre>
+<p>The complete documentation can be found at <a href="https://utteranc.es/">https://utteranc.es</a></p>
+
+        </article>
+    </main>
+    
+    <div>
+    <script src="https://utteranc.es/client.js" repo="andwati/andwati.github.io" issue-term="title" theme="gruvbox-dark" crossorigin="anonymous" async>
+    </script>
+</div>
+
+    <footer>
+    <nav>
+        <a href="/">Home</a>
+        ⬡
+        <a href="/posts">Posts</a>
+        ⬡
+        <a href="/tags">Tags</a>
+        ⬡
+        <a href="/archive">Archive</a>
+        ⬡
+        <a href="/contact">Contact</a>
+    </nav>
+   
+    <p>
+        © 2022 -
+        2024
+        Ian Andwati
+        ⬡
+        <a href="https://github.com/andwati/andwati.github.io">Source</a>
+        ⬡
+        <a href="/rss.xml">Feed</a>
+    </p>
+</footer>
+
+
+    </body>
+</html>

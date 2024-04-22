@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta name="google-site-verification" content="lBZ8ofF4rZJjQDf6ngTrI20wzaDq9GVMCsxfZfTcllI" />
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3QJCKHZT3J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3QJCKHZT3J');
+</script>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="" />
+        <title>
+            
+    Setting up Obsidian sync in Windows
+
+        </title>
+        
+    <meta name="description" content="Syncing Obsidian in Windows with Windows Task Scheduler with git" />
+    <meta property="og:site_name" content="andwati.github.io" />
+    <meta property="og:locale" content="en-us" />
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;obsidian-sync&#x2F;" />
+    <meta property="og:title" content="Setting up Obsidian sync in Windows" />
+    <meta property="og:description" content="Syncing Obsidian in Windows with Windows Task Scheduler with git" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://andwati.github.io/self.png" />
+    <meta property="og:article:author" content="Ian Andwati" />
+    <meta property="og:article:published_time" content="2023-10-01" />
+    <meta property="og:article:section" content="Posts" />
+    <meta property="og:article:tag" content="obsidian" /><meta property="og:article:tag" content="git" /><meta property="og:article:tag" content="sync" /><meta property="og:article:tag" content="windows" /><meta property="og:article:tag" content="cron" /><meta property="og:article:tag" content="task scheduler" /><meta property="og:article:tag" content="powershell" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@andwati_" />
+    <meta property="twitter:title" content="Setting up Obsidian sync in Windows" />
+    <meta property="twitter:description" content="Syncing Obsidian in Windows with Windows Task Scheduler with git" />
+    <meta property="twitter:image" content="https://andwati.github.io/self.png" />
+
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="stylesheet" href="/site.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
+    <link rel="canonical" href="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;obsidian-sync&#x2F;" />
+
+    </head>
+    <body>
+        
+    <main>
+        <article id="content">
+            <header>
+                <h1>Setting up Obsidian sync in Windows</h1>
+                
+    <div class="post-meta">
+        <time datetime="2023-10-01">October 01,2023</time>
+        
+            <span class="accent">⬡</span>
+            
+                <a href="https://andwati.github.io/tags/obsidian/">#obsidian</a>,
+            
+                <a href="https://andwati.github.io/tags/git/">#git</a>,
+            
+                <a href="https://andwati.github.io/tags/sync/">#sync</a>,
+            
+                <a href="https://andwati.github.io/tags/windows/">#windows</a>,
+            
+                <a href="https://andwati.github.io/tags/cron/">#cron</a>,
+            
+                <a href="https://andwati.github.io/tags/task-scheduler/">#task scheduler</a>,
+            
+                <a href="https://andwati.github.io/tags/powershell/">#powershell</a>
+            
+        
+        <div class="accent">☕ 5 minutes 📝 805</div>
+    </div>
+
+            </header>
+            <p>Syncing Obsidian in Windows with Windows Task Scheduler and git</p>
+<span id="continue-reading"></span>
+<p><a href="https://obsidian.md/">Obsidian</a> is a powerful note-taking and knowledge management tool that has gained a dedicated following among researchers, writers, and knowledge workers. To make the most of Obsidian, it's essential to keep your notes synchronized across devices and ensure your data is regularly backed up.Obsidian is the private and flexible writing app that adapts to the way you think.</p>
+<p>Obsidian is free for personal use.It does not charge based on features or usage.You only pay if you use Obsidian commercially.</p>
+<p>In this article, we'll guide you through the process of setting up automated synchronization for your Obsidian vault on Windows using Windows Task Scheduler and a PowerShell script.<sup class="footnote-reference"><a href="#note">1</a></sup></p>
+<h2 id="prerequisites">Prerequisites<a href="#prerequisites" aria-label='Anchor link for: prerequisites'></a>
+</h2>
+<p>Before we dive into setting up the synchronization task, ensure you have the following prerequisites in place:</p>
+<ol>
+<li>
+<p><strong>Obsidian Installed:</strong> Make sure Obsidian is <a href="https://obsidian.md/download">installed</a> on your Windows computer, and you have an existing Obsidian vault that you want to sync.</p>
+</li>
+<li>
+<p><strong>Git Installed:</strong> You'll need Git installed and configured with your Obsidian vault's repository. If you haven't already done this, you can download Git from the <a href="https://git-scm.com/downloads">official website</a> and follow the installation instructions.</p>
+</li>
+<li>
+<p><strong>PowerShell Script:</strong> The provided PowerShell script, sync.ps1, should be located in your Obsidian vault folder.</p>
+</li>
+</ol>
+<h2 id="understanding-the-powershell-script">Understanding the PowerShell Script<a href="#understanding-the-powershell-script" aria-label='Anchor link for: understanding-the-powershell-script'></a>
+</h2>
+<p>The provided PowerShell script, sync.ps1, is the heart of our synchronization task. It automates the process of committing changes in your Obsidian vault's Git repository and pushing them to your remote repository (e.g., GitHub or GitLab). Here's a brief overview of the script:</p>
+<pre data-lang="ps1" style="background-color:#282828;color:#fdf4c1aa;" class="language-ps1 "><code class="language-ps1" data-lang="ps1"><span style="font-style:italic;color:#928374;"># Define the folder path
+</span><span style="color:#fdf4c1;">$FolderPath </span><span style="color:#fe8019;">= </span><span style="color:#b8bb26;">&quot;C:\path\to\obsidian-vault&quot;
+</span><span>
+</span><span style="font-style:italic;color:#928374;"># Change directory to the repository folder
+</span><span style="color:#fabd2f;">Set-Location </span><span style="color:#fe8019;">-</span><span>Path </span><span style="color:#fdf4c1;">$FolderPath
+</span><span>
+</span><span style="font-style:italic;color:#928374;"># Check if the working tree is clean
+</span><span style="color:#fdf4c1;">$IsClean </span><span style="color:#fe8019;">= </span><span>(git diff</span><span style="color:#fe8019;">-</span><span>index </span><span style="color:#fe8019;">--</span><span>quiet HEAD </span><span style="color:#fe8019;">--</span><span>) </span><span style="color:#fe8019;">-or </span><span>(git diff</span><span style="color:#fe8019;">-</span><span>files </span><span style="color:#fe8019;">--</span><span>quiet)
+</span><span>
+</span><span style="color:#fa5c4b;">if </span><span>(</span><span style="color:#fdf4c1;">$IsClean</span><span>) {
+</span><span>    </span><span style="color:#fabd2f;">Write-Host </span><span style="color:#b8bb26;">&quot;Working tree is clean. Skipping commit and pushing changes.&quot;
+</span><span>    git push
+</span><span>} </span><span style="color:#fa5c4b;">else </span><span>{
+</span><span>    </span><span style="font-style:italic;color:#928374;"># Get the current date in the desired format (Day - Date)
+</span><span>    </span><span style="color:#fdf4c1;">$CommitMessage </span><span style="color:#fe8019;">= </span><span style="color:#b8bb26;">&quot;$(</span><span style="color:#fabd2f;">Get-Date </span><span style="color:#fe8019;">-</span><span style="color:#b8bb26;">Format &#39;dddd - yyyy-MM-dd HH:mm:ss&#39;)&quot;
+</span><span>
+</span><span>    </span><span style="font-style:italic;color:#928374;"># Commit the changes
+</span><span>    git add .
+</span><span>    git commit </span><span style="color:#fe8019;">-</span><span>m </span><span style="color:#fdf4c1;">$CommitMessage
+</span><span>
+</span><span>    </span><span style="font-style:italic;color:#928374;"># Push the changes
+</span><span>    git push
+</span><span>}
+</span></code></pre>
+<p>This script does the following:</p>
+<ul>
+<li>Sets the folder path to your Obsidian vault.</li>
+<li>Checks if there are any changes to commit. If the vault is clean (no changes), it skips the commit and only pushes changes.</li>
+<li>If there are changes, it commits them with a timestamped message and then pushes them to the remote repository.</li>
+</ul>
+<h2 id="setting-up-windows-task-scheduler">Setting up Windows Task Scheduler<a href="#setting-up-windows-task-scheduler" aria-label='Anchor link for: setting-up-windows-task-scheduler'></a>
+</h2>
+<p>Now that we have our PowerShell script ready, let's set up a scheduled task using Windows Task Scheduler to automate the synchronization process. Follow these steps:</p>
+<ol>
+<li>
+<p><strong>Open an Elevated PowerShell Prompt:</strong> To run the necessary commands, open PowerShell as an administrator.</p>
+</li>
+<li>
+<p><strong>Define Task Variables:</strong> Execute the following commands to define variables for your task:</p>
+<pre data-lang="ps1" style="background-color:#282828;color:#fdf4c1aa;" class="language-ps1 "><code class="language-ps1" data-lang="ps1"><span style="color:#fdf4c1;">$ScriptPath </span><span style="color:#fe8019;">= </span><span style="color:#b8bb26;">&quot;C:\path\to\obsidian-vault\sync.ps1&quot;
+</span><span style="color:#fdf4c1;">$TaskName </span><span style="color:#fe8019;">= </span><span style="color:#b8bb26;">&quot;obsidian-sync&quot;
+</span><span style="color:#fdf4c1;">$UserAccount </span><span style="color:#fe8019;">= </span><span style="color:#b8bb26;">&quot;</span><span style="color:#fdf4c1;">$</span><span style="color:#fabd2f;">env:</span><span style="color:#fdf4c1;">USERDOMAIN</span><span style="color:#b8bb26;">\</span><span style="color:#fdf4c1;">$</span><span style="color:#fabd2f;">env:</span><span style="color:#fdf4c1;">USERNAME</span><span style="color:#b8bb26;">&quot;
+</span></code></pre>
+<p>Replace $ScriptPath with the actual path to your sync.ps1 script, $TaskName with a name for your task.</p>
+</li>
+<li>
+<p><strong>Configure Task Trigger:</strong> Set up a trigger for your task. In this example, we'll schedule the task to run daily at 9:00 PM:</p>
+<pre data-lang="ps1" style="background-color:#282828;color:#fdf4c1aa;" class="language-ps1 "><code class="language-ps1" data-lang="ps1"><span style="color:#fdf4c1;">$Trigger </span><span style="color:#fe8019;">= </span><span style="color:#fabd2f;">New-ScheduledTaskTrigger </span><span style="color:#fe8019;">-</span><span>Daily </span><span style="color:#fe8019;">-</span><span>At </span><span style="color:#b8bb26;">&#39;9:00 PM&#39;
+</span></code></pre>
+<p>You can adjust the schedule according to your preference.</p>
+</li>
+<li>
+<p>Define Task Principal and Settings: Configure the task's principal (the user account under which the task will run) and settings:</p>
+<pre data-lang="ps1" style="background-color:#282828;color:#fdf4c1aa;" class="language-ps1 "><code class="language-ps1" data-lang="ps1"><span style="color:#fdf4c1;">$Principal </span><span style="color:#fe8019;">= </span><span style="color:#fabd2f;">New-ScheduledTaskPrincipal </span><span style="color:#fe8019;">-</span><span>UserId </span><span style="color:#fdf4c1;">$UserAccount </span><span style="color:#fe8019;">-</span><span>RunLevel Highest
+</span><span style="color:#fdf4c1;">$Settings </span><span style="color:#fe8019;">= </span><span style="color:#fabd2f;">New-ScheduledTaskSettingsSet </span><span style="color:#fe8019;">-</span><span>AllowStartIfOnBatteries </span><span style="color:#fe8019;">-</span><span>RunOnlyIfNetworkAvailable </span><span style="color:#fe8019;">-</span><span>WakeToRun
+</span></code></pre>
+<p>These settings ensure that the task runs with the necessary privileges and conditions.</p>
+</li>
+<li>
+<p><strong>Define Task Action:</strong> Specify the action that the task will perform, which is running the PowerShell script:</p>
+<pre data-lang="ps1" style="background-color:#282828;color:#fdf4c1aa;" class="language-ps1 "><code class="language-ps1" data-lang="ps1"><span style="color:#fdf4c1;">$Action </span><span style="color:#fe8019;">= </span><span style="color:#fabd2f;">New-ScheduledTaskAction </span><span style="color:#fe8019;">-</span><span>Execute </span><span style="color:#b8bb26;">&#39;PowerShell.exe&#39; </span><span style="color:#fe8019;">-</span><span>Argument </span><span style="color:#b8bb26;">&quot;-ExecutionPolicy Bypass -WindowStyle Hidden -File `&quot;</span><span style="color:#fdf4c1;">$ScriptPath</span><span style="color:#b8bb26;">`&quot;&quot;
+</span></code></pre>
+<p>This action runs PowerShell with the provided script.</p>
+</li>
+<li>
+<p><strong>Create the Scheduled Task:</strong> Finally, create the scheduled task and register it with Windows Task Scheduler:</p>
+<pre data-lang="ps1" style="background-color:#282828;color:#fdf4c1aa;" class="language-ps1 "><code class="language-ps1" data-lang="ps1"><span style="color:#fdf4c1;">$Task </span><span style="color:#fe8019;">= </span><span style="color:#fabd2f;">New-ScheduledTask </span><span style="color:#fe8019;">-</span><span>Action </span><span style="color:#fdf4c1;">$Action </span><span style="color:#fe8019;">-</span><span>Trigger </span><span style="color:#fdf4c1;">$Trigger </span><span style="color:#fe8019;">-</span><span>Principal </span><span style="color:#fdf4c1;">$Principal </span><span style="color:#fe8019;">-</span><span>Settings </span><span style="color:#fdf4c1;">$Settings
+</span><span style="color:#fabd2f;">Register-ScheduledTask </span><span style="color:#fe8019;">-</span><span>TaskName </span><span style="color:#fdf4c1;">$TaskName </span><span style="color:#fe8019;">-</span><span>InputObject </span><span style="color:#fdf4c1;">$Task
+</span></code></pre>
+</li>
+</ol>
+<p>The Obsidian synchronization task is now set up and ready to run automatically based on the schedule you defined.</p>
+<h1 id="inspiration">Inspiration<a href="#inspiration" aria-label='Anchor link for: inspiration'></a>
+</h1>
+<p>When looking up on how to implement this I found some breakthrough from this <a href="https://stackoverflow.com/questions/7195503/setting-up-a-cron-job-in-windows">stack overflow</a> post. There are suggestions on how to do this using cron jobs in wsl. They are worth a look at. This article on <a href="https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/new-scheduledtask?view=windowsserver2022-ps">powershell</a> with windows server was also helpful.</p>
+<div class="footnote-definition" id="note"><sup class="footnote-definition-label">1</sup>
+<p>This method is only optimal for desktop sync. To sync across devices obsidian has a paid plan that has some extra features Such as Sync notes across devices, End-to-end encryption, Version history, Priority email support. Consider checking it out at <a href="https://obsidian.md/pricing">https://obsidian.md/pricing</a></p>
+</div>
+
+        </article>
+    </main>
+    
+    <div>
+    <script src="https://utteranc.es/client.js" repo="andwati/andwati.github.io" issue-term="title" theme="gruvbox-dark" crossorigin="anonymous" async>
+    </script>
+</div>
+
+    <footer>
+    <nav>
+        <a href="/">Home</a>
+        ⬡
+        <a href="/posts">Posts</a>
+        ⬡
+        <a href="/tags">Tags</a>
+        ⬡
+        <a href="/archive">Archive</a>
+        ⬡
+        <a href="/contact">Contact</a>
+    </nav>
+   
+    <p>
+        © 2022 -
+        2024
+        Ian Andwati
+        ⬡
+        <a href="https://github.com/andwati/andwati.github.io">Source</a>
+        ⬡
+        <a href="/rss.xml">Feed</a>
+    </p>
+</footer>
+
+
+    </body>
+</html>

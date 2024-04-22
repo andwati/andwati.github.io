@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta name="google-site-verification" content="lBZ8ofF4rZJjQDf6ngTrI20wzaDq9GVMCsxfZfTcllI" />
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3QJCKHZT3J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3QJCKHZT3J');
+</script>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="" />
+        <title>
+            
+    A Fresh Coat Of Paint
+
+        </title>
+        
+    <meta name="description" content="Migrating to Zola" />
+    <meta property="og:site_name" content="andwati.github.io" />
+    <meta property="og:locale" content="en-us" />
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;a-fresh-coat-of-paint&#x2F;" />
+    <meta property="og:title" content="A Fresh Coat Of Paint" />
+    <meta property="og:description" content="Migrating to Zola" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://andwati.github.io/self.png" />
+    <meta property="og:article:author" content="Ian Andwati" />
+    <meta property="og:article:published_time" content="2023-08-24" />
+    <meta property="og:article:section" content="Posts" />
+    <meta property="og:article:tag" content="zola" /><meta property="og:article:tag" content="blog" /><meta property="og:article:tag" content="tera" /><meta property="og:article:tag" content="rust" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@andwati_" />
+    <meta property="twitter:title" content="A Fresh Coat Of Paint" />
+    <meta property="twitter:description" content="Migrating to Zola" />
+    <meta property="twitter:image" content="https://andwati.github.io/self.png" />
+
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="stylesheet" href="/site.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
+    <link rel="canonical" href="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;a-fresh-coat-of-paint&#x2F;" />
+
+    </head>
+    <body>
+        
+    <main>
+        <article id="content">
+            <header>
+                <h1>A Fresh Coat Of Paint</h1>
+                
+    <div class="post-meta">
+        <time datetime="2023-08-24">August 24,2023</time>
+        
+            <span class="accent">⬡</span>
+            
+                <a href="https://andwati.github.io/tags/zola/">#zola</a>,
+            
+                <a href="https://andwati.github.io/tags/blog/">#blog</a>,
+            
+                <a href="https://andwati.github.io/tags/tera/">#tera</a>,
+            
+                <a href="https://andwati.github.io/tags/rust/">#rust</a>
+            
+        
+        <div class="accent">☕ 3 minutes 📝 442</div>
+    </div>
+
+            </header>
+            <p>Using Zola as my preferred static site generator</p>
+<span id="continue-reading"></span>
+<p>After using Hugo for over eight months I got tired of it and looked for other alternatives. That's when I stumbled upon Zola. Zola is a static site generator (SSG), similar to <a href="https://gohugo.io/">Hugo</a>, <a href="https://blog.getpelican.com/">Pelican</a>, and <a href="https://jekyllrb.com/">Jekyll</a>.</p>
+<p>It is written in Rust and uses the Tera template engine, similar to Jinja2, Django templates, Liquid, and Twig. SSGs use dynamic templates to transform content into static HTML pages. Static sites are thus very fast and require no databases, making them easy to host.</p>
+<p>My previous Hugo site used a theme because I wasn't really ready to learn Go's template engine. I'm already familiar with Python Django and its template system so using Tera wasn't hard because it's similar to jinja2 and the Django template syntax.</p>
+<p>Content is written in <a href="https://commonmark.org/">CommonMark</a>, a strongly defined, highly compatible specification of <a href="https://www.markdownguide.org/">Markdown</a>. Zola uses <a href="https://github.com/raphlinus/pulldown-cmark#pulldown-cmark">pulldown-cmark</a> to parse markdown files. The goal of this library is 100% compliance with the CommonMark spec. It adds a few additional features such as parsing footnotes, Github-flavored tables, Github-flavored task lists, and strikethrough.</p>
+<p>Zola comes with built-in syntax highlighting, but you must first enable it in the configuration file.</p>
+<p>Zola is very minimalistic, it is installed only as a single binary, with no extra dependencies needed. It is configured in <code>toml</code> and you only use what is needed. For example here is the configuration for this site <code>config.toml</code>:</p>
+<pre data-lang="toml" style="background-color:#282828;color:#fdf4c1aa;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="font-weight:bold;color:#8ec07c;">title </span><span>= </span><span style="color:#b8bb26;">&quot;Ian Andwati&quot;
+</span><span style="font-weight:bold;color:#8ec07c;">description </span><span>= </span><span style="color:#b8bb26;">&quot;Ian Andwati&#39;s personal website&quot;
+</span><span style="font-weight:bold;color:#8ec07c;">base_url </span><span>= </span><span style="color:#b8bb26;">&quot;https://andwati.github.io&quot;
+</span><span>
+</span><span style="font-weight:bold;color:#8ec07c;">generate_categories_pages </span><span>= </span><span style="color:#d3869b;">false
+</span><span style="font-weight:bold;color:#8ec07c;">generate_tags_pages </span><span>= </span><span style="color:#d3869b;">false
+</span><span style="font-weight:bold;color:#8ec07c;">generate_feed </span><span>= </span><span style="color:#d3869b;">true
+</span><span style="font-weight:bold;color:#8ec07c;">feed_filename </span><span>= </span><span style="color:#b8bb26;">&quot;rss.xml&quot;
+</span><span style="font-weight:bold;color:#8ec07c;">minify_html </span><span>= </span><span style="color:#d3869b;">false
+</span><span style="font-weight:bold;color:#8ec07c;">taxonomies </span><span>= [{ </span><span style="font-weight:bold;color:#8ec07c;">name </span><span>= </span><span style="color:#b8bb26;">&#39;tags&#39;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">feed </span><span>= </span><span style="color:#d3869b;">false </span><span>}]
+</span><span style="font-weight:bold;color:#8ec07c;">compile_sass </span><span>= </span><span style="color:#d3869b;">true
+</span><span>
+</span><span>[</span><span style="color:#8ec07c;">markdown</span><span>]
+</span><span style="font-weight:bold;color:#8ec07c;">highlight_code </span><span>= </span><span style="color:#d3869b;">true
+</span><span style="font-weight:bold;color:#8ec07c;">highlight_theme </span><span>= </span><span style="color:#b8bb26;">&quot;gruvbox-dark&quot;
+</span><span>
+</span><span>[</span><span style="color:#8ec07c;">link_checker</span><span>]
+</span><span>
+</span><span>[</span><span style="color:#8ec07c;">extra</span><span>]
+</span><span style="font-weight:bold;color:#8ec07c;">author </span><span>= </span><span style="color:#b8bb26;">&quot;Ian Andwati&quot;
+</span></code></pre>
+<h2 id="inspiration">Inspiration<a href="#inspiration" aria-label='Anchor link for: inspiration'></a>
+</h2>
+<p>The motivation to use Zola also came from my decision to move from independently developed themes. I decided to write the HTML and CSS myself and endeavor to maintain the site individually. The base CSS is borrowed from <a href="https://tuckersiemens.com/">Reilly Tucker Siemens</a> who had created a nice gruvbox palette for his site.</p>
+<p>I improved on it by adding an archive page, pagination, a comment system, and Google Analytics (more of these in later posts). I also implemented article read time and word count.</p>
+<h2 id="what-next">What next<a href="#what-next" aria-label='Anchor link for: what-next'></a>
+</h2>
+<p>The site is a work in progress and is far from polished. I plan on implementing a newsletter to notify readers of new posts. The site is primarily a dark theme, in the future I'll also add theme toggling and maybe different palettes.</p>
+<p>You can subscribe to the site's RSS feed at <a href="https://andwati.github.io/rss.xml">https://andwati.github.io/rss.xml</a>.</p>
+
+        </article>
+    </main>
+    
+    <div>
+    <script src="https://utteranc.es/client.js" repo="andwati/andwati.github.io" issue-term="title" theme="gruvbox-dark" crossorigin="anonymous" async>
+    </script>
+</div>
+
+    <footer>
+    <nav>
+        <a href="/">Home</a>
+        ⬡
+        <a href="/posts">Posts</a>
+        ⬡
+        <a href="/tags">Tags</a>
+        ⬡
+        <a href="/archive">Archive</a>
+        ⬡
+        <a href="/contact">Contact</a>
+    </nav>
+   
+    <p>
+        © 2022 -
+        2024
+        Ian Andwati
+        ⬡
+        <a href="https://github.com/andwati/andwati.github.io">Source</a>
+        ⬡
+        <a href="/rss.xml">Feed</a>
+    </p>
+</footer>
+
+
+    </body>
+</html>
