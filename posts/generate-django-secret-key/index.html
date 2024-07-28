@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta name="google-site-verification" content="lBZ8ofF4rZJjQDf6ngTrI20wzaDq9GVMCsxfZfTcllI" />
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3QJCKHZT3J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3QJCKHZT3J');
+</script>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="" />
+        <title>
+            
+    Django Secret Key Tutorial
+
+        </title>
+        
+    <meta name="description" content="Managing secrets" />
+    <meta property="og:site_name" content="andwati.github.io" />
+    <meta property="og:locale" content="en-us" />
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;generate-django-secret-key&#x2F;" />
+    <meta property="og:title" content="Django Secret Key Tutorial" />
+    <meta property="og:description" content="Managing secrets" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://andwati.github.io/self.png" />
+    <meta property="og:article:author" content="Ian Andwati" />
+    <meta property="og:article:published_time" content="2022-11-11T15:34:14.16Z" />
+    <meta property="og:article:section" content="Posts" />
+    <meta property="og:article:tag" content="tutorial" /><meta property="og:article:tag" content="django" /><meta property="og:article:tag" content="python" /><meta property="og:article:tag" content=".env" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@andwati_" />
+    <meta property="twitter:title" content="Django Secret Key Tutorial" />
+    <meta property="twitter:description" content="Managing secrets" />
+    <meta property="twitter:image" content="https://andwati.github.io/self.png" />
+
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="stylesheet" href="/site.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
+    <link rel="canonical" href="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;generate-django-secret-key&#x2F;" />
+
+    </head>
+    <body>
+        
+    <main>
+        <article id="content">
+            <header>
+                <h1>Django Secret Key Tutorial</h1>
+                
+    <div class="post-meta">
+        <time datetime="2022-11-11T15:34:14.16Z">November 11,2022</time>
+        
+            <span class="accent">⬡</span>
+            
+                <a href="https://andwati.github.io/tags/tutorial/">#tutorial</a>,
+            
+                <a href="https://andwati.github.io/tags/django/">#django</a>,
+            
+                <a href="https://andwati.github.io/tags/python/">#python</a>,
+            
+                <a href="https://andwati.github.io/tags/env/">#.env</a>
+            
+        
+        <div class="accent">☕ 2 minutes 📝 203</div>
+    </div>
+
+            </header>
+            <p>Managing the Django SECRET_KEY variable.</p>
+<span id="continue-reading"></span>
+<p>The Django <code>SECRET_KEY</code> variable is very crucial to your Django application. The secret key must be a large random value and it must be kept secret. Leaking this value to unauthorized people could lead to a security breach. The SECRET_KEY is used in Django for cryptographic signing. It is used to generate tokens and hashes, they can be recreated using this variable. If it is not configured Django throws a <code>django.core.exceptions.ImproperlyConfigured: The SECRET_KEY setting must not be empty</code> error</p>
+<h1 id="using-environment-variables">Using Environment Variables<a href="#using-environment-variables" aria-label='Anchor link for: using-environment-variables'></a>
+</h1>
+<p>The secret key should not be committed to version control. It is best practice to store the value in a .env file which is added to the .gitignore file to un-track its changes. The values can be loaded programmatically into your settings.py file.</p>
+<h1 id="generating-a-new-secret-key">Generating A New Secret Key<a href="#generating-a-new-secret-key" aria-label='Anchor link for: generating-a-new-secret-key'></a>
+</h1>
+<p>This solution is using python's secrets lib on the back</p>
+<pre data-lang="python" style="background-color:#282828;color:#fdf4c1aa;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#fa5c4b;">from </span><span>django.core.management.utils </span><span style="color:#fa5c4b;">import </span><span>get_random_secret_key
+</span><span style="font-style:italic;color:#928374;"># print new random secret key
+</span><span style="color:#fabd2f;">print</span><span style="color:#fdf4c1;">(get_random_secret_key())
+</span></code></pre>
+<p>This code can be run in the terminal as a command:</p>
+<pre data-lang="python" style="background-color:#282828;color:#fdf4c1aa;" class="language-python "><code class="language-python" data-lang="python"><span>python </span><span style="color:#fe8019;">-</span><span>c </span><span style="color:#b8bb26;">&#39;from django.core.management.utils import get_random_secret_key; \
+</span><span style="color:#b8bb26;">            print(get_random_secret_key())&#39;
+</span></code></pre>
+<p>Alternatively, If you are using python 3.6+ then you can use the <code>secrets.token_hex(\[nbytes=None])</code> function:</p>
+<pre data-lang="python" style="background-color:#282828;color:#fdf4c1aa;" class="language-python "><code class="language-python" data-lang="python"><span>python3 </span><span style="color:#fe8019;">-</span><span>c </span><span style="color:#b8bb26;">&#39;import secrets; print(secrets.token_hex(100))&#39;
+</span></code></pre>
+
+        </article>
+    </main>
+    
+    <div>
+    <script src="https://utteranc.es/client.js" repo="andwati/andwati.github.io" issue-term="title" theme="gruvbox-dark" crossorigin="anonymous" async>
+    </script>
+</div>
+
+    <footer>
+    <nav>
+        <a href="/">Home</a>
+        ⬡
+        <a href="/posts">Posts</a>
+        ⬡
+        <a href="/tags">Tags</a>
+        ⬡
+        <a href="/archive">Archive</a>
+        ⬡
+        <a href="/contact">Contact</a>
+    </nav>
+   
+    <p>
+        © 2022 -
+        2024
+        Ian Andwati
+        ⬡
+        <a href="https://github.com/andwati/andwati.github.io">Source</a>
+        ⬡
+        <a href="/rss.xml">Feed</a>
+    </p>
+</footer>
+
+
+    </body>
+</html>
