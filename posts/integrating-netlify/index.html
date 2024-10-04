@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta name="google-site-verification" content="lBZ8ofF4rZJjQDf6ngTrI20wzaDq9GVMCsxfZfTcllI" />
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3QJCKHZT3J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3QJCKHZT3J');
+</script>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="" />
+        <title>
+            
+    Integrating Netlify CMS
+
+        </title>
+        
+    <meta name="description" content="Integrating netlify cms" />
+    <meta property="og:site_name" content="andwati.github.io" />
+    <meta property="og:locale" content="en-us" />
+    <meta property="og:url" content="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;integrating-netlify&#x2F;" />
+    <meta property="og:title" content="Integrating Netlify CMS" />
+    <meta property="og:description" content="Integrating netlify cms" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://andwati.github.io/self.png" />
+    <meta property="og:article:author" content="Ian Andwati" />
+    <meta property="og:article:published_time" content="2022-11-24T15:34:14.16Z" />
+    <meta property="og:article:section" content="Posts" />
+    <meta property="og:article:tag" content="blog" /><meta property="og:article:tag" content="hugo" /><meta property="og:article:tag" content="netlify" /><meta property="og:article:tag" content="netlify-cms" /><meta property="og:article:tag" content="github" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@andwati_" />
+    <meta property="twitter:title" content="Integrating Netlify CMS" />
+    <meta property="twitter:description" content="Integrating netlify cms" />
+    <meta property="twitter:image" content="https://andwati.github.io/self.png" />
+
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="stylesheet" href="/site.css" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
+    <link rel="canonical" href="https:&#x2F;&#x2F;andwati.github.io&#x2F;posts&#x2F;integrating-netlify&#x2F;" />
+
+    </head>
+    <body>
+        
+    <main>
+        <article id="content">
+            <header>
+                <h1>Integrating Netlify CMS</h1>
+                
+    <div class="post-meta">
+        <time datetime="2022-11-24T15:34:14.16Z">November 24,2022</time>
+        
+            <span class="accent">⬡</span>
+            
+                <a href="https://andwati.github.io/tags/blog/">#blog</a>,
+            
+                <a href="https://andwati.github.io/tags/hugo/">#hugo</a>,
+            
+                <a href="https://andwati.github.io/tags/netlify/">#netlify</a>,
+            
+                <a href="https://andwati.github.io/tags/netlify-cms/">#netlify-cms</a>,
+            
+                <a href="https://andwati.github.io/tags/github/">#github</a>
+            
+        
+        <div class="accent">☕ 7 minutes 📝 1354</div>
+    </div>
+
+            </header>
+            <p>Migrating to a better content management system through Netlify CMS</p>
+<span id="continue-reading"></span><h1 id="heavy-lifting">Heavy Lifting<a href="#heavy-lifting" aria-label='Anchor link for: heavy-lifting'></a>
+</h1>
+<p>I use <a href="https://code.visualstudio.com/">Visual Studio Code</a> to manually edit the blog post content on this website. This is quite a hassle because I have to deal with
+markdown files. There are many problems with this approach and several gotchas. I have to work on a local site repository to be able to edit the content. My GitHub credentials are also required to push my local changes to my remote repository on GitHub so that it can trigger the build process and publish the site.</p>
+<p>This process has helped me a lot to master markdown syntax and some practice on my git skills. It’s fun to update the website content following these steps but sometimes it can be frustrating. At those times, I really miss the user interface of content management systems. After careful consideration, I moved on with Netlify CMS. At its core, Netlify CMS is an open-source React app that acts as a wrapper for the Git workflow, using the GitHub, GitLab, or Bitbucket API. This provides many advantages, including:</p>
+<ul>
+<li><strong>Fast, web-based UI:</strong> With rich-text editing, real-time preview, and drag-and-drop media uploads.</li>
+<li><strong>Platform agnostic:</strong> Works with most static site generators.</li>
+<li><strong>Easy installation:</strong> Add two files to your site and hook up the backend by including those files in your build process or linking to our Content Delivery Network (CDN).</li>
+<li><strong>Modern authentication:</strong> Using GitHub, GitLab, or Bitbucket and JSON web tokens.</li>
+<li><strong>Flexible content types:</strong> Specify an unlimited number of content types with custom fields.</li>
+<li><strong>Fully extensible:</strong> Create custom-styled previews, UI widgets, and editor plugins.</li>
+</ul>
+<h1 id="redeploying-to-netlify">Redeploying to Netlify<a href="#redeploying-to-netlify" aria-label='Anchor link for: redeploying-to-netlify'></a>
+</h1>
+<p>I decided to move the site from GitHub pages to Netlify hosting to take full control of the platform. Hugo sites on Netlify can benefit from automatic framework detection and control over Hugo version selection. When you link a repository for a project, Netlify tries to detect the framework your site is using. If your site is built with Hugo, Netlify provides a suggested build command and publish directory: Hugo and public. The build process is straight forward but you can add custom options to your <code>netlify.toml</code> file, here are my options:</p>
+<pre data-lang="toml" style="background-color:#282828;color:#fdf4c1aa;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[</span><span style="color:#8ec07c;">build</span><span>]
+</span><span style="font-weight:bold;color:#8ec07c;">command </span><span>= </span><span style="color:#b8bb26;">&quot;hugo&quot;
+</span><span style="font-weight:bold;color:#8ec07c;">publish </span><span>= </span><span style="color:#b8bb26;">&quot;public&quot;
+</span><span>
+</span><span>[</span><span style="color:#8ec07c;">build.environment</span><span>]
+</span><span style="font-weight:bold;color:#8ec07c;">HUGO_VERSION </span><span>= </span><span style="color:#b8bb26;">&quot;0.105.0&quot;
+</span></code></pre>
+<h1 id="setting-up-netlify-cms">Setting up Netlify CMS<a href="#setting-up-netlify-cms" aria-label='Anchor link for: setting-up-netlify-cms'></a>
+</h1>
+<p>You can adapt Netlify CMS to a wide variety of projects. It works with any content written in markdown, JSON, YAML, or TOML files, stored in a repo on GitHub, GitLab, or Bitbucket. You can Netlify CMS to a site that's built with a common static site generator, like Jekyll, Hugo, Hexo, or Gatsby. The official documentation for installing on your website can be found at the <a href="https://www.netlifycms.org/docs/intro/">official site</a></p>
+<h2 id="steps">Steps<a href="#steps" aria-label='Anchor link for: steps'></a>
+</h2>
+<p><strong>Step 1</strong></p>
+<p>Create a static admin folder containing all Netlify CMS files, stored at the root of your published site. Where you store this folder in the source files depends on your static site generator. For Hugo, it is the <code>static</code> folder.</p>
+<p><code>/static/admin</code></p>
+<p><strong>Step 2</strong></p>
+<p>Inside the admin folder, create two files: <code>index.html</code> and <code>config.yml</code>. The first file <code>admin/index.html</code> is an entry point to Netlify CMS. You will access the CMS interface from <code>yourwebsite.com/admin</code> when everything is ready.</p>
+<p><strong>Step 3</strong></p>
+<p>The first file, <code>admin/index.html</code>, is the entry point for the Netlify CMS admin interface. Paste this code in index.html and save. This HTML starter page will load the Netlify CMS Javascript file:</p>
+<pre data-lang="html" style="background-color:#282828;color:#fdf4c1aa;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#83a598;">&lt;!</span><span style="color:#fa5c4b;">DOCTYPE </span><span style="color:#d3869b;">html</span><span style="color:#83a598;">&gt;
+</span><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">html</span><span style="color:#83a598;">&gt;
+</span><span>  </span><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">head</span><span style="color:#83a598;">&gt;
+</span><span>    </span><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">meta </span><span style="color:#8ec07c;">charset=</span><span style="color:#b8bb26;">&quot;utf-8&quot; </span><span style="color:#83a598;">/&gt;
+</span><span>    </span><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">meta </span><span style="color:#8ec07c;">name=</span><span style="color:#b8bb26;">&quot;viewport&quot; </span><span style="color:#8ec07c;">content=</span><span style="color:#b8bb26;">&quot;width=device-width, initial-scale=1.0&quot; </span><span style="color:#83a598;">/&gt;
+</span><span>    </span><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">title</span><span style="color:#83a598;">&gt;</span><span>Content Manager</span><span style="color:#83a598;">&lt;/</span><span style="font-weight:bold;color:#8ec07c;">title</span><span style="color:#83a598;">&gt;
+</span><span>  </span><span style="color:#83a598;">&lt;/</span><span style="font-weight:bold;color:#8ec07c;">head</span><span style="color:#83a598;">&gt;
+</span><span>  </span><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">body</span><span style="color:#83a598;">&gt;
+</span><span>    </span><span style="font-style:italic;color:#928374;">&lt;!-- Include the script that builds the page and powers Netlify CMS --&gt;
+</span><span>    </span><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">script </span><span style="color:#8ec07c;">src=</span><span style="color:#b8bb26;">&quot;https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js&quot;</span><span style="color:#83a598;">&gt;&lt;/</span><span style="font-weight:bold;color:#8ec07c;">script</span><span style="color:#83a598;">&gt;
+</span><span>  </span><span style="color:#83a598;">&lt;/</span><span style="font-weight:bold;color:#8ec07c;">body</span><span style="color:#83a598;">&gt;
+</span><span style="color:#83a598;">&lt;/</span><span style="font-weight:bold;color:#8ec07c;">html</span><span style="color:#83a598;">&gt;
+</span></code></pre>
+<p><strong>Step 4</strong></p>
+<p>Now let’s move to the configuration section. These are the configurations that go into the <code>config.yml</code> file. This process is different for every site. I followed the guidelines on the website and made minor adjustments. It worked on my website. The configuration options are available at the <a href="https://www.netlifycms.org/docs/add-to-your-site/#:~:text=%2C%20MyTemplate)-,Configuration,-Configuration%20is%20different">docs</a>. This is how I configured my config.yml file:</p>
+<pre data-lang="yaml" style="background-color:#282828;color:#fdf4c1aa;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="font-weight:bold;color:#8ec07c;">backend</span><span>:
+</span><span>  </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">git-gateway
+</span><span>  </span><span style="font-weight:bold;color:#8ec07c;">branch</span><span>: </span><span style="color:#b8bb26;">netlify-cms </span><span style="font-style:italic;color:#928374;"># Branch to update (optional; defaults to master)
+</span><span>
+</span><span style="font-style:italic;color:#928374;"># This line should *not* be indented
+</span><span style="font-weight:bold;color:#8ec07c;">publish_mode</span><span>: </span><span style="color:#b8bb26;">editorial_workflow
+</span><span>
+</span><span style="font-weight:bold;color:#8ec07c;">media_folder</span><span>: </span><span style="color:#b8bb26;">&quot;static/images/uploads&quot; </span><span style="font-style:italic;color:#928374;"># Media files will be stored in the repo under static/images/uploads
+</span><span style="font-weight:bold;color:#8ec07c;">public_folder</span><span>: </span><span style="color:#b8bb26;">&quot;/images/uploads&quot; </span><span style="font-style:italic;color:#928374;"># The src attribute for uploaded media will begin with /images/uploads
+</span><span>
+</span><span style="font-weight:bold;color:#8ec07c;">collections</span><span>:
+</span><span>  - </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;post&quot; </span><span style="font-style:italic;color:#928374;"># Used in routes, e.g., /admin/collections/blog
+</span><span>    </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;posts&quot; </span><span style="font-style:italic;color:#928374;"># Used in the UI
+</span><span>    </span><span style="font-weight:bold;color:#8ec07c;">folder</span><span>: </span><span style="color:#b8bb26;">&quot;content/post&quot; </span><span style="font-style:italic;color:#928374;"># The path to the folder where the documents are stored
+</span><span>    </span><span style="font-weight:bold;color:#8ec07c;">create</span><span>: </span><span style="color:#d3869b;">true </span><span style="font-style:italic;color:#928374;"># Allow users to create new documents in this collection
+</span><span>    </span><span style="font-weight:bold;color:#8ec07c;">slug</span><span>: </span><span style="color:#b8bb26;">&quot;{{year}}-{{month}}-{{day}}-{{slug}}&quot; </span><span style="font-style:italic;color:#928374;"># Filename template, e.g., YYYY-MM-DD-title.md
+</span><span>    </span><span style="font-weight:bold;color:#8ec07c;">fields</span><span>: </span><span style="font-style:italic;color:#928374;"># The fields for each document, usually in front matter
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Layout&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;layout&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;hidden&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">default</span><span>: </span><span style="color:#b8bb26;">&quot;blog&quot; </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Title&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;title&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;string&quot; </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Draft&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;draft&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;boolean&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">default</span><span>: </span><span style="color:#d3869b;">true </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Publish Date&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;date&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;datetime&quot; </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Last Modified&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;lastmod&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;datetime&quot; </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Body&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;body&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;markdown&quot; </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Keywords&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;keywords&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;list&quot; </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Tags&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;tags&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;list&quot; </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Categories&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;categories&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;list&quot; </span><span>}
+</span><span>      - { </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Comments&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;comment&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;boolean&quot;</span><span>, </span><span style="font-weight:bold;color:#8ec07c;">default</span><span>: </span><span style="color:#d3869b;">true </span><span>}
+</span><span>      - {
+</span><span>          </span><span style="font-weight:bold;color:#8ec07c;">label</span><span>: </span><span style="color:#b8bb26;">&quot;Table of Contents&quot;</span><span>,
+</span><span>          </span><span style="font-weight:bold;color:#8ec07c;">name</span><span>: </span><span style="color:#b8bb26;">&quot;toc&quot;</span><span>,
+</span><span>          </span><span style="font-weight:bold;color:#8ec07c;">widget</span><span>: </span><span style="color:#b8bb26;">&quot;boolean&quot;</span><span>,
+</span><span>          </span><span style="font-weight:bold;color:#8ec07c;">default</span><span>: </span><span style="color:#d3869b;">true</span><span>,
+</span><span>        }
+</span></code></pre>
+<p><strong>Step 5</strong></p>
+<p><strong>Authentication</strong></p>
+<p>Now that the Netlify CMS files are in place and configured, all that's left is to enable authentication.
+Netlify offers a built-in authentication service called Identity. In order to use it, connect your site repo with Netlify. Netlify has published a general <a href="https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/">Step-by-Step Guide</a> for this, along with detailed guides for many popular static site generators</p>
+<p>Let’s first enable Netlify Identity and Git Gateway:</p>
+<ul>
+<li>On your Netlify account, go to <strong>Settings &gt; Identity</strong> and select <strong>Enable Identity Service</strong></li>
+<li>Under <strong>Registration preferences</strong>, select <strong>Invite Only</strong>.</li>
+<li>If you want to enable login from external providers such as Google and GitHub, check the boxes you want to use, under <strong>External Providers</strong> section. I find it practical to log in with GitHub, so I added it.</li>
+<li>Go to <strong>Services &gt; Git Gateway</strong>, and click <strong>Enable Git Gateway</strong>. This authenticates with your Git Host and generates and API token.</li>
+<li>Everything is almost set up. What we need now is a front-end interface to connect. We will add the following script in two places, to include the <strong>Netlify Identity Widget</strong> on our website:</li>
+</ul>
+<pre data-lang="html" style="background-color:#282828;color:#fdf4c1aa;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">script </span><span style="color:#8ec07c;">src=</span><span style="color:#b8bb26;">&quot;https://identity.netlify.com/v1/netlify-identity-widget.js&quot;</span><span style="color:#83a598;">&gt;&lt;/</span><span style="font-weight:bold;color:#8ec07c;">script</span><span style="color:#83a598;">&gt;
+</span></code></pre>
+<p>We will use Netlify's <a href="https://docs.netlify.com/site-deploys/post-processing/snippet-injection/">script injection</a> feature to add the script to our site. To use snippet injection, go to <strong>Site Settings &gt; Build &amp; Deploy &gt; Post processing</strong>. Find the Snippet Injection section and select <strong>Add Snippet</strong>. Write a name for the script in the first box (e.g. Netlify Identity Widget). Paste the script inside the second box. Choose Insert before the <code>&lt;/body&gt;</code> option and save.</p>
+<p>Lastly, we will add the following script before the closing <code>&lt;body&gt;</code> tag of our website’s main index page. This script allows the user to redirect back to the <code>/admin/</code> path after completing the login with the Netlify Identity Widget:</p>
+<pre data-lang="html" style="background-color:#282828;color:#fdf4c1aa;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#83a598;">&lt;</span><span style="font-weight:bold;color:#8ec07c;">script</span><span style="color:#83a598;">&gt;
+</span><span>  </span><span style="color:#fa5c4b;">if </span><span style="color:#fdf4c1;">(</span><span style="color:#fabd2f;">window</span><span style="color:#fdf4c1;">.netlifyIdentity) {
+</span><span style="color:#fdf4c1;">    </span><span style="color:#fabd2f;">window</span><span style="color:#fdf4c1;">.netlifyIdentity.on(</span><span style="color:#b8bb26;">&quot;init&quot;</span><span style="color:#fdf4c1;">, (user) </span><span style="color:#fa5c4b;">=&gt; </span><span style="color:#fdf4c1;">{
+</span><span style="color:#fdf4c1;">      </span><span style="color:#fa5c4b;">if </span><span style="color:#fdf4c1;">(</span><span style="color:#fe8019;">!</span><span style="color:#fdf4c1;">user) {
+</span><span style="color:#fdf4c1;">        </span><span style="color:#fabd2f;">window</span><span style="color:#fdf4c1;">.netlifyIdentity.on(</span><span style="color:#b8bb26;">&quot;login&quot;</span><span style="color:#fdf4c1;">, () </span><span style="color:#fa5c4b;">=&gt; </span><span style="color:#fdf4c1;">{
+</span><span style="color:#fdf4c1;">          </span><span style="color:#fabd2f;">document</span><span style="color:#fdf4c1;">.location.href </span><span style="color:#fe8019;">= </span><span style="color:#b8bb26;">&quot;/admin/&quot;</span><span style="color:#fdf4c1;">;
+</span><span style="color:#fdf4c1;">        });
+</span><span style="color:#fdf4c1;">      }
+</span><span style="color:#fdf4c1;">    });
+</span><span style="color:#fdf4c1;">  }
+</span><span style="color:#83a598;">&lt;/</span><span style="font-weight:bold;color:#8ec07c;">script</span><span style="color:#83a598;">&gt;
+</span></code></pre>
+<p><strong>Step 5</strong></p>
+<p>Now we’re all set. Since we set our registration preferences to <strong>“Invite Only”</strong>, we need to invite ourselves as site users. To do this, select the Identity tab from the Netlify site dashboard and select the Invite Users button. Add your email address and send an invitation. You will receive an email. In your email, click <strong>“accept the invitation”</strong>. You will be directed to your website admin sign-up panel. Choose a password. Now you are ready to log in to Netlify CMS.</p>
+<h1 id="setting-up-a-custom-domain">Setting up a custom domain<a href="#setting-up-a-custom-domain" aria-label='Anchor link for: setting-up-a-custom-domain'></a>
+</h1>
+<p>I﻿ bought a custom domain from <a href="https://namecheap.com">Namecheap</a>, they provide some pretty good deals. After pointing the nameservers for the domain to the Netlify nameservers, voila! everything worked smoothly. For HTTPS support, Netlify enables automatic TLS certificates with Let’s Encrypt.</p>
+
+        </article>
+    </main>
+    
+    <div>
+    <script src="https://utteranc.es/client.js" repo="andwati/andwati.github.io" issue-term="title" theme="gruvbox-dark" crossorigin="anonymous" async>
+    </script>
+</div>
+
+    <footer>
+    <nav>
+        <a href="/">Home</a>
+        ⬡
+        <a href="/posts">Posts</a>
+        ⬡
+        <a href="/tags">Tags</a>
+        ⬡
+        <a href="/archive">Archive</a>
+        ⬡
+        <a href="/contact">Contact</a>
+    </nav>
+   
+    <p>
+        © 2022 -
+        2024
+        Ian Andwati
+        ⬡
+        <a href="https://github.com/andwati/andwati.github.io">Source</a>
+        ⬡
+        <a href="/rss.xml">Feed</a>
+    </p>
+</footer>
+
+
+    </body>
+</html>
