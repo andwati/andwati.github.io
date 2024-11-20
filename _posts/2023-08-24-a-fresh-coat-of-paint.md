@@ -1,7 +1,6 @@
 ---
 title : A Fresh Coat Of Paint
 description : Migrating to Zola
-author : Ian Andwati
 date : 2023-08-24
 tags : [zola, blog, tera, rust]
 ---

@@ -1,6 +1,5 @@
 ---
 title : Export default and module.exports in Javascript
-author : Ian Andwati
 date : 2024-01-17
 tags : [javascript, node]
 ---

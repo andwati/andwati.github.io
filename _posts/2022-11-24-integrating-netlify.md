@@ -2,7 +2,6 @@
 title : Integrating Netlify CMS
 description : Integrating netlify cms
 date : 2022-11-24
-author : Ian Andwati
 tags :  [blog, hugo, netlify,netlify-cms,github]
 ---
 

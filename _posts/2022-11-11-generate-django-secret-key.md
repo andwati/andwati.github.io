@@ -1,7 +1,6 @@
 ---
 title : Django Secret Key Tutorial
 description : Managing secrets
-author : Ian Andwati
 date : 2022-11-11
 tags : [tutorial, django, python, .env]
 ---

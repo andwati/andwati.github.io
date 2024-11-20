@@ -2,7 +2,6 @@
 title: Semantic Versioning(SemVer) and Conventional  Commits
 description : Adopting best practices in your git and build workflows.
 date: 2023-01-24
-author : Ian Andwati
 tags: [git, semver,workflow, conventional commits]
 ---
 
