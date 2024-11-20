@@ -1,10 +1,9 @@
 ---
-title = "Integrating Netlify CMS"
-description = "Integrating netlify cms"
-date = 2022-11-24
-author = "Ian Andwati"
-[taxonomies]
-tags =  ["blog", "hugo", "netlify","netlify-cms","github"]
+title : Integrating Netlify CMS
+description : Integrating netlify cms
+date : 2022-11-24
+author : Ian Andwati
+tags :  [blog, hugo, netlify,netlify-cms,github]
 ---
 
 Migrating to a better content management system through Netlify CMS
