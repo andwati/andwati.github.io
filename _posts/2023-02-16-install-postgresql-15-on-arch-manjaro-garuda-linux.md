@@ -1,11 +1,11 @@
-+++
+---
 title ="Install PostgreSQL 15 on Arch | Manjaro | Garuda Linux"
 description = "Installing postgresql"
-date = 2023-02-16T15:34:14.160Z
+date = 2023-02-16
 author = "Ian Andwati"
 [taxonomies]
 tags = ["postgresql", "archlinux", "manjaro", "garuda", "linux"]
-+++
+---
 
 Getting PostgreSQL up and running on Arch Linux-based distros
 

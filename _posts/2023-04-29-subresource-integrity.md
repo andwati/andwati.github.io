@@ -1,11 +1,11 @@
-+++
+---
 title= "Subresource Integrity"
 description = "Understanding Subresource Integrity"
 date= 2023-04-29
 author = "Ian Andwati"
 [taxonomies]
 tags= ["subresource integrity", "csp", "cors"]
-+++
+---
 
 Understanding Subresource Integrity
 

@@ -1,11 +1,11 @@
-+++
+---
 title = "Django Secret Key Tutorial"
 description = "Managing secrets"
 author = "Ian Andwati"
-date = 2022-11-11T15:34:14.160Z
+date = 2022-11-11
 [taxonomies]
 tags = ["tutorial", "django", "python", ".env"]
-+++
+---
 
 Managing the Django SECRET_KEY variable.
 

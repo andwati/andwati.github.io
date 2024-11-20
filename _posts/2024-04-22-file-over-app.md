@@ -1,4 +1,4 @@
-+++
+---
 title = "File over app"
 description = "Take control of your artifacts"
 author = "Ian Andwati"
@@ -6,7 +6,7 @@ draft = true
 date = 2024-04-22
 [taxonomies]
 tags = [ "entropy", "notes"]
-+++
+---
 
 Take control of your artifacts
 
