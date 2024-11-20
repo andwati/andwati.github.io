@@ -16,9 +16,9 @@ platforms:
 
   # Uncomment below if you need to.
   #
-  # - type: Linkedin
-  #   icon: "fab fa-linkedin"
-  #   link: "https://www.linkedin.com/sharing/share-offsite/?url=URL"
+  - type: Linkedin
+    icon: "fab fa-linkedin"
+    link: "https://www.linkedin.com/sharing/share-offsite/?url=URL"
   #
   # - type: Weibo
   #   icon: "fab fa-weibo"
@@ -37,13 +37,13 @@ platforms:
   #     - label: photog.social
   #       link: "https://photog.social/"
   #
-  # - type: Bluesky
-  #   icon: "fa-brands fa-bluesky"
-  #   link: "https://bsky.app/intent/compose?text=TITLE%20URL"
+  - type: Bluesky
+    icon: "fa-brands fa-bluesky"
+    link: "https://bsky.app/intent/compose?text=TITLE%20URL"
   #
-  # - type: Reddit
-  #   icon: "fa-brands fa-square-reddit"
-  #   link: "https://www.reddit.com/submit?url=URL&title=TITLE"
+  - type: Reddit
+    icon: "fa-brands fa-square-reddit"
+    link: "https://www.reddit.com/submit?url=URL&title=TITLE"
   #
   # - type: Threads
   #   icon: "fa-brands fa-square-threads"
