@@ -3,6 +3,7 @@ title : Install PostgreSQL 15 on Arch | Manjaro | Garuda Linux
 description : Installing postgresql
 date : 2023-02-16
 tags : [postgresql, archlinux, manjaro, garuda, linux]
+categories: [programming, tutorial]
 ---
 
 Getting PostgreSQL up and running on Arch Linux-based distros
