@@ -26,5 +26,3 @@ personal website
   * `--employer`=<u>COMPANY</u>:
     Specifies the current employer of the site owner. The default is
     [null](null).
-
-## SEE ALSO
