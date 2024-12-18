@@ -1,6 +1,3 @@
-personal website
-================
-
 ## SYNOPSIS
 
 `andwati` [_OPTIONS_]
