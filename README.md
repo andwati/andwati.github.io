@@ -1,1 +1,3 @@
-once upon a time
+```sh
+$ man andwati
+```
