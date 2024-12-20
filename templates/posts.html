@@ -1,0 +1,13 @@
+{% extends "section.html" %}
+{% import "post_macros.html" as post_macros %}
+{% import "paginate.html" as paginate_macro %}
+{% block content %}
+    <main id="content">
+        <header>
+            <h1>Posts</h1>
+        </header>
+        {% for page in paginator.pages %}{{ post_macros::snippet(page=page) }}{% endfor %}
+        {% if paginator %}{{ paginate_macro::paginate() }}{% endif %}
+    </main>
+    {% include "footer.html" %}
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "section.html" %}
+{% import "post_macros.html" as page_macros %}
+{% import "paginate.html" as paginate_macro %}
+{% block content %}
+    <main id="content">
+        <header>
+            <h1>Archive</h1>
+        </header>
+        {% set section = get_section(path="posts/_index.md") %}
+        {% for year, posts in section.pages
+            | sort(attribute="date")
+            | reverse
+            | group_by(attribute="year") %}
+            <div class="archive">
+                <h2>{{ year }}</h2>
+                <ul>
+                    {% for post in posts %}
+                        <li>
+                            <time>{{ post.date | date(format="%d-%h") }}</time>
+                            <a href="{{ post.permalink }}">{{ post.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+        {% if paginator %}{{ paginate_macro::paginate() }}{% endif %}
+    </main>
+    {% include "footer.html" %}
+{% endblock content %}
