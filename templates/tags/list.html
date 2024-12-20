@@ -1,38 +1,39 @@
 {% extends "index.html" %}
-{% block title %}
-    Tags
-{% endblock title %}
+
+{% block title %}Tags{% endblock title %}
+
 {% block meta %}
-    <meta name="description" content="All tags." />
-    <meta property="og:site_name" content="andwati.github.io" />
-    <meta property="og:locale" content="en-us" />
-    <meta property="og:url" content="{{ current_url }}" />
-    <meta property="og:title" content="Tags" />
-    <meta property="og:description" content="All tags." />
-    <meta property="og:image" content="https://andwati.github.io/self.png" />
-    <meta property="twitter:card" content="summary" />
-    <meta property="twitter:site" content="@andwati" />
-    <meta property="twitter:title" content="Tags" />
-    <meta property="twitter:description" content="All tags." />
-    <meta property="twitter:image" content="https://andwati.github.io/self.png" />
+  <meta name="description" content="All tags.">
+  <meta property="og:site_name" content="tuckersiemens.com">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:url" content="{{ current_url }}">
+  <meta property="og:title" content="Tags">
+  <meta property="og:description" content="All tags.">
+  <meta property="og:image" content="https://tuckersiemens.com/self.jpg">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:site" content="@TuckerSiemens">
+  <meta property="twitter:title" content="Tags">
+  <meta property="twitter:description" content="All tags.">
+  <meta property="twitter:image" content="https://tuckersiemens.com/self.jpg">
 {% endblock meta %}
+
 {% block links %}
-    <link rel="canonical" href="{{ current_url }}" />
+  <link rel="canonical" href="{{ current_url }}">
 {% endblock links %}
+
 {% block content %}
-    <main id="content">
-        <header>
-            <h1>All Tags</h1>
-        </header>
-        {% if terms %}
-            <ul>
-                {% for term in terms %}
-                    <li>
-                        <a href="{{ term.permalink }}">#{{ term.name }}</a> ({{ term.pages | length }})
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </main>
-    {% include "footer.html" %}
+  <main id="content">
+    <header>
+      <h1>All Tags</h1>
+    </header>
+    {% if terms %}
+      <ul>
+      {% for term in terms %}
+          <li><a href="{{ term.permalink }}">#{{ term.name }}</a> ({{ term.pages | length }})</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </main>
+  {% include "footer.html" %}
 {% endblock content %}
+

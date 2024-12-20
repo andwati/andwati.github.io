@@ -1,30 +1,36 @@
 {% extends "index.html" %}
-{% block title %}
-    {{ page.title }}
-{% endblock title %}
+
+{# Override base title to use the page-specific title. #}
+{% block title %}{{ page.title }}{% endblock title %}
+
+{# Override base meta tags to use page-specific ones. #}
 {% block meta %}
-    <meta name="description" content="{{ page.description }}" />
-    <meta property="og:site_name" content="andwati.github.io" />
-    <meta property="og:locale" content="en-us" />
-    <meta property="og:url" content="{{ page.permalink }}" />
-    <meta property="og:title" content="{{ page.title }}" />
-    <meta property="og:description" content="{{ page.description }}" />
-    <meta property="og:image" content="https://andwati.github.io/self.png" />
-    <meta property="twitter:card" content="summary" />
-    <meta property="twitter:site" content="@andwati_" />
-    <meta property="twitter:title" content="{{ page.title }}" />
-    <meta property="twitter:description" content="{{ page.description }}" />
-    <meta property="twitter:image" content="andwati.github.io/self.png" />
+  <meta name="description" content="{{ page.description }}">
+  <meta property="og:site_name" content="tuckersiemens.com">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:url" content="{{ page.permalink }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:image" content="https://tuckersiemens.com/self.jpg">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:site" content="@TuckerSiemens">
+  <meta property="twitter:title" content="{{ page.title }}">
+  <meta property="twitter:description" content="{{ page.description }}">
+  <meta property="twitter:image" content="https://tuckersiemens.com/self.jpg">
 {% endblock meta %}
+
+{# Override base links to use page-specific ones. #}
 {% block links %}
-    <link rel="canonical" href="{{ page.permalink }}" />
+  <link rel="canonical" href="{{ page.permalink }}">
 {% endblock links %}
+
+{# Override base content to use page-specific content. #}
 {% block content %}
-    <main id="content">
-        <header>
-            <h1>{{ page.title }}</h1>
-        </header>
-        {{ page.content | safe }}
-    </main>
-    {% include "footer.html" %}
+  <main id="content">
+    <header>
+      <h1>{{ page.title }}</h1>
+    </header>
+    {{ page.content | safe }}
+  </main>
+  {% include "footer.html" %}
 {% endblock content %}

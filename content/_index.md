@@ -1,13 +1,12 @@
 +++
-path = "/"
-title = "Latest Posts"
-sort_by = "date"
-template = "section.html"
-
-
-[extra]
-section_path = "blog/_index.md"
-header = {title = "Hello! I'm Ian.", img = "", img_alt = "Your Name" }
-max_posts = 4
+title = "Ian Andwati"
+description = "Ian's website."
 +++
-A software engineer programming high performance systems.
+Hey, there! I'm ian. 
+I spend my free time working on [hobby projects] and sometimes I [write] about
+my experiences. In particular, I enjoy learning about programming languages,
+web dev, and how to write fast, robust, and secure code.
+
+
+[hobby projects]: https://github.com/andwati
+[write]: /posts

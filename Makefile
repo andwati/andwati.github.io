@@ -16,4 +16,4 @@ serve:
 	zola serve
 
 update-zola:
-	@./scripts/update-zola
+	@./bin/update-zola

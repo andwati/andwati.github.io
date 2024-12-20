@@ -1,28 +1,40 @@
 {% extends "index.html" %}
-{% block title %}
-    404 Not Found
-{% endblock title %}
+
+{# Override base title to use a 404-specific title. #}
+{% block title %}404 Not Found{% endblock title %}
+
+{# Override base meta tags to use 404-specific ones. I can't set an og:url
+because I don't know what URL will be served this template. #}
 {% block meta %}
-    <meta name="description" content="404 Not Found" />
-    <meta property="og:site_name" content="andwati.github.io" />
-    <meta property="og:locale" content="en-us" />
-    <meta property="og:title" content="404 Not Found" />
-    <meta property="og:description" content="404 Not Found" />
-    <meta property="og:image" content="https://andwati.github.io/self.png" />
-    <meta property="twitter:card" content="summary" />
-    <meta property="twitter:site" content="@andwati_" />
-    <meta property="twitter:title" content="404 Not Found" />
-    <meta property="twitter:description" content="404 Not Found" />
-    <meta property="twitter:image" content="https://andwati.github.io/self.png" />
+  <meta name="description" content="404 Not Found">
+  <meta property="og:site_name" content="tuckersiemens.com">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:title" content="404 Not Found">
+  <meta property="og:description" content="404 Not Found">
+  <meta property="og:image" content="https://tuckersiemens.com/self.jpg">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:site" content="@TuckerSiemens">
+  <meta property="twitter:title" content="404 Not Found">
+  <meta property="twitter:description" content="404 Not Found">
+  <meta property="twitter:image" content="https://tuckersiemens.com/self.jpg">
 {% endblock meta %}
-{% block links %}
-{% endblock links %}
+
+{# Again, since I dont't know ahead of time what page will be served the this
+template. Best we can do is replace the canonical link with a blank. #}
+{% block links %}{% endblock links %}
+
+{# Override base content to use 404-specific content. #}
 {% block content %}
-    <main id="content">
-        <header>
-            404 Not Found
-        </header>
-        <p>Hmm...could not find that page</p>
-    </main>
-    {% include "footer.html" %}
+  <main id="content">
+    <header>
+      <h1>404 Not Found</h1>
+    </header>
+    <figure>
+      <video src="404.mp4" type="video/mp4" autoplay loop controls></video>
+      <figcaption>
+      Video from <a href="https://www.sakugabooru.com/post/show/165603">sakugabooru</a>
+      </figcaption>
+    </figure>
+  </main>
+  {% include "footer.html" %}
 {% endblock content %}

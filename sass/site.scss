@@ -2,30 +2,12 @@
    - Reset all margin and padding for * to 0.
    - Use the <abbr> tag for abbreviations.
    - Support footnotes or asides for notes sections.
+   - Serve fonts from the local server rather than Google's API.
    - Support a "display title" in an [extra] section to allow for <br> elements
-     or other manual control over title display. 
-*/
+     or other manual control over title display. */
 
-@font-face {
-  font-family: 'Noto Serif';
-  src: local('Noto Serif'),
-    url('fonts/NotoSerif.ttf') format("ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  src: local('Noto Sans'),
-    url('fonts/NotoSans.ttf') format("ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans Mono';
-  src: local('Noto Sans Mono'),
-    url('fonts/NotoSansMono.ttf') format("ttf");
-  font-display: swap;
-}
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Noto+Sans+Mono');
 
 :root {
   /* Fonts and Text Sizes */
@@ -33,9 +15,9 @@
   --default-sans-font: "Noto Sans", sans-serif;
   --default-mono-font: "Noto Sans Mono", monospace;
   --default-font-size: 16px;
-  --header-font-size: 2em;
+  --header-font-size: 2.0em;
   /* Not sure I like this as the default, but it keeps inline code blocks from
-          overlapping. */
+     overlapping. */
   --default-line-height: 1.5;
 
   /* Gruvbox Dark Colors */
@@ -54,16 +36,13 @@
 }
 
 /* Required for sticky footer. */
-html,
-body {
+html, body {
   height: 100%;
 }
 
 body {
-  display: flex;
-  /* Required for sticky footer. */
-  flex-direction: column;
-  /* Required for sticky footer. */
+  display: flex; /* Required for sticky footer. */
+  flex-direction: column; /* Required for sticky footer. */
   margin: 0;
   line-height: var(--default-line-height);
   font-size: var(--default-font-size);
@@ -74,13 +53,12 @@ body {
 }
 
 main {
-  flex: 1 0 auto;
-  /* Required for sticky footer. */
+  flex: 1 0 auto; /* Required for sticky footer. */
 }
 
 /* FIXME: For reasons that utterly bewilder me, an <article> with this id needs
-        to be inside a <main> with no id. I have a strong feeling I've done
-        something wrong here. */
+   to be inside a <main> with no id. I have a strong feeling I've done
+   something wrong here. */
 #content {
   max-width: 48em;
   margin-left: auto;
@@ -91,15 +69,14 @@ main {
 }
 
 header {
-  overflow: hidden;
-  /* FIXME: This WILL cut off titles that are too long! */
+  overflow: hidden; /* FIXME: This WILL cut off titles that are too long! */
   margin-top: 1.4em;
   margin-bottom: 1.4em;
   margin-left: 1em;
   margin-right: 1em;
 }
 
-header>h1 {
+header > h1 {
   text-align: center;
   font-size: var(--header-font-size);
   font-family: var(--default-sans-font);
@@ -120,14 +97,11 @@ header .post-meta {
   color: var(--muted-color);
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2, h3, h4, h5, h6 {
   padding-top: 1.2rem;
   margin-bottom: 0.2rem;
 }
+
 
 p {
   padding-top: 0.4em;
@@ -150,11 +124,10 @@ a {
   text-decoration: none;
 }
 
-
 /* ---- Anchor links --------------------------------------------------------*/
 
 /* Add a # to the left of a subheading when it references an internal link... */
-:where(h2, h3, h4, h5, h6)>a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6) > a[href^="#"]::before {
   content: "#";
   display: inline-block;
   width: 1.2rem;
@@ -163,20 +136,19 @@ a {
 }
 
 /* ... but only display the internal anchor link when hovered over. */
-:where(h2, h3, h4, h5, h6):hover>a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6):hover > a[href^="#"]::before {
   opacity: 1;
 }
 
 /* When internal links are linked directly, display with the accent color. */
-:where(h2, h3, h4, h5, h6):target>a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6):target > a[href^="#"]::before {
   opacity: 1;
   color: var(--primary-accent-color);
 }
 
 /* ---- Media ---------------------------------------------------------------*/
 
-img,
-video {
+img, video {
   /* Media should fill the width of its container if possible. */
   width: 100%;
   height: auto;
@@ -193,13 +165,44 @@ figcaption {
   color: var(--muted-color);
 }
 
+/* ---- Code blocks ---------------------------------------------------------*/
+
+pre {
+  display: block;
+  padding: 0.25rem 1.25rem;
+  font-size: 85%;
+  border-left: 0.25rem solid var(--primary-accent-color);
+}
+
+code {
+  padding: 0 0.4rem;
+  // background-color: #3c3836;
+  background-color: var(--inline-code-background-color);
+  /* Inline code blocks look less aggresive with a little rounding. */
+  border-radius: 2px;
+}
+
+pre, code {
+  overflow: auto;
+  font-family: var(--default-mono-font);
+}
+
+/* Without this the <code> tag gains a little padding that offsets text by like
+   2 pixels. Let's *not* do that. */
+pre > code {
+  padding: 0;
+  background-color: var(--code-background-color);
+  // Code inside a pre block doesn't need rounded borders.
+  border-radius: unset;
+}
+
 /* ---- Tables --------------------------------------------------------------*/
 
 table {
   /* FIXME: Use flexbox for centering? Frankly, this is still bad on mobile.
-       display: flex;
-       justify-content: center;
-       */
+  display: flex;
+  justify-content: center;
+  */
   display: block;
   overflow-x: auto;
   margin-left: auto;
@@ -224,8 +227,7 @@ td {
   border: 1px solid var(--muted-color);
 }
 
-th,
-td {
+th, td {
   vertical-align: bottom;
   padding-left: 0.4em;
   padding-right: 0.4em;
@@ -238,11 +240,10 @@ footer {
   border-top: 0.5em solid var(--primary-accent-color);
   text-align: center;
   /* FIXME: Using the code background color could look awkward if a post ends
-          in a code snippet. */
+     in a code snippet. */
   background-color: var(--code-background-color);
   padding: 1.4em;
-  flex-shrink: 0;
-  /* Required for sticky footer. */
+  flex-shrink: 0; /* Required for sticky footer. */
 }
 
 footer a {
@@ -250,7 +251,7 @@ footer a {
 }
 
 /* Give footer nav links some breathing room. */
-footer>nav>a {
+footer > nav > a {
   // margin: 0 1.4em;
   margin: 0 0.4em;
 }
@@ -260,110 +261,48 @@ footer p {
   padding-top: 0;
 }
 
-footer p,
-footer a {
+footer p, footer a {
   font-family: var(--default-sans-font);
   /* It doesn't seem as though Google fonts support direct usage of OpenType
-          features like 'c2sc' and 'smcp'.
-     
-          FIXME: It's not clear why numerals don't seem to obey this property. */
+     features like 'c2sc' and 'smcp'.
+
+     FIXME: It's not clear why numerals don't seem to obey this property. */
   font-variant-caps: all-small-caps;
-}
-
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-
-  .page-item .disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  .page-numbers {
-    font-size: 0.9rem;
-    color: var(--link-color);
-  }
-}
-
-pre {
-  display: block;
-  padding: 0.25rem 1.25rem;
-  font-size: 85%;
-  border-left: 0.25rem solid var(--primary-accent-color);
-}
-
-code {
-  padding: 0 0.4rem;
-  // background-color: #3c3836;
-  background-color: var(--inline-code-background-color);
-  /* Inline code blocks look less aggressive with a little rounding. */
-  border-radius: 2px;
-}
-
-pre,
-code {
-  overflow: auto;
-  font-family: var(--default-mono-font);
-}
-
-/* Without this the <code> tag gains a little padding that offsets text by like
-   2 pixels. Let's *not* do that. */
-pre>code {
-  padding: 0;
-  background-color: var(--code-background-color);
-  // Code inside a pre block doesn't need rounded borders.
-  border-radius: unset;
 }
 
 /* ---- Media Queries ------------------------------------------------------ */
 
-@media (min-width: 470px) {
-  :root {
-    --default-font-size: 17px;
-  }
-
+@media(min-width: 470px) {
+  :root { --default-font-size: 17px; }
   /* Above this size, increase the header margins. Smaller sizes benefit from
-          extra breathing room in the title. */
+     extra breathing room in the title. */
   header {
     margin-left: 2.8em;
     margin-right: 2.8em;
   }
 }
 
-@media (min-width: 625px) {
-  :root {
-    --default-font-size: 18px;
-  }
+@media(min-width: 625px) {
+  :root { --default-font-size: 18px; }
 }
 
-@media (min-width: 802px) {
-  :root {
-    --default-font-size: 19px;
-  }
+@media(min-width: 802px) {
+  :root { --default-font-size: 19px; }
 }
 
-@media (min-width: 1003px) {
-  :root {
-    --default-font-size: 20px;
-  }
+@media(min-width: 1003px) {
+  :root { --default-font-size: 20px; }
 }
 
-@media (min-width: 1225px) {
-  :root {
-    --default-font-size: 21px;
-  }
-
+@media(min-width: 1225px) {
+  :root { --default-font-size: 21px; }
   /* On larger devices, give the anchor link some more space. */
-  :where(h2, h3, h4, h5, h6)>a[href^="#"]::before {
+  :where(h2, h3, h4, h5, h6) > a[href^="#"]::before {
     width: 1.8rem;
     margin-left: -1.8rem;
   }
 }
 
-@media (min-width: 1496px) {
-  :root {
-    --default-font-size: 22px;
-  }
+@media(min-width: 1496px) {
+  :root { --default-font-size: 22px; }
 }
