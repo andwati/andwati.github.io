@@ -34,6 +34,7 @@ posts add article metadata. #}
       </header>
       {{ page.content | safe }}
     </article>
+    {% include "comments.html" %}
   </main>
   {% include "footer.html" %}
 {% endblock content %}
