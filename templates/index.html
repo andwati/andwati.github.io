@@ -13,12 +13,12 @@
       <meta property="og:title" content="{{ section.title }}">
       <meta property="og:description" content="{{ section.description }}">
       <meta property="og:type" content="profile">
-      <meta property="og:image" content="https://andwati.github.io/self.jpg">
+      <meta property="og:image" content="https://andwati.github.io/self.webp">
       <meta property="twitter:card" content="summary">
       <meta property="twitter:site" content="@andwati_">
       <meta property="twitter:title" content="{{ section.title }}">
       <meta property="twitter:description" content="{{ section.description }}">
-      <meta property="twitter:image" content="https://andwati.github.io/self.jpg">
+      <meta property="twitter:image" content="https://andwati.github.io/self.webp">
     {% endblock meta %}
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
     <link rel="stylesheet" href="/site.css">
@@ -38,7 +38,7 @@
         </header>
         {{ section.content | safe }}
       </main>
-      {% include "footer.html" %}
+      {% include "_partials/footer.html" %}
     {% endblock content %}
   </body>
 </html>

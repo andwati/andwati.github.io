@@ -11,7 +11,7 @@ posts add article metadata. #}
   <meta property="og:title" content="{{ page.title }}">
   <meta property="og:description" content="{{ page.description }}">
   <meta property="og:type" content="article">
-  <meta property="og:image" content="https://andwati.github.io/self.jpg">
+  <meta property="og:image" content="https://andwati.github.io/self.webp">
   <meta property="og:article:author" content="{{ config.extra.author }}">
   <meta property="og:article:published_time" content="{{ page.date }}">
   <meta property="og:article:section" content="Posts">
@@ -22,7 +22,7 @@ posts add article metadata. #}
   <meta property="twitter:site" content="@andwati_">
   <meta property="twitter:title" content="{{ page.title }}">
   <meta property="twitter:description" content="{{ page.description }}">
-  <meta property="twitter:image" content="https://andwati.github.io/self.jpg">
+  <meta property="twitter:image" content="https://andwati.github.io/self.webp">
 {% endblock meta %}
 
 {% block content %}
@@ -34,7 +34,7 @@ posts add article metadata. #}
       </header>
       {{ page.content | safe }}
     </article>
-    {% include "comments.html" %}
+    {% include "_partials/comments.html" %}
   </main>
-  {% include "footer.html" %}
+  {% include "_partials/footer.html" %}
 {% endblock content %}

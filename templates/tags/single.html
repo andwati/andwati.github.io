@@ -10,12 +10,12 @@
   <meta property="og:url" content="{{ current_url }}">
   <meta property="og:title" content="Tag - {{ term.name }}">
   <meta property="og:description" content="Posts tagged as {{ term.name }}">
-  <meta property="og:image" content="https://andwati.github.io/self.jpg">
+  <meta property="og:image" content="https://andwati.github.io/self.webp">
   <meta property="twitter:card" content="summary">
   <meta property="twitter:site" content="@andwati_">
   <meta property="twitter:title" content="Tag - {{ term.name }}">
   <meta property="twitter:description" content="Posts tagged as {{ term.name }}">
-  <meta property="twitter:image" content="https://andwati.github.io/self.jpg">
+  <meta property="twitter:image" content="https://andwati.github.io/self.webp">
 {% endblock meta %}
 
 {% block links %}
@@ -31,5 +31,5 @@
       {{ post_macros::snippet(page=page) }}
     {% endfor %}
   </main>
-  {% include "footer.html" %}
+  {% include "_partials/footer.html" %}
 {% endblock content %}

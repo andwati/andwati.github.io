@@ -11,12 +11,12 @@ because I don't know what URL will be served this template. #}
   <meta property="og:locale" content="en-us">
   <meta property="og:title" content="404 Not Found">
   <meta property="og:description" content="404 Not Found">
-  <meta property="og:image" content="https://andwati.github.io/self.jpg">
+  <meta property="og:image" content="https://andwati.github.io/self.webp">
   <meta property="twitter:card" content="summary">
   <meta property="twitter:site" content="@andwati_">
   <meta property="twitter:title" content="404 Not Found">
   <meta property="twitter:description" content="404 Not Found">
-  <meta property="twitter:image" content="https://andwati.github.io/self.jpg">
+  <meta property="twitter:image" content="https://andwati.github.io/self.webp">
 {% endblock meta %}
 
 {# Again, since I dont't know ahead of time what page will be served the this
@@ -36,5 +36,5 @@ template. Best we can do is replace the canonical link with a blank. #}
       </figcaption>
     </figure>
   </main>
-  {% include "footer.html" %}
+  {% include "_partials/footer.html" %}
 {% endblock content %}

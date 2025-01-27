@@ -11,12 +11,12 @@
   <meta property="og:url" content="{{ page.permalink }}">
   <meta property="og:title" content="{{ page.title }}">
   <meta property="og:description" content="{{ page.description }}">
-  <meta property="og:image" content="https://andwati.github.io/self.jpg">
+  <meta property="og:image" content="https://andwati.github.io/self.webp">
   <meta property="twitter:card" content="summary">
   <meta property="twitter:site" content="@andwati_">
   <meta property="twitter:title" content="{{ page.title }}">
   <meta property="twitter:description" content="{{ page.description }}">
-  <meta property="twitter:image" content="https://andwati.github.io/self.jpg">
+  <meta property="twitter:image" content="https://andwati.github.io/self.webp">
 {% endblock meta %}
 
 {# Override base links to use page-specific ones. #}
@@ -32,5 +32,5 @@
     </header>
     {{ page.content | safe }}
   </main>
-  {% include "footer.html" %}
+  {% include "_partials/footer.html" %}
 {% endblock content %}
