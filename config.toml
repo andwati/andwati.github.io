@@ -17,3 +17,7 @@ skip_anchor_prefixes = ["https://github.com/"]
 
 [extra]
 author = "Ian Andwati"
+meta = [
+    { property = "og:title", content = "the og title" },
+    { property = "og:description", content = "the og description" },
+]
