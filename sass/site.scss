@@ -14,10 +14,10 @@
   --default-serif-font: "Noto Serif", serif;
   --default-sans-font: "Noto Sans", sans-serif;
   --default-mono-font: "Noto Sans Mono", monospace;
-  --default-font-size: 16px;
+  --default-font-size: 14px;
   --header-font-size: 2.0em;
   /* Not sure I like this as the default, but it keeps inline code blocks from
-     overlapping. */
+          overlapping. */
   --default-line-height: 1.5;
 
   /* Gruvbox Dark Colors */
@@ -36,13 +36,16 @@
 }
 
 /* Required for sticky footer. */
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
-  display: flex; /* Required for sticky footer. */
-  flex-direction: column; /* Required for sticky footer. */
+  display: flex;
+  /* Required for sticky footer. */
+  flex-direction: column;
+  /* Required for sticky footer. */
   margin: 0;
   line-height: var(--default-line-height);
   font-size: var(--default-font-size);
@@ -53,12 +56,13 @@ body {
 }
 
 main {
-  flex: 1 0 auto; /* Required for sticky footer. */
+  flex: 1 0 auto;
+  /* Required for sticky footer. */
 }
 
 /* FIXME: For reasons that utterly bewilder me, an <article> with this id needs
-   to be inside a <main> with no id. I have a strong feeling I've done
-   something wrong here. */
+        to be inside a <main> with no id. I have a strong feeling I've done
+        something wrong here. */
 #content {
   max-width: 48em;
   margin-left: auto;
@@ -69,14 +73,22 @@ main {
 }
 
 header {
-  overflow: hidden; /* FIXME: This WILL cut off titles that are too long! */
+  overflow: hidden;
+  /* FIXME: This WILL cut off titles that are too long! */
   margin-top: 1.4em;
   margin-bottom: 1.4em;
   margin-left: 1em;
   margin-right: 1em;
 }
 
-header > h1 {
+header>div.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header>h1 {
   text-align: center;
   font-size: var(--header-font-size);
   font-family: var(--default-sans-font);
@@ -97,7 +109,11 @@ header .post-meta {
   color: var(--muted-color);
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding-top: 1.2rem;
   margin-bottom: 0.2rem;
 }
@@ -127,7 +143,7 @@ a {
 /* ---- Anchor links --------------------------------------------------------*/
 
 /* Add a # to the left of a subheading when it references an internal link... */
-:where(h2, h3, h4, h5, h6) > a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6)>a[href^="#"]::before {
   content: "#";
   display: inline-block;
   width: 1.2rem;
@@ -136,19 +152,25 @@ a {
 }
 
 /* ... but only display the internal anchor link when hovered over. */
-:where(h2, h3, h4, h5, h6):hover > a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6):hover>a[href^="#"]::before {
   opacity: 1;
 }
 
 /* When internal links are linked directly, display with the accent color. */
-:where(h2, h3, h4, h5, h6):target > a[href^="#"]::before {
+:where(h2, h3, h4, h5, h6):target>a[href^="#"]::before {
   opacity: 1;
   color: var(--primary-accent-color);
 }
 
 /* ---- Media ---------------------------------------------------------------*/
 
-img, video {
+img.logo {
+  width: 64px;
+  height: 64px;
+}
+
+img,
+video {
   /* Media should fill the width of its container if possible. */
   width: 100%;
   height: auto;
@@ -182,14 +204,15 @@ code {
   border-radius: 2px;
 }
 
-pre, code {
+pre,
+code {
   overflow: auto;
   font-family: var(--default-mono-font);
 }
 
 /* Without this the <code> tag gains a little padding that offsets text by like
-   2 pixels. Let's *not* do that. */
-pre > code {
+        2 pixels. Let's *not* do that. */
+pre>code {
   padding: 0;
   background-color: var(--code-background-color);
   // Code inside a pre block doesn't need rounded borders.
@@ -200,9 +223,9 @@ pre > code {
 
 table {
   /* FIXME: Use flexbox for centering? Frankly, this is still bad on mobile.
-  display: flex;
-  justify-content: center;
-  */
+       display: flex;
+       justify-content: center;
+       */
   display: block;
   overflow-x: auto;
   margin-left: auto;
@@ -227,7 +250,8 @@ td {
   border: 1px solid var(--muted-color);
 }
 
-th, td {
+th,
+td {
   vertical-align: bottom;
   padding-left: 0.4em;
   padding-right: 0.4em;
@@ -240,10 +264,11 @@ footer {
   border-top: 0.5em solid var(--primary-accent-color);
   text-align: center;
   /* FIXME: Using the code background color could look awkward if a post ends
-     in a code snippet. */
+          in a code snippet. */
   background-color: var(--code-background-color);
   padding: 1.4em;
-  flex-shrink: 0; /* Required for sticky footer. */
+  flex-shrink: 0;
+  /* Required for sticky footer. */
 }
 
 footer a {
@@ -251,7 +276,7 @@ footer a {
 }
 
 /* Give footer nav links some breathing room. */
-footer > nav > a {
+footer>nav>a {
   // margin: 0 1.4em;
   margin: 0 0.4em;
 }
@@ -261,48 +286,77 @@ footer p {
   padding-top: 0;
 }
 
-footer p, footer a {
+footer p,
+footer a {
   font-family: var(--default-sans-font);
   /* It doesn't seem as though Google fonts support direct usage of OpenType
-     features like 'c2sc' and 'smcp'.
-
-     FIXME: It's not clear why numerals don't seem to obey this property. */
+          features like 'c2sc' and 'smcp'.
+     
+          FIXME: It's not clear why numerals don't seem to obey this property. */
   font-variant-caps: all-small-caps;
 }
 
 /* ---- Media Queries ------------------------------------------------------ */
 
+@media(min-width: 427px) {
+  :root {
+    --default-font-size: 16px
+  }
+}
+
 @media(min-width: 470px) {
-  :root { --default-font-size: 17px; }
+  :root {
+    --default-font-size: 17px;
+  }
+
   /* Above this size, increase the header margins. Smaller sizes benefit from
-     extra breathing room in the title. */
+          extra breathing room in the title. */
   header {
     margin-left: 2.8em;
     margin-right: 2.8em;
   }
+
+  header>div.logo {
+    flex-direction: row;
+  }
+
+  img.logo {
+    margin-right: 0.8em;
+  }
 }
 
 @media(min-width: 625px) {
-  :root { --default-font-size: 18px; }
+  :root {
+    --default-font-size: 18px;
+  }
 }
 
 @media(min-width: 802px) {
-  :root { --default-font-size: 19px; }
+  :root {
+    --default-font-size: 19px;
+  }
 }
 
 @media(min-width: 1003px) {
-  :root { --default-font-size: 20px; }
+  :root {
+    --default-font-size: 20px;
+  }
 }
 
 @media(min-width: 1225px) {
-  :root { --default-font-size: 21px; }
+  :root {
+    --default-font-size: 21px;
+  }
+
   /* On larger devices, give the anchor link some more space. */
-  :where(h2, h3, h4, h5, h6) > a[href^="#"]::before {
+  :where(h2, h3, h4, h5, h6)>a[href^="#"]::before {
     width: 1.8rem;
     margin-left: -1.8rem;
   }
 }
 
 @media(min-width: 1496px) {
-  :root { --default-font-size: 22px; }
+  :root {
+    --default-font-size: 22px;
+  }
 }
