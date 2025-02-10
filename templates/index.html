@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ section.title }}{% endblock title %}</title>
     <meta name="author" content="{{ config.extra.author }}">
@@ -29,6 +29,22 @@
    <script data-goatcounter="https://andwati.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
+        <link rel="stylesheet" href="{{ get_url(path='katex.min.css') }}">
+        <script defer src="{{ get_url(path='js/katex.min.js') }}"></script>
+        <script defer src="{{ get_url(path='js/auto-render.min.js') }}"></script>
+        <script defer>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "$", right: "$", display: false}
+                    ]
+                });
+            });
+        </script>
+        
+        
+
   </head>
   <body>
     {% block content %}
@@ -40,5 +56,9 @@
       </main>
       {% include "_partials/footer.html" %}
     {% endblock content %}
+
+   
+  
+
   </body>
 </html>
