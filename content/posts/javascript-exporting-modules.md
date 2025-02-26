@@ -7,6 +7,10 @@ date = 2024-01-17
 tags = ["javascript", "node"]
 +++
 
+Modules are the building blocks of modern JavaScript applications, allowing for the encapsulation of code into reusable components. Two primary systems govern the exportation of these modules: export default in ES6 and module.exports in CommonJS.
+
+<!-- more -->
+
 Javascript is a popular programming language that can run both in the browser and on the server. However, different environments may have different ways of organizing and importing Javascript modules. In this article, we will compare two common methods of exporting and importing modules: **export default** and **module.exports**.
 
 
