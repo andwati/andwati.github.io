@@ -9,33 +9,12 @@ tags : ["postgresql", "archlinux", "manjaro", "garuda", "linux"]
 
 **PostgreSQL** is a powerful open-source relational database management system (RDBMS) that allows you to store and manage large amounts of data. It was first released in 1996 and has become one of the most popular RDBMSs in the world.
 
-PostgreSQL is designed to handle high levels of **concurrency**, providing features such as **MVCC (multi-version concurrency control)** that allow multiple users to access the same data simultaneously without conflicts. It is also **highly extensible**, with a large number of third-party extensions and libraries available that can be used to add functionality to the core database.
-
-Some of the key features of PostgreSQL include support for **complex SQL queries**, **advanced indexing** and **query optimization**, **transactional integrity**, and support for a **wide range of programming languages** and development frameworks.PostgreSQL is used by a wide range of organizations, from small businesses to large enterprises, and is particularly popular in industries such as finance, healthcare, and e-commerce, where high levels of data security and reliability are critical.
 
 In this tutorial, we’ll look at how to install PostgreSQL on Arch Linux, Manjaro, Garuda Linux, or any other Arch-based distro out there.
 
-# PostgreSQL use cases
-
-- **E-commerce websites:** PostgreSQL is a popular choice for e-commerce websites because it can handle large amounts of data and supports complex queries. It is used for product catalogs, order management, customer data, and more.
-- **Financial institutions:** PostgreSQL is used in financial institutions to store and manage transactional data, such as stock trades, bank transfers, and credit card transactions. It is highly secure and provides features such as transactional integrity and data encryption.
-- **Healthcare industry:** PostgreSQL is used in the healthcare industry to store patient data, such as medical records and diagnostic test results. It is also used for research purposes, where large amounts of data need to be stored and analyzed.
-- **Government agencies:** PostgreSQL is used by government agencies for a variety of purposes, including managing large datasets, storing and analyzing census data, and managing public health information.
-- **Mobile and web applications:** PostgreSQL is often used as a back-end database for mobile and web applications. It provides reliable data storage and retrieval and supports a wide range of programming languages and development frameworks.
-- **Geospatial applications:** PostgreSQL has built-in support for geospatial data and is often used for applications that require location-based data, such as mapping and GPS tracking.
-
 # Why PostgreSQL?
 
-Postgres offers a lot of advantages that make it an excellent choice for highly transactional environments regardless of application size and data volume. Its rich feature set and flexibility make it a popular choice for a wide range of applications and industries. Some of the top features are:
-
-- **ACID Compliance:** PostgreSQL is ACID (Atomicity, Consistency, Isolation, Durability) compliant, which means it provides high reliability, consistency, and data integrity, even in the presence of hardware failures, power outages, and other system errors.
-- **Extensibility:** PostgreSQL is highly extensible, allowing developers to add new data types, operators, and functions using its extension framework. This makes it easy to customize PostgreSQL to meet the specific needs of your application.
-- **Concurrency:** PostgreSQL provides a high level of concurrency, allowing multiple users to access the same data at the same time without conflicts. It uses a Multi-Version Concurrency Control (MVCC) model that enables fast and reliable access to data, even under heavy load.
-- **Full-text search:** PostgreSQL provides a powerful full-text search engine that supports advanced search capabilities, such as stemming, ranking, and relevance matching.
-- **Advanced indexing:** PostgreSQL provides a wide range of indexing options, including B-tree, Hash, GiST, SP-GiST, GIN, and BRIN. These indexing options allow developers to optimize database performance for their specific use cases.
-- **JSON support:** PostgreSQL provides native support for storing and querying JSON data, making it easy to work with modern web and mobile applications that rely on JSON for data exchange.
-- **Security:** PostgreSQL provides a high level of security, with features such as SSL support, client authentication, and role-based access control. It also provides encryption for both data at rest and data in transit.
-- **Scalability:** PostgreSQL is designed to scale horizontally and vertically, allowing you to add more nodes to a cluster or increase the resources of a single node to handle more load.
+Postgres offers a lot of advantages that make it an excellent choice for highly transactional environments regardless of application size and data volume. Its rich feature set and flexibility make it a popular choice for a wide range of applications and industries.
 
 # Install PostgreSQL on Arch | Manjaro | Garuda Linux
 
@@ -162,9 +141,3 @@ sudo -u postgres psql -c "ALTER USER postgres PASSWORD '$PGPASSWORD';"
 - [Arch Linux Wiki](https://wiki.archlinux.org/title/PostgreSQL)
 - [Wikipedia](https://en.wikipedia.org/wiki/PostgreSQL)
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
-
-# Conclusion
-
-Installing PostgreSQL on Arch Linux-based distribution is a straightforward process that can be completed in just a few steps. By following the steps outlined above, you can install, configure, and start the PostgreSQL database server on your Arch Linux system. Once installed, you can use PostgreSQL to store, manage, and query data for a wide range of applications and use cases. With its advanced features and high level of extensibility, PostgreSQL is a popular choice for developers and businesses seeking a robust and reliable database management system.
-
-You can connect to the PostgreSQL server using the psql command-line client or a graphical tool such as pgAdmin.

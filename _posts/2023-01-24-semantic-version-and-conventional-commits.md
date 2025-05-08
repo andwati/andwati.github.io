@@ -9,7 +9,7 @@ Adopting best practices in your git and build workflows.
 
 <!-- more -->
 
-# W﻿hat is Semver?
+# What is Semver?
 
 Semantic versioning or just SemVer is a dependency naming guidline that aims to bring some sanity into naming libraries and packages in software development. It is a standard versioning system created by **Tom Preston Werner** (co-founder of Github) that’s used to communicate what changes are in a release.
 
@@ -31,8 +31,6 @@ Semantic versioning is based on three numbers that indicate the versions of the 
 
 #### React(v18.2.0)
 
-![react](/images/uploads/react.png "React versioning")
-
 - **Major -> 18**
 - **Minor -> 2**
 - **Patch -> 0**
@@ -40,8 +38,6 @@ Semantic versioning is based on three numbers that indicate the versions of the 
 ---
 
 #### Pipx(v1.1.0)
-
-![](/images/uploads/pipx.png)
 
 - **Major -> 1**
 - **Minor -> 1**
@@ -83,5 +79,5 @@ The commit contains the following structural elements, to communicate intent to 
 
 # Resources
 
-https://semver.org/
-https://www.conventionalcommits.org/en/v1.0.0/
+[https://semver.org/](https://semver.org/)
+[https://www.conventionalcommits.org/en/v1.0.0/](https://www.conventionalcommits.org/en/v1.0.0/)

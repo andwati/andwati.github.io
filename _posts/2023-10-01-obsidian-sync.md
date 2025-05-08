@@ -29,7 +29,7 @@ Before we dive into setting up the synchronization task, ensure you have the fol
 
 The provided PowerShell script, sync.ps1, is the heart of our synchronization task. It automates the process of committing changes in your Obsidian vault's Git repository and pushing them to your remote repository (e.g., GitHub or GitLab). Here's a brief overview of the script:
 
-```ps1
+```powershell
 # Define the folder path
 $FolderPath = "C:\path\to\obsidian-vault"
 
@@ -69,7 +69,7 @@ Now that we have our PowerShell script ready, let's set up a scheduled task usin
 
 1. **Define Task Variables:** Execute the following commands to define variables for your task:
 
-   ```ps1
+   ```powershell
    $ScriptPath = "C:\path\to\obsidian-vault\sync.ps1"
    $TaskName = "obsidian-sync"
    $UserAccount = "$env:USERDOMAIN\$env:USERNAME"
@@ -79,7 +79,7 @@ Now that we have our PowerShell script ready, let's set up a scheduled task usin
 
 1. **Configure Task Trigger:** Set up a trigger for your task. In this example, we'll schedule the task to run daily at 9:00 PM:
 
-   ```ps1
+   ```powershell
    $Trigger = New-ScheduledTaskTrigger -Daily -At '9:00 PM'
    ```
 
@@ -87,7 +87,7 @@ Now that we have our PowerShell script ready, let's set up a scheduled task usin
 
 1. Define Task Principal and Settings: Configure the task's principal (the user account under which the task will run) and settings:
 
-   ```ps1
+   ```powershell
    $Principal = New-ScheduledTaskPrincipal -UserId $UserAccount -RunLevel Highest
    $Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -RunOnlyIfNetworkAvailable -WakeToRun
    ```
@@ -96,7 +96,7 @@ Now that we have our PowerShell script ready, let's set up a scheduled task usin
 
 1. **Define Task Action:** Specify the action that the task will perform, which is running the PowerShell script:
 
-   ```ps1
+   ```powershell
    $Action = New-ScheduledTaskAction -Execute 'PowerShell.exe' -Argument "-ExecutionPolicy Bypass -WindowStyle Hidden -File `"$ScriptPath`""
    ```
 
@@ -104,7 +104,7 @@ Now that we have our PowerShell script ready, let's set up a scheduled task usin
 
 1. **Create the Scheduled Task:** Finally, create the scheduled task and register it with Windows Task Scheduler:
 
-   ```ps1
+   ```powershell
    $Task = New-ScheduledTask -Action $Action -Trigger $Trigger -Principal $Principal -Settings $Settings
    Register-ScheduledTask -TaskName $TaskName -InputObject $Task
    ```
