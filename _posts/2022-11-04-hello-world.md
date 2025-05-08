@@ -1,11 +1,9 @@
-+++
-title = "Hello World"
-description = "Hello world"
-date = 2022-11-04
-author = "Ian Andwati"
-[taxonomies]
-tags = ["hugo", "blog", "go"]
-+++
+---
+title : "Hello World"
+description : "Hello world"
+date : 2022-11-04
+tags : ["hugo", "blog", "go"]
+---
 
 How it begins
 

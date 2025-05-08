@@ -1,11 +1,9 @@
-+++
-title = "A Fresh Coat Of Paint"
-description = "Migrating to Zola"
-author = "Ian Andwati"
-date = 2023-08-24
-[taxonomies]
-tags = ["zola", "blog", "tera", "rust"]
-+++
+---
+title : "A Fresh Coat Of Paint"
+description : "Migrating to Zola"
+date : 2023-08-24
+tags : ["zola", "blog", "tera", "rust"]
+---
 
 Using Zola as my preferred static site generator
 

@@ -1,11 +1,10 @@
-+++
-title = "What say you?"
-description = "Adding a comment system by utterances"
-author = "Ian Andwati"
-date = 2023-08-24T15:34:14.160Z
-[taxonomies]
-tags = ["blog", "utterances"]
-+++
+---
+title : "What say you?"
+description : "Adding a comment system by utterances"
+author : "Ian Andwati"
+date : 2023-08-24
+tags : ["blog", "utterances"]
+---
 
 Free speech enhanced
 
