@@ -1,0 +1,23 @@
++++
+title = "cognitive inertia"
+description = "inertia"
+author = "Ian Andwati"
+date = 2025-02-26
+[taxonomies]
+tags = ["cognition"]
++++
+
+Staring at the void
+
+<!-- more -->
+
+Cognitive inertia is the reason changing our habits can be difficult. If you want to overcome inertia you have to apply a force. I consider myself an eternal student, who is ready to learn anything, or so I thought. It happened but I had not noticed, I had stopped moving forward.
+
+## Metawork
+
+I will define this as the things we do before getting the "real" work doe. Its  things like choosing the best IDE or text editor, setting up your coding environment, choosing the best note taking app, or even the 'best' operating system. They are the prerequisites of the actual work.
+
+I had been stuck on this loop, always trying to craft the perfect workflow. Setting up the best personalized linux distro, switching note taking apps, trying out multiple layouts, stylings and technologies for my blog, the list is endless. 
+
+All of these metawork took more time thn the actual work; building, active learning and writing. Im going to stop all of these and start doing the important stuff.
+
