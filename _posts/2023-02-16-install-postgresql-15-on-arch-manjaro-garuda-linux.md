@@ -1,7 +1,7 @@
 ---
 title : "Install PostgreSQL  on Arch | Manjaro | Garuda Linux"
 description : "Getting PostgreSQL up and running on Arch Linux-based distros"
-date : 2023-02-16
+date : 2023-02-16 +0300
 tags : ["postgresql", "archlinux", "manjaro", "garuda", "linux"]
 ---
 

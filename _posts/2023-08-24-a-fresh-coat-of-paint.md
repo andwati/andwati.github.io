@@ -1,7 +1,7 @@
 ---
 title : "A Fresh Coat Of Paint"
 description : "Migrating to Zola"
-date : 2023-08-24
+date : 2023-08-24 +0300
 tags : ["zola", "blog", "tera", "rust"]
 ---
 

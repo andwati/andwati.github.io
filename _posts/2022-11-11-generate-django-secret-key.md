@@ -1,7 +1,7 @@
 ---
 title : "Django Secret Key Tutorial"
 description : "Managing secrets"
-date : 2022-11-11
+date : 2022-11-11 +0300
 tags : ["tutorial", "django", "python", ".env"]
 ---
 
