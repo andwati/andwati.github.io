@@ -1,7 +1,7 @@
 ---
 title: "Semantic Versioning(SemVer) and Conventional  Commits"
 description : "Adopting best practices in your git and build workflows."
-date: 2023-01-24
+date: 2023-01-24 +0300
 tags: ["git", "semver","workflow", "conventional commits"]
 ---
 

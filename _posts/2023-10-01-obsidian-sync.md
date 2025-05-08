@@ -1,7 +1,7 @@
 ---
 title : "Setting up Obsidian sync in Windows"
 description : "Syncing Obsidian in Windows with Windows Task Scheduler with git"
-date : 2023-10-01
+date : 2023-10-01 +0300
 tags : ["obsidian", "git","sync", "windows", "cron", "task scheduler", "powershell"]
 ---
 

@@ -2,7 +2,7 @@
 title : "What say you?"
 description : "Adding a comment system by utterances"
 author : "Ian Andwati"
-date : 2023-08-24
+date : 2023-08-24 +0300
 tags : ["blog", "utterances"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title : "Hello World"
 description : "Hello world"
-date : 2022-11-04
+date : 2022-11-04 +0300
 tags : ["hugo", "blog", "go"]
 ---
 

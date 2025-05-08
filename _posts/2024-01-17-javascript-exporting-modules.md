@@ -1,7 +1,7 @@
 ---
 title : "Export default and module.exports in Javascript"
 description : "Modules are the building blocks of modern JavaScript applications, allowing for the encapsulation of code into reusable components. Two primary systems govern the exportation of these modules: export default in ES6 and module.exports in CommonJS. "
-date : 2024-01-17
+date : 2024-01-17 +0300
 tags : ["javascript", "node"]
 ---
 
