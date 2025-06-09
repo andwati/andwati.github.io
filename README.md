@@ -1,3 +1,3 @@
-# https://andwati.github.io
+# https://andwati.xyz
 - jekyll
 - chirpy theme
