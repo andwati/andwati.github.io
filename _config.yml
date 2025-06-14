@@ -9,31 +9,20 @@ theme: jekyll-theme-chirpy
 lang: en
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-<<<<<<< HEAD
 timezone: Africa/Nairobi
-=======
-timezone:
->>>>>>> v7.3.0
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-<<<<<<< HEAD
 title: andwati # the main title
 
 tagline: init 1 # it will display as the subtitle
-=======
-title: Chirpy # the main title
-
-tagline: A text-focused Jekyll theme # it will display as the subtitle
->>>>>>> v7.3.0
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-<<<<<<< HEAD
 url: "https://andwati.github.io"
 
 github:
@@ -41,20 +30,10 @@ github:
 
 twitter:
   username: andwati_ # change to your Twitter username
-=======
-url: ""
-
-github:
-  username: github_username # change to your GitHub username
-
-twitter:
-  username: twitter_username # change to your Twitter username
->>>>>>> v7.3.0
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-<<<<<<< HEAD
   name: mockingspectre
   email: 56686898+andwati@users.noreply.github.com # change to your email address
   links:
@@ -64,17 +43,6 @@ social:
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/andwati
-=======
-  name: your_full_name
-  email: example@domain.com # change to your email address
-  links:
-    # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
->>>>>>> v7.3.0
 
 # Site Verification Settings
 webmaster_verifications:
@@ -93,11 +61,7 @@ analytics:
   google:
     id: # fill in your Google Analytics ID
   goatcounter:
-<<<<<<< HEAD
     id: andwati # fill in your GoatCounter ID
-=======
-    id: # fill in your GoatCounter ID
->>>>>>> v7.3.0
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
@@ -111,11 +75,7 @@ analytics:
 
 # Page views settings
 pageviews:
-<<<<<<< HEAD
   provider: goatcounter # now only supports 'goatcounter'
-=======
-  provider: # now only supports 'goatcounter'
->>>>>>> v7.3.0
 
 # Prefer color scheme setting.
 #
@@ -138,42 +98,25 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-<<<<<<< HEAD
 avatar: /assets/img/avatar.jpg
-=======
-avatar:
->>>>>>> v7.3.0
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
 social_preview_image: # string, local or CORS resources
 
 # boolean type, the global switch for TOC in posts.
-<<<<<<< HEAD
 toc: false
 
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
   provider: utterances # [disqus | utterances | giscus]
-=======
-toc: true
-
-comments:
-  # Global switch for the post-comment system. Keeping it empty means disabled.
-  provider: # [disqus | utterances | giscus]
->>>>>>> v7.3.0
   # The provider options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
   utterances:
-<<<<<<< HEAD
     repo: andwati/andwati.github.io # <gh-username>/<repo>
     issue_term: title # < url | pathname | title | ...>
-=======
-    repo: # <gh-username>/<repo>
-    issue_term: # < url | pathname | title | ...>
->>>>>>> v7.3.0
   # Giscus options › https://giscus.app
   giscus:
     repo: # <gh-username>/<repo>
@@ -270,11 +213,7 @@ exclude:
   - README.md
   - LICENSE
   - purgecss.js
-<<<<<<< HEAD
-  - rollup.config.js
-=======
   - "*.config.js"
->>>>>>> v7.3.0
   - "package*.json"
 
 jekyll-archives:
