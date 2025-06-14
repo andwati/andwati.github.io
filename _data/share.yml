@@ -18,7 +18,11 @@ platforms:
   #
   # - type: Linkedin
   #   icon: "fab fa-linkedin"
+<<<<<<< HEAD
   #   link: "https://www.linkedin.com/sharing/share-offsite/?url=URL"
+=======
+  #   link: "https://www.linkedin.com/feed/?shareActive=true&shareUrl=URL"
+>>>>>>> v7.3.0
   #
   # - type: Weibo
   #   icon: "fab fa-weibo"
